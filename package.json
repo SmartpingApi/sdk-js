@@ -1,0 +1,46 @@
+{
+  "name": "smartping-api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "source": "src/smartping-api.ts",
+  "exports": {
+    ".": "./dist/browser/smartping-api.modern.js",
+    "./node/esm": "./dist/node/smartping-api.js",
+    "./node/cjs": "./dist/node/smartping-api.cjs"
+  },
+  "main": "./dist/smartping-api.cjs",
+  "module": "./dist/smartping-api.js",
+  "unpkg": "./dist/smartping-api.umd.js",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "npm-run-all --parallel build:*",
+    "build:esm": "microbundle build --raw src/smartping-browser.ts -o dist/browser --target web --sourcemap false --generateTypes",
+    "build:node": "microbundle build --raw src/smartping-node.ts -o dist/node --target node --sourcemap false --generateTypes",
+    "test:browser": "vitest --environment happy-dom",
+    "test:node": "vitest --environment node",
+    "coverage": "vitest run --coverage",
+    "format": "eslint",
+    "browser": "vite --host"
+  },
+  "devDependencies": {
+    "@types/md5": "^2.3.2",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-unicorn": "^43.0.2",
+    "microbundle": "^0.15.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0",
+    "vitest": "^0.21.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.4",
+    "fast-xml-parser": "^4.0.9",
+    "jssha": "^3.2.0",
+    "md5": "^2.3.0",
+    "uuid": "^8.3.2"
+  }
+}

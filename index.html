@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartpingAPI</title>
+  <script type="module" defer>
+    import SmartpingBrowserAPI from './dist/browser/smartping-api.modern.js'
+
+    const smartping = new SmartpingBrowserAPI('SW399', 'Sy2zMFb91P');
+    const demo = await smartping.findClubsByDepartment(16);
+    console.log(demo);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

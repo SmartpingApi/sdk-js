@@ -1,0 +1,97 @@
+version: "3.9"
+
+services:
+  # NodeJS v18+
+  # ----------------------------------------------- #
+  node:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: smartping_js_node
+    networks:
+      - local_environment_web
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  # Vitest for unit testing
+  # ----------------------------------------------- #
+  vitest:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: smartping_js_vitest
+    depends_on:
+      - node
+    entrypoint: /app/node_modules/.bin/vitest
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  # ESLint to respect conventions
+  # ----------------------------------------------- #
+  eslint:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: "yarn run format"
+    container_name: smartping_js_eslint
+    depends_on:
+      - node
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  # microbundle to build the library
+  # ----------------------------------------------- #
+  microbundle:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: "yarn run build"
+    container_name: smartping_js_microbundle
+    depends_on:
+      - node
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  # vite to preview in browser
+  # ----------------------------------------------- #
+  vite:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: "yarn run browser"
+    container_name: smartping_js_vite
+    depends_on:
+      - node
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.smartping_api_node.tls=true"
+      - "traefik.http.services.smartping_api_node.loadbalancer.server.port=5173"
+      - "traefik.http.routers.smartping_api_node.rule=Host(`www.smartping.traefik.me`)"
+      - "traefik.http.routers.smartping_api_node.tls.domains[0].main=www.smartping.traefik.me"
+      - "traefik.http.routers.smartping_api_node.tls.domains[0].sans=www.smartping-*.traefik.me"
+      - "traefik.docker.network=local_environment_web"
+    networks:
+      - local_environment_web
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+  # yarn executable
+  # ----------------------------------------------- #
+  yarn:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: smartping_js_yarn
+    entrypoint: "yarn"
+    volumes:
+      - ./:/app
+    working_dir: /app
+
+networks:
+  local_environment_web:
+    external: true
