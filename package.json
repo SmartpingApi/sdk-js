@@ -1,17 +1,24 @@
 {
 	"name": "@smartping-api/core",
 	"private": false,
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"type": "module",
 	"main": "dist/smartping.js",
 	"scripts": {
 		"dev": "tsup --watch",
 		"check": "tsc --noEmit",
 		"build": "tsup",
+		"publish": "rm -rf ./dist && pnpm run build && npm publish --access public",
 		"test:browser": "vitest --environment happy-dom",
 		"test:node": "vitest --environment node",
 		"coverage": "vitest run --coverage"
 	},
+	"files": [
+		"dist",
+		"package.json",
+		"README.md",
+		"LICENSE.txt"
+	],
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.0.0",
 		"@eslint/js": "^8.56.0",
