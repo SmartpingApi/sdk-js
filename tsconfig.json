@@ -54,7 +54,8 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@tests/*": ["./tests/*"]
-		}
+		},
+		"outDir": "build"
 	},
 	"include": [
       "src",

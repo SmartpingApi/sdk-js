@@ -60,7 +60,7 @@ export class SmartpingGame extends BaseModel {
 			this.#opponentLicence = rankedGame.opponentLicence;
 			this.#isVictory = rankedGame.isVictory;
 			this.#roundIndex = rankedGame.roundIndex;
-			this.#contestId = rankedGame.contestCode;
+			this.#contestId = rankedGame.contestId;
 			this.#date = rankedGame.date;
 			this.#opponentGender = rankedGame.opponentGender;
 			this.#opponentName = rankedGame.opponentName;

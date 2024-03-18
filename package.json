@@ -1,15 +1,13 @@
 {
 	"name": "@smartping-api/core",
 	"private": false,
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"type": "module",
-	"source": "src/smartping-api.ts",
-	"exports": "./dist/smartping-api.modern.js",
-	"module": "./dist/smartping-api.module.js",
+	"main": "dist/smartping.js",
 	"scripts": {
-		"dev": "microbundle watch",
+		"dev": "tsup --watch",
 		"check": "tsc --noEmit",
-		"build": "microbundle build src/**/*.ts",
+		"build": "tsup",
 		"test:browser": "vitest --environment happy-dom",
 		"test:node": "vitest --environment node",
 		"coverage": "vitest run --coverage"
@@ -35,7 +33,7 @@
 		"eslint-plugin-unicorn": "^50.0.1",
 		"globals": "^13.24.0",
 		"happy-dom": "^13.3.8",
-		"microbundle": "^0.15.1",
+		"tsup": "^8.0.2",
 		"type-fest": "^4.10.1",
 		"typescript": ">=5.3",
 		"vitest": "^1.2.1"
