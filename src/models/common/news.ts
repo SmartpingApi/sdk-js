@@ -1,8 +1,8 @@
-import { SmartpingObject } from '../smartping-object'
-import { isEmpty, stringifyDate } from '../../helpers/validation'
-import { createDate } from '../../helpers/datetime-helpers'
+import type { DateTime } from 'luxon';
+import { createDate, stringifyDate } from '@/helpers/datetime_helpers.js';
+import { BaseModel } from '@/models/base_model.js';
 
-export interface NewsConstructorProperties {
+export interface NewProperties {
 	date: string;
 	titre: string;
 	description: string;
@@ -11,68 +11,62 @@ export interface NewsConstructorProperties {
 	categorie: string;
 }
 
-export interface NewsExportProperties {
-	date: string;
-	title: string;
-	description: string;
-	url: string;
-	thumbnail?: string;
-	category?: string;
-}
+export class SmartpingNews extends BaseModel {
+	/** Date de publication */
+	readonly #date: DateTime;
 
-export default class News extends SmartpingObject {
-	readonly #date: Date;
+	/** Titre */
 	readonly #title: string;
+
+	/** Description */
 	readonly #description: string;
+
+	/** URL */
 	readonly #url: string;
-	readonly #thumbnail?: string;
-	readonly #category?: string;
 
-	constructor (properties: NewsConstructorProperties) {
+	/** URL de l'image */
+	readonly #thumbnail: string | undefined;
+
+	/** Catégorie */
+	readonly #category: string | undefined;
+
+	constructor (properties: NewProperties) {
 		super();
-
-		this.#date = isEmpty(properties.date) ? createDate() : createDate(properties.date, 'YYYY-MM-DD');
-		this.#title = isEmpty(properties.titre) ? '' : properties.titre;
-		this.#description = isEmpty(properties.description) ? '' : properties.description;
-		this.#url = isEmpty(properties.url) ? '' : properties.url;
-		this.#thumbnail = isEmpty(properties.photo) ? undefined : properties.photo;
-		this.#category = isEmpty(properties.categorie) ? undefined : properties.categorie;
+		this.#date = this.setOrFallback(properties.date, createDate(), (date) => createDate(date, 'YYYY-MM-DD'));
+		this.#title = this.setOrFallback(properties.titre, '');
+		this.#description = this.setOrFallback(properties.description, '');
+		this.#url = this.setOrFallback(properties.url, '');
+		this.#thumbnail = this.setOrFallback(properties.photo, undefined);
+		this.#category = this.setOrFallback(properties.categorie, undefined);
 	}
 
-	public date(): Date
-	{
+	public get date() {
 		return this.#date;
 	}
 
-	public title(): string
-	{
+	public get title() {
 		return this.#title;
 	}
 
-	public description(): string
-	{
+	public get description() {
 		return this.#description;
 	}
 
-	public url(): string
-	{
+	public get url() {
 		return this.#url;
 	}
 
-	public thumbnail(): string|undefined
-	{
+	public get thumbnail() {
 		return this.#thumbnail;
 	}
 
-	public category(): string|undefined
-	{
+	public get category() {
 		return this.#category;
 	}
 
-
-	public normalize(): NewsExportProperties {
+	public serialize() {
 		return {
-			date: stringifyDate(this.#date) || '',
+			date: stringifyDate(this.#date),
 			title: this.#title,
 			description: this.#description,
 			url: this.#url,

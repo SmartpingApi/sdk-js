@@ -1,27 +1,35 @@
-import { SmartpingObject } from '../smartping-object'
-import { isEmpty } from '../../helpers/validation'
+import { BaseModel } from '@/models/base_model.js';
 
-export interface DivisionConstructorProperties {
+type NewProperties = {
 	iddivision: number;
 	libelle: string;
 }
 
-export default class Division extends SmartpingObject {
+export class SmartpingDivision extends BaseModel {
+	/** ID interne pour la Fédération */
 	readonly #id: number;
+
+	/** Nom */
 	readonly #name: string;
 
-	constructor (properties: DivisionConstructorProperties) {
+	constructor (properties: NewProperties) {
 		super();
-
-		this.#id = isEmpty(properties.iddivision) ? 0 : properties.iddivision;
-		this.#name = isEmpty(properties.libelle) ? '' : properties.libelle;
+		this.#id = this.setOrFallback(properties.iddivision, 0);
+		this.#name = this.setOrFallback(properties.libelle, '');
 	}
 
-	public id(): number {
+	public get id() {
 		return this.#id;
 	}
 
-	public name(): string {
+	public get name() {
 		return this.#name;
+	}
+
+	public serialize() {
+		return {
+			id: this.#id,
+			name: this.#name,
+		};
 	}
 }

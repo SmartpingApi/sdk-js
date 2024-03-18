@@ -1,21 +1,65 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "types": ["vitest/importMeta"]
-  },
-  "include": ["src"]
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		// Enable top-level await, and other modern ESM features.
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		// Enable module resolution without file extensions on relative paths, for things like npm package imports.
+		"moduleResolution": "Bundler",
+		// Allow importing TypeScript files using their native extension (.ts(x)).
+		"allowImportingTsExtensions": true,
+		// Enable JSON imports.
+		"resolveJsonModule": true,
+		// Enforce the usage of type-only imports when needed, which helps avoid bundling issues.
+		"verbatimModuleSyntax": true,
+		// Ensure that each file can be transpiled without relying on other imports.
+		// This is redundant with the previous option, however it ensures that it's on even if someone disable `verbatimModuleSyntax`
+		"isolatedModules": true,
+		// Report an error when importing a file using a casing different from another import of the same file.
+		"forceConsistentCasingInFileNames": true,
+		// Properly support importing CJS modules in ESM
+		"esModuleInterop": true,
+		// Skip typechecking libraries and .d.ts files
+		"skipLibCheck": true,
+		// Enable strict mode. This enables a few options at a time, see https://www.typescriptlang.org/tsconfig#strict for a list.
+		"strict": true,
+		// Report errors for fallthrough cases in switch statements
+		"noFallthroughCasesInSwitch": true,
+		// Force functions designed to override their parent class to be specified as `override`.
+		"noImplicitOverride": true,
+		// Force functions to specify that they can return `undefined` if a possible code path does not return a value.
+		"noImplicitReturns": true,
+		// Report an error when a variable is declared but never used.
+		"noUnusedLocals": true,
+		// Report an error when a parameter is declared but never used.
+		"noUnusedParameters": true,
+		// Force the usage of the indexed syntax to access fields declared using an index signature.
+		"noUncheckedIndexedAccess": true,
+		// Report an error when the value `undefined` is given to an optional property that doesn't specify `undefined` as a valid value.
+		"exactOptionalPropertyTypes": true,
+		// Report an error for unreachable code instead of just a warning.
+		"allowUnreachableCode": false,
+		// Report an error for unused labels instead of just a warning.
+		"allowUnusedLabels": false,
+		// Disallow JavaScript files from being imported
+		"allowJs": false,
+		// Enforces using indexed accessors for keys declared using an indexed type.
+		"noPropertyAccessFromIndexSignature": true,
+		// Explicit handling of null and undefined values.
+		"strictNullChecks": true,
+		// Use the newish `declare` keyword on class properties.
+		"useDefineForClassFields": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"],
+			"@tests/*": ["./tests/*"]
+		}
+	},
+	"include": [
+      "src",
+      "tests",
+      "node_modules/.pnpm/vitest@1.2.1_@types+node@20.11.6_happy-dom@13.3.8/node_modules/vitest/globals.d.ts"
+    ],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

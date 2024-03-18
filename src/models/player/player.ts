@@ -1,100 +1,92 @@
-import { SmartpingObject } from '../smartping-object'
-import RankedPlayer from './ranked-player'
-import SpidPlayer from './spid-player'
-import { isEmpty } from '../../helpers/validation'
+import { BaseModel } from '@/models/base_model.js';
+import { SmartpingRankedPlayer, SmartpingSPIDPlayer } from '@/models/index.js';
 
-export interface PlayerExportProperties {
-	licence: string;
-	lastname: string;
-	firstname: string;
-	clubName: string;
-	clubCode: string;
-	gender: string|undefined;
-	level: string|undefined;
-	place: number|undefined;
-	points: number|undefined;
-	pointsRank: number|undefined;
-}
-
-export default class Player extends SmartpingObject {
+export class SmartpingPlayer extends BaseModel {
+	/** Numéro de licence */
 	readonly #licence: string;
+
+	/** Nom */
 	readonly #lastname: string;
+
+	/** Prénom */
 	readonly #firstname: string;
+
+	/** Nom du club */
 	readonly #clubName: string;
+
+	/** Numéro du club */
 	readonly #clubCode: string;
-	readonly #gender?: string;
-	readonly #level?: string;
-	readonly #place?: number;
-	readonly #points?: number;
-	readonly #pointsRank?: number;
 
-	constructor (ranked?: RankedPlayer, spid?: SpidPlayer) {
+	/** Genre */
+	readonly #gender: string | undefined;
+
+	/** "N" si numéroté */
+	readonly #level: string | undefined;
+
+	/** Place si numéroté */
+	readonly #place: number | undefined;
+
+	/** Points officiels */
+	readonly #points: number | undefined;
+
+	/** Classement officiel */
+	readonly #pointsRank: number | undefined;
+
+	constructor(rankedPlayer?: SmartpingRankedPlayer, SPIDPlayer?: SmartpingSPIDPlayer) {
 		super();
-
-		this.#licence = spid?.licence() ?? ranked?.licence() ?? '';
-		this.#firstname = spid?.firstname() ?? ranked?.firstname() ?? '';
-		this.#lastname = spid?.lastname() ?? ranked?.lastname() ?? '';
-		this.#clubName = spid?.clubName() ?? ranked?.clubName() ?? '';
-		this.#clubCode = spid?.clubCode() ?? ranked?.clubCode() ?? '';
-		this.#gender = (spid && (spid.gender() === 'H' || spid.gender() === 'F')) ? spid.gender() : undefined;
-		this.#level = spid && !isEmpty(spid.level()) ? spid.level() : undefined;
-		this.#place = spid && !isEmpty(spid.place()) ? spid.place() : undefined;
-		this.#points = spid && !isEmpty(spid.points()) ? spid.points() : undefined;
-		this.#pointsRank = ranked?.pointsRank();
+		this.#licence = SPIDPlayer?.licence ?? rankedPlayer?.licence ?? '';
+		this.#firstname = SPIDPlayer?.firstname ?? rankedPlayer?.firstname ?? '';
+		this.#lastname = SPIDPlayer?.lastname ?? rankedPlayer?.lastname ?? '';
+		this.#clubName = SPIDPlayer?.clubName ?? rankedPlayer?.clubName ?? '';
+		this.#clubCode = SPIDPlayer?.clubCode ?? rankedPlayer?.clubCode ?? '';
+		this.#gender = (SPIDPlayer && (SPIDPlayer.gender === 'H' || SPIDPlayer.gender === 'F')) ? SPIDPlayer.gender : undefined;
+		this.#level = SPIDPlayer && this.setOrFallback(SPIDPlayer.level, undefined);
+		this.#place = SPIDPlayer && this.setOrFallback(SPIDPlayer.place, undefined);
+		this.#points = SPIDPlayer && this.setOrFallback(SPIDPlayer.points, undefined);
+		this.#pointsRank = rankedPlayer?.pointsRank;
 	}
 
-	public licence(): string {
+	public get licence() {
 		return this.#licence;
 	}
 
-	public firstname(): string {
-		return this.#firstname;
-	}
-
-	public lastname(): string {
+	public get lastname() {
 		return this.#lastname;
 	}
 
-	public clubName(): string {
+	public get firstname() {
+		return this.#firstname;
+	}
+
+	public get clubName() {
 		return this.#clubName;
 	}
 
-	public clubCode(): string {
+	public get clubCode() {
 		return this.#clubCode;
 	}
 
-	public gender(): string|undefined {
+	public get gender() {
 		return this.#gender;
 	}
 
-	public level(): string|undefined {
+	public get level() {
 		return this.#level;
 	}
 
-	public place(): number|undefined {
+	public get place() {
 		return this.#place;
 	}
 
-	public points(): number|undefined {
+	public get points() {
 		return this.#points;
 	}
 
-	public pointsRank(): number|undefined {
+	public get pointsRank() {
 		return this.#pointsRank;
 	}
 
-	public normalize(): PlayerExportProperties {
-		return {
-			licence: this.#licence,
-			firstname: this.#firstname,
-			lastname: this.#lastname,
-			clubName: this.#clubName,
-			clubCode: this.#clubCode,
-			gender: this.#gender,
-			level: this.#level,
-			place: this.#place,
-			points: this.#points,
-			pointsRank: this.#pointsRank,
-		};
+	public get fullName() {
+		return `${this.#firstname} ${this.#lastname.toLocaleUpperCase('fr-FR')}`;
 	}
 }

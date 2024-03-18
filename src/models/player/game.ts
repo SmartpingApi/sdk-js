@@ -1,27 +1,52 @@
-import { SmartpingObject } from '../smartping-object'
-import RankedGame from './ranked-game'
-import SpidGame from './spid-game'
-import { createDate } from '../../helpers/datetime-helpers'
-import PlayerApi from '../../services/player-api'
-import RankedPlayer from './ranked-player'
+import type { DateTime } from 'luxon';
+import { BaseModel } from '@/models/base_model.js';
+import { SmartpingRankedGame, SmartpingSPIDGame } from '@/models/index.js';
+import { createDate } from '@/helpers/datetime_helpers.js';
 
-export default class Game extends SmartpingObject {
-	readonly #id?: number;
-	readonly #licence?: string;
-	readonly #opponentLicence?: string;
+export class SmartpingGame extends BaseModel {
+	/** ID de la partie */
+	readonly #id: number | undefined;
+
+	/** Numéro de licence */
+	readonly #licence: string | undefined;
+
+	/** Numéro de licence de l'adversaire */
+	readonly #opponentLicence: string | undefined;
+
+	/** Victoire */
 	readonly #isVictory: boolean;
-	readonly #roundIndex?: number;
-	readonly #contestCode?: number;
-	readonly #date: Date;
-	readonly #opponentGender?: string;
-	readonly #opponentName: string;
-	readonly #pointsEarned?: number;
-	readonly #contestCoefficient?: number;
-	readonly #opponentPointsRank: number;
-	readonly #contestName?: string;
-	readonly #isForfeit?: boolean;
 
-	constructor (ranked?: RankedGame, spid?: SpidGame) {
+	/** Numéro de tour */
+	readonly #roundIndex: number | undefined;
+
+	/** ID de l'épreuve */
+	readonly #contestId: number | undefined;
+
+	/** Date de la partie */
+	readonly #date: DateTime;
+
+	/** Genre de l'adversaire */
+	readonly #opponentGender: string | undefined;
+
+	/** Nom de l'adversaire */
+	readonly #opponentName: string;
+
+	/** Points obtenus */
+	readonly #pointsEarned: number | undefined;
+
+	/** Coefficient de l'épreuve */
+	readonly #contestCoefficient: number | undefined;
+
+	/** Classement officiel de l'adversaire */
+	readonly #opponentPointsRank: number;
+
+	/** Nom de l'épreuve */
+	readonly #contestName: string | undefined;
+
+	/** Forfait */
+	readonly #isForfeit: boolean | undefined;
+
+	constructor (rankedGame?: SmartpingRankedGame, SPIDGame?: SmartpingSPIDGame) {
 		super();
 
 		this.#date = createDate();
@@ -29,102 +54,84 @@ export default class Game extends SmartpingObject {
 		this.#opponentName = '';
 		this.#opponentPointsRank = 0;
 
-		if (ranked) {
-			this.#id = ranked.id();
-			this.#licence = ranked.licence();
-			this.#opponentLicence = ranked.opponentLicence();
-			this.#isVictory = ranked.isVictory();
-			this.#roundIndex = ranked.roundIndex();
-			this.#contestCode = ranked.contestCode();
-			this.#date = ranked.date();
-			this.#opponentGender = ranked.opponentGender();
-			this.#opponentName = ranked.opponentName();
-			this.#pointsEarned = ranked.pointsEarned();
-			this.#contestCoefficient = ranked.contestCoefficient();
-			this.#opponentPointsRank = ranked.opponentPointsRank();
+		if (undefined !== rankedGame) {
+			this.#id = rankedGame.id;
+			this.#licence = rankedGame.licence;
+			this.#opponentLicence = rankedGame.opponentLicence;
+			this.#isVictory = rankedGame.isVictory;
+			this.#roundIndex = rankedGame.roundIndex;
+			this.#contestId = rankedGame.contestCode;
+			this.#date = rankedGame.date;
+			this.#opponentGender = rankedGame.opponentGender;
+			this.#opponentName = rankedGame.opponentName;
+			this.#pointsEarned = rankedGame.pointsEarned;
+			this.#contestCoefficient = rankedGame.contestCoefficient;
+			this.#opponentPointsRank = rankedGame.opponentPointsRank;
 		}
 
-		if (spid) {
-			this.#opponentName = spid.opponentName();
-			this.#opponentPointsRank = spid.opponentPointsRank();
-			this.#contestName = spid.contestName();
-			this.#isVictory = spid.isVictory();
-			this.#isForfeit = spid.isForfeit();
-			this.#date = spid.date();
+		if (undefined !== SPIDGame) {
+			this.#opponentName = SPIDGame.opponentName;
+			this.#opponentPointsRank = SPIDGame.opponentPointsRank;
+			this.#contestName = SPIDGame.contestName;
+			this.#isVictory = SPIDGame.isVictory;
+			this.#isForfeit = SPIDGame.isForfeit;
+			this.#date = SPIDGame.date;
 		}
 	}
 
-	public id(): number|undefined {
+	public get id() {
 		return this.#id;
 	}
 
-	public licence(): string|undefined {
+	public get licence() {
 		return this.#licence;
 	}
 
-	public opponentLicence(): string|undefined {
+	public get opponentLicence() {
 		return this.#opponentLicence;
 	}
 
-	public isVictory(): boolean {
+	public get isVictory() {
 		return this.#isVictory;
 	}
 
-	public roundIndex(): number|undefined {
+	public get roundIndex() {
 		return this.#roundIndex;
 	}
 
-	public contestCode(): number|undefined {
-		return this.#contestCode;
+	public get contestId() {
+		return this.#contestId;
 	}
 
-	public date(): Date {
+	public get date() {
 		return this.#date;
 	}
 
-	public opponentGender(): string|undefined {
+	public get opponentGender() {
 		return this.#opponentGender;
 	}
 
-	public opponentName(): string {
+	public get opponentName() {
 		return this.#opponentName;
 	}
 
-	public pointsEarned(): number|undefined {
+	public get pointsEarned() {
 		return this.#pointsEarned;
 	}
 
-	public contestCoefficient(): number|undefined {
+	public get contestCoefficient() {
 		return this.#contestCoefficient;
 	}
 
-	public opponentPointsRank(): number|undefined {
+	public get opponentPointsRank() {
 		return this.#opponentPointsRank;
 	}
 
-	public contestName(): string|undefined {
+	public get contestName() {
 		return this.#contestName;
 	}
 
-	public isForfeit(): boolean|undefined {
+	public get isForfeit() {
 		return this.#isForfeit;
-	}
-
-	public async player(): Promise<RankedPlayer|undefined> {
-		if (!this.#licence) {
-			// eslint-disable-next-line unicorn/no-useless-undefined
-			return new Promise(resolve => resolve(undefined));
-		}
-
-		return PlayerApi.getPlayerOnRankingBase(this.#licence);
-	}
-
-	public async opponent(): Promise<RankedPlayer|undefined> {
-		if (!this.#opponentLicence) {
-			// eslint-disable-next-line unicorn/no-useless-undefined
-			return new Promise(resolve => resolve(undefined));
-		}
-
-		return PlayerApi.getPlayerOnRankingBase(this.#opponentLicence);
 	}
 }

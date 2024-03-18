@@ -1,20 +1,25 @@
-import { SmartpingObject } from '../smartping-object'
-import { isEmpty } from '../../helpers/validation'
+import { BaseModel } from '@/models/base_model.js';
 
-export interface InitializationConstructorProperties {
+type NewProperties = {
 	appli: number;
 }
 
-export default class Initialization extends SmartpingObject {
+export class SmartpingInitialization extends BaseModel {
+	/** Autorisation d'accès à l'application */
 	readonly #authorized: boolean;
 
-	constructor (properties: InitializationConstructorProperties) {
+	constructor(properties: NewProperties) {
 		super();
-
-		this.#authorized = isEmpty(properties.appli) ? false : Boolean(properties.appli);
+		this.#authorized = this.setOrFallback(properties.appli, false, Boolean);
 	}
 
-	public authorized(): boolean {
+	public get authorized() {
 		return this.#authorized;
+	}
+
+	public serialize() {
+		return {
+			authorized: this.#authorized,
+		};
 	}
 }
