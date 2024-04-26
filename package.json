@@ -8,7 +8,7 @@
 		"dev": "tsup --watch",
 		"check": "tsc --noEmit",
 		"build": "tsup",
-		"prepublish": "rm -rf ./dist && pnpm run check && pnpm run test && pnpm run build",
+		"prepublish": "rm -rf ./dist && pnpm run check && pnpm run build",
 		"test:browser": "vitest --environment happy-dom",
 		"test:node": "vitest --environment node",
 		"coverage": "vitest run --coverage",
