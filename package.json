@@ -8,10 +8,11 @@
 		"dev": "tsup --watch",
 		"check": "tsc --noEmit",
 		"build": "tsup",
-		"publish": "rm -rf ./dist && pnpm run build && npm publish --access public",
+		"prepublish": "rm -rf ./dist && pnpm run check && pnpm run test && pnpm run build",
 		"test:browser": "vitest --environment happy-dom",
 		"test:node": "vitest --environment node",
-		"coverage": "vitest run --coverage"
+		"coverage": "vitest run --coverage",
+		"test": "pnpm run test:node && pnpm run test:browser"
 	},
 	"files": [
 		"dist",
