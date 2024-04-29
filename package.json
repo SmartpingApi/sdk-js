@@ -20,6 +20,9 @@
 		"README.md",
 		"LICENSE.txt"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.0.0",
 		"@eslint/js": "^8.56.0",
