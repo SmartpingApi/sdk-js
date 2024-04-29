@@ -1,13 +1,13 @@
 {
 	"name": "@smartping-api/core",
 	"private": false,
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"type": "module",
 	"main": "dist/smartping.js",
 	"scripts": {
 		"dev": "tsup --watch",
 		"check": "tsc --noEmit",
-		"build": "tsup",
+		"build": "tsup && tsc-alias -p tsconfig.json",
 		"prepublish": "rm -rf ./dist && pnpm run check && pnpm run build",
 		"test:browser": "vitest --environment happy-dom",
 		"test:node": "vitest --environment node",
@@ -41,6 +41,7 @@
 		"eslint-plugin-unicorn": "^50.0.1",
 		"globals": "^13.24.0",
 		"happy-dom": "^13.3.8",
+		"tsc-alias": "^1.8.8",
 		"tsup": "^8.0.2",
 		"type-fest": "^4.10.1",
 		"typescript": ">=5.3",

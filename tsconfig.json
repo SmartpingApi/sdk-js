@@ -55,7 +55,7 @@
 			"@/*": ["./src/*"],
 			"@tests/*": ["./tests/*"]
 		},
-		"outDir": "build"
+		"outDir": "dist"
 	},
 	"include": [
       "src",
