@@ -71,7 +71,7 @@ async function makeRequest(options: RequestProperties) {
 		credentials: 'omit',
 		redirect: 'follow',
 		searchParams: requestParameters,
-	}).text();
+	}).arrayBuffer();
 
 	if (options.cache) {
 		storage.set(

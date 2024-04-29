@@ -6,14 +6,16 @@ export type Newable<P> = new (properties: any) => P;
 
 /** Parser utilisé pour désérialiser les modèles XML. */
 const parser = new XMLParser();
+const textDecoder = new TextDecoder('ISO-8859-1');
 
 export function deserializeObject<T>(
-	response: string,
+	response: ArrayBuffer,
 	normalizationModel: Newable<T>,
 	rootKey: string,
 	additionalProperties?: Record<string, unknown>,
 ) {
-	const xml = parser.parse(response) as DecodedXml;
+	const decodedText = textDecoder.decode(response);
+	const xml = parser.parse(decodedText) as DecodedXml;
 	delete xml['?xml'];
 
 	const properties = {};
@@ -35,6 +37,7 @@ export function deserializeObject<T>(
 	}
 
 	if (isList && !Object.hasOwn(xml['liste'] as DecodedXml, rootKey)) {
+		console.log({ response: textDecoder.decode(response), additionalProperties })
 		throw new Error('The received response is an array of objects, but does not contain the root key specified.');
 	}
 

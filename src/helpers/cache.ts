@@ -9,7 +9,7 @@ import { parse } from '@lukeed/ms';
 
 const oneHour = 1000 * 60 * 60;
 
-export const storage = new LRUCache<string, string>({
+export const storage = new LRUCache<string, ArrayBuffer>({
 	max: 1000,
 	ttl: oneHour,
 	ttlAutopurge: true,
