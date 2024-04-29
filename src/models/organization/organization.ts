@@ -1,5 +1,5 @@
 import { BaseModel } from '@/models/base_model.js';
-import { findOrganizationsByType, getOrganization, OrganizationTypes } from '@/queries/organizations/find_by_type.ts';
+import { findOrganizationsByType, getOrganization, OrganizationTypes } from '@/queries/organizations/find_by_type.js';
 
 type NewProperties = {
 	id: number;

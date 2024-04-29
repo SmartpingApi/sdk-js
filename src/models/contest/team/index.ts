@@ -5,4 +5,4 @@ export * from './team_match_game.js';
 export * from './team_match_player.js';
 export * from './team_match_team.js';
 export * from './team_pool.js';
-export * from './team_pool_team.ts';
+export * from './team_pool_team.js';

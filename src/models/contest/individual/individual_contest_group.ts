@@ -4,7 +4,7 @@ import { BaseModel } from '@/models/base_model.js';
 import { createDate } from '@/helpers/datetime_helpers.js';
 import { SmartpingIndividualContestGame, SmartpingIndividualContestRank } from '@/models/index.js';
 import { getIndividualContestRank } from '@/queries/contests/individual/get_rank.js';
-import { getIndividualContestGames } from '@/queries/contests/individual/get_games.ts';
+import { getIndividualContestGames } from '@/queries/contests/individual/get_games.js';
 
 type NewProperties = {
 	tour: string;

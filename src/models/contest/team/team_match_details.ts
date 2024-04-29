@@ -1,7 +1,7 @@
 import { BaseModel, type Preloads } from '@/models/base_model.js';
 import { SmartpingTeamMatchTeam } from '@/models/contest/team/team_match_team.js';
 import { SmartpingTeamMatchGame } from '@/models/contest/team/team_match_game.js';
-import { getTeamsForClub, TeamTypes } from '@/queries/clubs/get_teams.ts';
+import { getTeamsForClub, TeamTypes } from '@/queries/clubs/get_teams.js';
 
 type NewProperties = {
 	resultat: {
