@@ -44,6 +44,7 @@
 		"eslint-plugin-unicorn": "^50.0.1",
 		"globals": "^13.24.0",
 		"happy-dom": "^13.3.8",
+		"msw": "^2.2.14",
 		"tsc-alias": "^1.8.8",
 		"tsup": "^8.0.2",
 		"type-fest": "^4.10.1",
