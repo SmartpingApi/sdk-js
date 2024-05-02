@@ -1,17 +1,15 @@
-import { findClubsByDepartment, findClubsByCity, findClubsByPostalCode } from './find_by_location.js';
-import { getClub } from './find_by_code.js';
-import { findClubsByName } from './find_by_name.js';
-import { getTeamsForClub } from './get_teams.js';
+import type { QueryOptions } from '#src/helpers/query';
+import { FindClubByCode } from '#src/queries/clubs/find_by_code';
+import type { SmartpingContext } from '#src/smartping';
 
-export default {
-	findBy: {
-		department: findClubsByDepartment,
-		city: findClubsByCity,
-		postalCode: findClubsByPostalCode,
-		name: findClubsByName,
-	},
-	get: getClub,
-	getTeams: getTeamsForClub,
+export default class ClubQueries {
+	#context: SmartpingContext;
+
+	constructor(context: SmartpingContext) {
+		this.#context = context;
+	}
+
+	findByCode(code: string, options?: QueryOptions) {
+		return FindClubByCode.create(this.#context).withOptions(options).run(code);
+	}
 }
-
-export { TeamTypes } from './get_teams.js';
