@@ -20,12 +20,12 @@ type NewProperties = {
 	telcor: string | undefined;
 	latitude: string | undefined;
 	longitude: string | undefined;
-	datevalidation: string | undefined;
+	validation: string | undefined;
 }
 
 export class SmartpingClubDetail extends BaseModel {
 	/** ID interne pour la Fédération */
-	readonly #id: number;
+	readonly #id: string;
 
 	/** ID publique (numéro de club) */
 	readonly #code: string;
@@ -67,17 +67,18 @@ export class SmartpingClubDetail extends BaseModel {
 	readonly #contactPhone: string | undefined;
 
 	/** Géolocalisation de la salle : latitude */
-	readonly #latitude: number | undefined;
+	readonly #latitude: string | undefined;
 
 	/** Géolocalisation de la salle : longitude */
-	readonly #longitude: number | undefined;
+	readonly #longitude: string | undefined;
 
 	/** Date de validation (pour la saison en cours) */
 	readonly #validatedAt: DateTime | undefined;
 
 	constructor(properties: NewProperties) {
 		super();
-		this.#id = this.setOrFallback(properties.idclub, 0, Number);
+		console.log({ name: properties.nom, date: properties.validation })
+		this.#id = this.setOrFallback(properties.idclub, '');
 		this.#code = this.setOrFallback(properties.numero, '');
 		this.#name = this.setOrFallback(properties.nom, '');
 		this.#hallName = this.setOrFallback(properties.nomsalle, '');
@@ -91,9 +92,12 @@ export class SmartpingClubDetail extends BaseModel {
 		this.#contactFirstname = this.setOrFallback(properties.prenomcor, '');
 		this.#contactMail = this.setOrFallback(properties.mailcor, undefined);
 		this.#contactPhone = this.setOrFallback(properties.telcor, undefined);
-		this.#latitude = this.setOrFallback(properties.latitude, undefined, Number);
-		this.#longitude = this.setOrFallback(properties.longitude, undefined, Number);
-		this.#validatedAt = this.setOrFallback(properties.datevalidation, undefined, (value) => createDate(value, 'DD/MM/YYYY'));
+		this.#latitude = this.setOrFallback(properties.latitude, undefined);
+		this.#longitude = this.setOrFallback(properties.longitude, undefined);
+		this.#validatedAt = this.setOrFallback(properties.validation, undefined, (value) => {
+			const date = createDate(value, dateFormats.DATE);
+			return date.isValid ? date : undefined;
+		});
 	}
 
 	public get id() {
@@ -200,7 +204,7 @@ export class SmartpingClubDetail extends BaseModel {
 				lastname: this.#contactLastname,
 				firstname: this.#contactFirstname,
 				mail: this.#contactMail,
-				phone: this.#contactPhone,
+				phone: this.#contactPhone?.toString(),
 				website: this.#website,
 			},
 			validatedAt: stringifyDate(this.#validatedAt),

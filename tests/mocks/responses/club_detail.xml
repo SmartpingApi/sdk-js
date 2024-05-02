@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<club>
+		<idclub>{{federalId}}</idclub>
+		<numero>{{code}}</numero>
+		<nom>Tennis de Table</nom>
+		<nomsalle>Salle Omnisports</nomsalle>
+		<adressesalle1>Avenue de la Gare</adressesalle1>
+		<adressesalle2/>
+		<adressesalle3></adressesalle3>
+		<codepsalle>12345</codepsalle>
+		<villesalle>VILLE</villesalle>
+		<web>https://example.com</web>
+		<nomcor>DUPONT</nomcor>
+		<prenomcor>Jean</prenomcor>
+		<mailcor>contact@example.com</mailcor>
+		<telcor>0123456789</telcor>
+		<latitude>45.123456</latitude>
+		<longitude>-0.012345</longitude>
+		<validation>01/01/2000</validation>
+	</club>
+</liste>
