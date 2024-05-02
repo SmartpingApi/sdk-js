@@ -1,7 +1,8 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingRankedGame, SmartpingSPIDGame } from '@/models/index.js';
-import { mergeRankingAndSPIDGameHistoryCollection } from '@/helpers/collections.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { mergeRankingAndSPIDGameHistoryCollection } from '#src/helpers/collections';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingRankedGame } from '#src/models/player/ranked_game';
+import { SmartpingSPIDGame } from '#src/models/player/spid_game';
 
 export async function getPlayerGameHistoryOnRankingBase(licence: string) {
 	return callAPI({

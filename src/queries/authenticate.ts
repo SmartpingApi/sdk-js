@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingInitialization } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingInitialization } from '#src/models/common/initialization';
 
 export async function authenticate() {
 	return callAPI({

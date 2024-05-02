@@ -1,5 +1,6 @@
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingRankedPlayer, SmartpingSPIDPlayer } from '@/models/index.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js';
+import type { SmartpingSPIDPlayer } from '#src/models/player/spid_player.js';
 
 export class SmartpingPlayer extends BaseModel {
 	/** Numéro de licence */

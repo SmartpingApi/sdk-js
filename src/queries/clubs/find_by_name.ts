@@ -1,7 +1,7 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingClub } from '@/models/index.js';
-import { generateSha } from '@/helpers/cache.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { generateSha } from '#src/helpers/cache';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingClub } from '#src/models/club/club';
 
 export async function findClubsByName(name: string) {
 	const sha = generateSha(name);

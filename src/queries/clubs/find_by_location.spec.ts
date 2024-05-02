@@ -1,6 +1,8 @@
 import { expect, it } from 'vitest';
+
+import { SmartpingClub } from '#src/models/club/club';
+
 import { findClubsByPostalCode, findClubsByCity, findClubsByDepartment } from './find_by_location.js';
-import { SmartpingClub } from '@/models/index.js';
 
 it('should find clubs by department', async () => {
 	const response = await findClubsByDepartment(16);

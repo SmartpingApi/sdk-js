@@ -1,7 +1,7 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail } from '@/models/index.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import { getClub } from '#src/queries/clubs/find_by_code.js';
 
 type NewProperties = {
 	rang: string;

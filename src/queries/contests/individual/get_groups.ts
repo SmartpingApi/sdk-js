@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingIndividualContestGroup } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingIndividualContestGroup } from '#src/models/contest/individual/individual_contest_group';
 
 export async function getIndividualContestGroup(contestId: number, divisionId: number) {
 	return callAPI({

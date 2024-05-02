@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingPlayerRankHistory } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingPlayerRankHistory } from '#src/models/player/player_rank_history';
 
 export async function getPlayerRankHistory(licence: string) {
 	return callAPI({

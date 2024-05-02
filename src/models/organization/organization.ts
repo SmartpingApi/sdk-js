@@ -1,5 +1,5 @@
-import { BaseModel } from '@/models/base_model.js';
-import { findOrganizationsByType, getOrganization, OrganizationTypes } from '@/queries/organizations/find_by_type.js';
+import { BaseModel } from '#src/models/base_model.js';
+import { findOrganizationsByType, getOrganization, OrganizationTypes } from '#src/queries/organizations/find_by_type.js';
 
 type NewProperties = {
 	id: number;
@@ -38,7 +38,7 @@ export class SmartpingOrganization extends BaseModel {
 	#parent: SmartpingOrganization | undefined;
 
 	/** Organismes enfants */
-	#children: SmartpingOrganization[] = [];
+	#children: Array<SmartpingOrganization> = [];
 
 	constructor (properties: NewProperties) {
 		super();
@@ -77,7 +77,7 @@ export class SmartpingOrganization extends BaseModel {
 		return this.#children;
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName>|'*') {
 		const preloadFunctions: Record<RelationName, () => Promise<void>> = {
 			parent: async () => {
 				if (this.#type === 'Z') {

@@ -1,11 +1,12 @@
-import type { ValueOf } from '@/types/index.js';
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingIndividualDivision, SmartpingTeamDivision } from '@/models/index.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingIndividualDivision } from '#src/models/contest/individual/individual_division.js';
+import type { SmartpingTeamDivision } from '#src/models/contest/team/team_division.js';
 import {
 	findDivisionsForIndividualContest,
 	findDivisionsForTeamContest,
-} from '@/queries/contests/team/get_divisions.js';
+} from '#src/queries/contests/team/get_divisions.js';
+import type { ValueOf } from '#src/types/index.js';
 
 type NewProperties = {
 	idepreuve: number;

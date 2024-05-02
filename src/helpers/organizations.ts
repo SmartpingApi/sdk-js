@@ -1,7 +1,7 @@
-import type { OrganizationIdentifier } from '@/models/index.js';
-import type { ValueOf } from '@/types/index.js';
-import { SmartpingOrganization } from '@/models/index.js';
-import { findOrganizationsByType, OrganizationTypes } from '@/queries/organizations/find_by_type.js';
+import type { OrganizationIdentifier } from '#src/models/organization/organization.js';
+import { SmartpingOrganization } from '#src/models/organization/organization.js';
+import { findOrganizationsByType, OrganizationTypes } from '#src/queries/organizations/find_by_type.js';
+import type { ValueOf } from '#src/types/index.js';
 
 const organizationsStore = new Map<OrganizationIdentifier, SmartpingOrganization>();
 

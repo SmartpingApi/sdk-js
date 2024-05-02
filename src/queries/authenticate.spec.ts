@@ -1,6 +1,8 @@
 import { expect, it } from 'vitest';
+
+import { SmartpingInitialization } from '#src/models/common/initialization';
+
 import { authenticate } from './authenticate.js';
-import { SmartpingInitialization } from '@/models/index.js';
 
 it('should authenticate the application with correct credentials', async () => {
 	const response = await authenticate();

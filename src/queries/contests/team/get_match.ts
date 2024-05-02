@@ -1,6 +1,7 @@
-import { SmartpingTeamMatchDetails, type TeamMatchLinkParameters } from '@/models/index.js';
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import type { TeamMatchLinkParameters } from '#src/models/contest/team/team_match';
+import { SmartpingTeamMatchDetails } from '#src/models/contest/team/team_match_details';
 
 export async function getMatch(matchId: number, extraParameters: TeamMatchLinkParameters) {
 	return callAPI({

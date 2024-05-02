@@ -1,8 +1,9 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingTeamMatch, SmartpingTeamPoolTeam } from '@/models/index.js';
-import { getPoolRanking } from '@/queries/contests/team/get_pool_ranking.js';
-import { getMatchesForPool } from '@/queries/contests/team/get_pool_matches.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingTeamMatch } from '#src/models/contest/team/team_match.js';
+import type { SmartpingTeamPoolTeam } from '#src/models/contest/team/team_pool_team.js';
+import { getMatchesForPool } from '#src/queries/contests/team/get_pool_matches.js';
+import { getPoolRanking } from '#src/queries/contests/team/get_pool_ranking.js';
 
 type NewProperties = {
 	lien: string;
@@ -25,10 +26,10 @@ export class SmartpingTeamPool extends BaseModel {
 	readonly #divisionId: number | undefined;
 
 	/** Rencontres */
-	#matches: SmartpingTeamMatch[] = [];
+	#matches: Array<SmartpingTeamMatch> = [];
 
 	/** Classement */
-	#rankings: SmartpingTeamPoolTeam[] = [];
+	#rankings: Array<SmartpingTeamPoolTeam> = [];
 
 	constructor (properties: NewProperties) {
 		super();
@@ -72,7 +73,7 @@ export class SmartpingTeamPool extends BaseModel {
 		return this.#rankings;
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName>|'*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			matches: async () => {
 				if (undefined === this.#divisionId) return;

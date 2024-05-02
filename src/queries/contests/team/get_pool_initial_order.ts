@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingTeamPoolTeam } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingTeamPoolTeam } from '#src/models/contest/team/team_pool_team';
 
 export async function getPoolInitialOrder(divisionId: number, poolId?: number) {
 	return callAPI({

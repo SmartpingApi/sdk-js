@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingTeamMatch } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingTeamMatch } from '#src/models/contest/team/team_match';
 
 export async function getMatchesForPool(divisionId: number, poolId?: number) {
 	return callAPI({

@@ -1,10 +1,12 @@
 import type { DateTime } from 'luxon';
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { createDate } from '@/helpers/datetime_helpers.js';
-import { SmartpingIndividualContestGame, SmartpingIndividualContestRank } from '@/models/index.js';
-import { getIndividualContestRank } from '@/queries/contests/individual/get_rank.js';
-import { getIndividualContestGames } from '@/queries/contests/individual/get_games.js';
+
+import { createDate } from '#src/helpers/datetime_helpers.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingIndividualContestGame } from '#src/models/contest/individual/individual_contest_game.js';
+import type { SmartpingIndividualContestRank } from '#src/models/contest/individual/individual_contest_rank.js';
+import { getIndividualContestGames } from '#src/queries/contests/individual/get_games.js';
+import { getIndividualContestRank } from '#src/queries/contests/individual/get_rank.js';
 
 type NewProperties = {
 	tour: string;

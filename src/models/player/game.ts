@@ -1,7 +1,9 @@
 import type { DateTime } from 'luxon';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingRankedGame, SmartpingSPIDGame } from '@/models/index.js';
-import { createDate } from '@/helpers/datetime_helpers.js';
+
+import { createDate } from '#src/helpers/datetime_helpers.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingRankedGame } from '#src/models/player/ranked_game.js';
+import type { SmartpingSPIDGame } from '#src/models/player/spid_game.js';
 
 export class SmartpingGame extends BaseModel {
 	/** ID de la partie */

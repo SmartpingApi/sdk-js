@@ -1,18 +1,29 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingClubDetail } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints.js';
+import Query from '#src/helpers/query.js';
+import { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
-export async function getClub(code: string) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_CLUB_DETAIL,
-		requestParameters: (search) => {
-			search.append('club', code);
-		},
-		normalizationModel: SmartpingClubDetail,
-		rootKey: 'club',
-		cache: {
-			key: `club:detail:${code}`,
-			ttl: '1w',
-		},
-	}, true);
+export class FindClubByCode extends Query {
+	constructor(context: SmartpingContext) {
+		super(context);
+	}
+
+	static create(context: SmartpingContext) {
+		return new this(context);
+	}
+
+	async run(code: string) {
+		return this.callAPI({
+			endpoint: ApiEndpoints.XML_CLUB_DETAIL,
+			requestParameters: (search) => {
+				search.append('club', code);
+			},
+			normalizationModel: SmartpingClubDetail,
+			rootKey: 'club',
+			cache: {
+				key: `club:detail:${code}`,
+				ttl: '1w',
+			},
+		}, true);
+	}
 }

@@ -1,9 +1,9 @@
-import type { ValueOf } from '@/types/index.js';
-import type { OrganizationIdentifier } from '@/models/index.js';
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingOrganization } from '@/models/index.js';
-import { getOrganizationInCache } from '@/helpers/organizations.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { getOrganizationInCache } from '#src/helpers/organizations';
+import { callAPI } from '#src/helpers/request';
+import type { OrganizationIdentifier } from '#src/models/organization/organization';
+import { SmartpingOrganization } from '#src/models/organization/organization';
+import type { ValueOf } from '#src/types/index';
 
 export const OrganizationTypes = {
 	Federation: 'F',

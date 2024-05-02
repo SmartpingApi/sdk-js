@@ -1,7 +1,7 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingTeamPool } from '@/models/index.js';
-import { getPoolsForDivision } from '@/queries/contests/team/get_pools.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingTeamPool } from '#src/models/contest/team/team_pool.js';
+import { getPoolsForDivision } from '#src/queries/contests/team/get_pools.js';
 
 type NewProperties = {
 	iddivision: number;

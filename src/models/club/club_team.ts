@@ -1,16 +1,14 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import {
-	CONTEST_TYPES,
-	SmartpingContest,
-	SmartpingTeamDivision,
-	SmartpingTeamPool,
-	SmartpingTeamPoolTeam,
-} from '@/models/index.js';
-import { findContests } from '@/queries/contests/find_contests.js';
-import { findDivisionsForTeamContest } from '@/queries/contests/team/get_divisions.js';
-import { getPoolsForDivision } from '@/queries/contests/team/get_pools.js';
-import { getPoolRanking } from '@/queries/contests/team/get_pool_ranking.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingContest } from '#src/models/contest/contest.js';
+import { CONTEST_TYPES } from '#src/models/contest/contest.js';
+import type { SmartpingTeamDivision } from '#src/models/contest/team/team_division.js';
+import type { SmartpingTeamPool } from '#src/models/contest/team/team_pool.js';
+import type { SmartpingTeamPoolTeam } from '#src/models/contest/team/team_pool_team.js';
+import { findContests } from '#src/queries/contests/find_contests.js';
+import { findDivisionsForTeamContest } from '#src/queries/contests/team/get_divisions.js';
+import { getPoolRanking } from '#src/queries/contests/team/get_pool_ranking.js';
+import { getPoolsForDivision } from '#src/queries/contests/team/get_pools.js';
 
 type NewProperties = {
 	idequipe: number;

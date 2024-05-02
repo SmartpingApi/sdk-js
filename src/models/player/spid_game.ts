@@ -1,6 +1,7 @@
 import type { DateTime } from 'luxon';
-import { BaseModel } from '@/models/base_model.js';
-import { createDate } from '@/helpers/datetime_helpers.js'
+
+import { createDate } from '#src/helpers/datetime_helpers.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	nom: string;

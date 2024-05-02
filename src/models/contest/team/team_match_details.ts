@@ -1,7 +1,8 @@
-import { BaseModel, type Preloads } from '@/models/base_model.js';
-import { SmartpingTeamMatchTeam } from '@/models/contest/team/team_match_team.js';
-import { SmartpingTeamMatchGame } from '@/models/contest/team/team_match_game.js';
-import { getTeamsForClub, TeamTypes } from '@/queries/clubs/get_teams.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import { SmartpingTeamMatchGame } from '#src/models/contest/team/team_match_game.js';
+import { SmartpingTeamMatchTeam } from '#src/models/contest/team/team_match_team.js';
+import { getTeamsForClub, TeamTypes } from '#src/queries/clubs/get_teams.js';
 
 type NewProperties = {
 	resultat: {
@@ -10,19 +11,19 @@ type NewProperties = {
 		resa: number;
 		resb: number;
 	};
-	joueur: {
+	joueur: Array<{
 		xja: string;
 		xca: string;
 		xjb: string;
 		xcb: string;
-	}[];
-	partie: {
+	}>;
+	partie: Array<{
 		ja: string;
 		scorea: number|'-';
 		jb: string;
 		scoreb: number|'-';
 		detail: string;
-	}[];
+	}>;
 	extras: {
 		matchId: number;
 		teamAId: number;
@@ -49,7 +50,7 @@ export class SmartpingTeamMatchDetails extends BaseModel {
 	readonly #scoreB: number;
 
 	/** Parties de la rencontre */
-	readonly #games: SmartpingTeamMatchGame[] = [];
+	readonly #games: Array<SmartpingTeamMatchGame> = [];
 
 	/** Interne : Paramètres supplémentaires passés lors de la requête */
 	readonly #extras: NewProperties['extras'];

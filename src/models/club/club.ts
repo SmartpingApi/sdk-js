@@ -1,10 +1,12 @@
 import type { DateTime } from 'luxon';
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail, SmartpingClubTeam } from '@/models/index.js';
-import { createDate, stringifyDate } from '@/helpers/datetime_helpers.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
-import { getTeamsForClub, TeamTypes } from '@/queries/clubs/get_teams.js';
+
+import { createDate, stringifyDate } from '#src/helpers/datetime_helpers.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingClubTeam } from '#src/models/club/club_team.js';
+import { getClub } from '#src/queries/clubs/find_by_code.js';
+import { getTeamsForClub, TeamTypes } from '#src/queries/clubs/get_teams.js';
 
 type NewProperties = {
 	idclub: number;

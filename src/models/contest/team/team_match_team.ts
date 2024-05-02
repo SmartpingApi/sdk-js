@@ -1,18 +1,20 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail, SmartpingClubTeam, SmartpingTeamMatchPlayer } from '@/models/index.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingClubTeam } from '#src/models/club/club_team.js';
+import { SmartpingTeamMatchPlayer } from '#src/models/contest/team/team_match_player.js';
+import { getClub } from '#src/queries/clubs/find_by_code.js';
 
 type NewProperties = {
 	team: SmartpingClubTeam;
 	letter: 'A' | 'B';
 	clubCode: string;
-	players: {
+	players: Array<{
 		xja: string;
 		xca: string;
 		xjb: string;
 		xcb: string;
-	}[]
+	}>
 };
 
 type RelationName = 'club';
@@ -28,7 +30,7 @@ export class SmartpingTeamMatchTeam extends BaseModel {
 	#club: SmartpingClubDetail | undefined;
 
 	/** Liste des joueurs par équipe */
-	#players: Record<'teamA' | 'teamB', SmartpingTeamMatchPlayer[]> = {
+	#players: Record<'teamA' | 'teamB', Array<SmartpingTeamMatchPlayer>> = {
 		teamA: [],
 		teamB: [],
 	};
@@ -61,7 +63,7 @@ export class SmartpingTeamMatchTeam extends BaseModel {
 		return this.#players;
 	}
 
-	public async preload(relations: RelationName[] | '*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			club: async () => {
 				this.#club = await getClub(this.#clubCode);

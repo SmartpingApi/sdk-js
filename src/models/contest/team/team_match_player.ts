@@ -1,8 +1,9 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail, SmartpingPlayer } from '@/models/index.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
-import { findPlayersByClub } from '@/queries/players/find_by_club.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingPlayer } from '#src/models/player/player.js';
+import { getClub } from '#src/queries/clubs/find_by_code.js';
+import { findPlayersByClub } from '#src/queries/players/find_by_club.js';
 
 type NewProperties = {
 	name: string;
@@ -67,7 +68,7 @@ export class SmartpingTeamMatchPlayer extends BaseModel {
 		return this.#licence;
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName>|'*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			club: async () => {
 				this.#club = await getClub(this.#clubCode);

@@ -1,6 +1,8 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingPlayerDetails, SmartpingRankedPlayer, SmartpingSPIDPlayer } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingPlayerDetails } from '#src/models/player/player_details';
+import { SmartpingRankedPlayer } from '#src/models/player/ranked_player';
+import { SmartpingSPIDPlayer } from '#src/models/player/spid_player';
 
 export async function getPlayerOnRankingBase(licence: string) {
 	return callAPI({

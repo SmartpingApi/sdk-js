@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingIndividualContestRank } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingIndividualContestRank } from '#src/models/contest/individual/individual_contest_rank';
 
 export async function getIndividualContestRank(contestId: number, divisionId: number, groupId?: number) {
 	return callAPI({

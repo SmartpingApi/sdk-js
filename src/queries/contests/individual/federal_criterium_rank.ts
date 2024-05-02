@@ -1,6 +1,6 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingFederalCriteriumRank } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import { SmartpingFederalCriteriumRank } from '#src/models/contest/individual/federal_criterium_rank';
 
 export async function getFederalCriteriumRankForDivision(divisionId: number) {
 	return callAPI({

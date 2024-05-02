@@ -1,8 +1,11 @@
-import type { ValueOf } from '@/types/index.js';
-import type { ContestType } from '@/models/index.js';
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { CONTEST_TYPES, SmartpingDivision, SmartpingIndividualDivision, SmartpingTeamDivision } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import type { ContestType } from '#src/models/contest/contest';
+import { CONTEST_TYPES } from '#src/models/contest/contest';
+import { SmartpingDivision } from '#src/models/contest/division';
+import { SmartpingIndividualDivision } from '#src/models/contest/individual/individual_division';
+import { SmartpingTeamDivision } from '#src/models/contest/team/team_division';
+import type { ValueOf } from '#src/types/index';
 
 export async function findDivisionsForContest(organizationId: number, contestId: number, contestType: ValueOf<ContestType>) {
 	return callAPI({

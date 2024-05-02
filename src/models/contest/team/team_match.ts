@@ -1,8 +1,9 @@
-import type { Preloads } from '@/models/base_model.js';
 import { DateTime } from 'luxon';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingTeamMatchDetails } from '@/models/index.js';
-import { getMatch } from '@/queries/contests/team/get_match.js';
+
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingTeamMatchDetails } from '#src/models/contest/team/team_match_details.js';
+import { getMatch } from '#src/queries/contests/team/get_match.js';
 
 type NewProperties = {
 	libelle: string;

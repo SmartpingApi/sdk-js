@@ -1,4 +1,4 @@
-import { BaseModel } from '@/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	iddivision: number;

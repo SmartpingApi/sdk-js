@@ -1,9 +1,10 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingRankedPlayer, SmartpingSPIDPlayer } from '@/models/index.js';
-import { mergeRankedAndSPIDPlayerCollection } from '@/helpers/collections.js';
-import { generateSha } from '@/helpers/cache.js';
-import { booleanToNumber } from '@/helpers/utils.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { generateSha } from '#src/helpers/cache';
+import { mergeRankedAndSPIDPlayerCollection } from '#src/helpers/collections';
+import { callAPI } from '#src/helpers/request';
+import { booleanToNumber } from '#src/helpers/utils';
+import { SmartpingRankedPlayer } from '#src/models/player/ranked_player';
+import { SmartpingSPIDPlayer } from '#src/models/player/spid_player';
 
 export async function findPlayersByNameOnRankingBase(lastname: string, firstname?: string) {
 	const sha = generateSha(`${lastname}${firstname ?? ''}`);

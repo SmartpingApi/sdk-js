@@ -1,8 +1,8 @@
-import type { ValueOf } from '@/types/index.js';
-import type { ContestType } from '@/models/index.js';
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingContest } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints';
+import { callAPI } from '#src/helpers/request';
+import type { ContestType } from '#src/models/contest/contest';
+import { SmartpingContest } from '#src/models/contest/contest';
+import type { ValueOf } from '#src/types/index';
 
 export async function findContests(organizationId: number, contestType: ValueOf<ContestType>) {
 	return callAPI({

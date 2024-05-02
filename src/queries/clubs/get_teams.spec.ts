@@ -1,6 +1,8 @@
 import { it, expect } from 'vitest';
+
+import { SmartpingClubTeam } from '#src/models/club/club_team';
+
 import { getTeamsForClub, TeamTypes } from './get_teams.js';
-import { SmartpingClubTeam } from '@/models/index.js';
 
 it('should get all teams associated with a given club', async () => {
 	const response = await getTeamsForClub('10160051', TeamTypes.All);
