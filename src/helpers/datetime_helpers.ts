@@ -1,8 +1,12 @@
 import { DateTime } from 'luxon';
 
+export const dateFormats = {
+	DATE: 'dd/MM/yyyy',
+} as const;
+
 export function createDate(datetime?: string, format?: string): DateTime {
 	if (datetime && format) {
-		return DateTime.fromFormat(datetime, format);
+		return DateTime.fromFormat(datetime, format, { locale: 'fr' });
 	}
 
 	if (datetime) {
