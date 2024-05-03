@@ -2,7 +2,10 @@ import { XMLParser } from 'fast-xml-parser';
 
 import UnexpectedApiResponseError from '#src/errors/unexpected_api_response.js';
 import UnexpectedRootKeyError from '#src/errors/unexpected_root_key.js';
-import type { SerializerInterface, DeserializationOptions } from '#src/serializers/serializer_interface.js';
+import type {
+	SerializerInterface,
+	DeserializationOptions,
+} from '#src/serializers/serializer_interface.js';
 
 type DecodedXml = { [key: string]: string | number | DecodedXml | Array<DecodedXml> };
 
@@ -36,7 +39,7 @@ export default class XmlSerializer implements SerializerInterface {
 	}
 
 	deserialize<Model>(options: DeserializationOptions<Model>) {
-		const { response, rootKey, normalizationModel, additionalProperties } = options;
+		const { context, response, rootKey, normalizationModel, additionalProperties } = options;
 
 		// Encodage de la réponse HTTP en UTF-8.
 		const decodedText = this.#textDecoder.decode(response.payload);
@@ -57,7 +60,7 @@ export default class XmlSerializer implements SerializerInterface {
 		 * le modèle en lui passant l'ensemble de l'objet.
 		 */
 		if (this.#hasDifferentChildren(rootKey)) {
-			return new normalizationModel(Object.assign(properties,xml[rootKey]));
+			return new normalizationModel(Object.assign(properties, xml[rootKey]), context);
 		}
 
 		/**
@@ -89,17 +92,19 @@ export default class XmlSerializer implements SerializerInterface {
 		}
 
 		if (!isList) {
-			return new normalizationModel(Object.assign(properties,xml[rootKey]));
+			return new normalizationModel(Object.assign(properties, xml[rootKey]), context);
 		}
 
 		if (isList && isSingleResult) {
-			const entryPath = ((xml['liste'] as DecodedXml)[rootKey] as DecodedXml);
-			return new normalizationModel(Object.assign(properties,entryPath));
+			const entryPath = (xml['liste'] as DecodedXml)[rootKey] as DecodedXml;
+			return new normalizationModel(Object.assign(properties, entryPath), context);
 		}
 
 		if (isList && !isSingleResult) {
 			const entries = (xml['liste'] as DecodedXml)[rootKey] as Array<DecodedXml>;
-			return entries.map((entry) => new normalizationModel(Object.assign(properties,entry)));
+			return entries.map(
+				(entry) => new normalizationModel(Object.assign(properties, entry), context),
+			);
 		}
 
 		throw new UnexpectedApiResponseError();

@@ -22,9 +22,12 @@ export const handlers = [
 			});
 		}
 
-		return HttpResponse.xml(getMockResponse('club_detail', {
-			federalId: club.replace('1', '2'),
-			code: club,
-		}), { status: 200, headers: successHeaders });
+		return HttpResponse.xml(
+			getMockResponse('club_detail', {
+				federalId: club.replace('1', '2'),
+				code: club,
+			}),
+			{ status: 200, headers: successHeaders },
+		);
 	}),
 ];

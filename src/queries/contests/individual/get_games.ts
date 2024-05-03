@@ -4,7 +4,7 @@ import { SmartpingIndividualContestGame } from '#src/models/contest/individual/i
 import type { SmartpingContext } from '#src/smartping.ts';
 
 export class GetIndividualContestGames extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetIndividualContestGames extends Query {
 
 	async run(contestId: number, divisionId: number, groupId?: number) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_RESULT_INDIV,
 			requestParameters: (search) => {
 				search.set('action', 'partie');

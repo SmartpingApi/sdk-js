@@ -15,12 +15,12 @@ export const smartping = createSmartpingInstance({
 	errorReporter: new ConsoleReporter(),
 });
 
-beforeAll(() => mockServer.listen({ onUnhandledRequest: 'error' }))
+beforeAll(() => mockServer.listen({ onUnhandledRequest: 'error' }));
 
 beforeEach(() => {
 	purgeCache();
 });
 
-afterAll(() => mockServer.close())
+afterAll(() => mockServer.close());
 
-afterEach(() => mockServer.resetHandlers())
+afterEach(() => mockServer.resetHandlers());

@@ -1,6 +1,7 @@
 import type { QueryOptions } from '#src/helpers/query.js';
 import type { ContestType } from '#src/models/contest/contest.js';
 import { FindContests } from '#src/queries/contests/find_contests.js';
+import { FindDivisionsForContest } from '#src/queries/contests/find_divisions.js';
 import IndividualContestQueries from '#src/queries/contests/individual/index.js';
 import TeamContestQueries from '#src/queries/contests/team/index.js';
 import type { SmartpingContext } from '#src/smartping.js';
@@ -18,6 +19,17 @@ export default class ContestQueries {
 
 	findContests(organizationId: number, contestType: ContestType, options?: QueryOptions) {
 		return FindContests.create(this.#context).withOptions(options).run(organizationId, contestType);
+	}
+
+	findDivisionsForContest(
+		organizationId: number,
+		contestId: number,
+		contestType: ContestType,
+		options?: QueryOptions,
+	) {
+		return FindDivisionsForContest.create(this.#context)
+			.withOptions(options)
+			.run(organizationId, contestId, contestType);
 	}
 
 	get team() {

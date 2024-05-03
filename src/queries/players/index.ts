@@ -37,7 +37,9 @@ export default class PlayerQueries {
 	}
 
 	findByName(lastname: string, firstname?: string, valid = false, options?: QueryOptions) {
-		return FindPlayersByName.create(this.#context).withOptions(options).run(lastname, firstname, valid);
+		return FindPlayersByName.create(this.#context)
+			.withOptions(options)
+			.run(lastname, firstname, valid);
 	}
 
 	getGameHistory(licence: string, options?: QueryOptions) {

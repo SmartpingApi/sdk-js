@@ -17,12 +17,15 @@ const defaultHeaders = {
 	'cache-version': '8e06150efd0545adee451f9755411c6b',
 	'current-season': '24',
 	'current-season-update': '2023-07-04T10:10:49+02:00',
-	'link': '<http://apiv2.fftt.com/api/docs.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"',
+	'link':
+		'<http://apiv2.fftt.com/api/docs.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"',
 	'content-security-policy': "frame-ancestors 'self'",
 	'access-control-allow-origin': '*',
 	'access-control-allow-methods': 'GET, POST, OPTIONS, DELETE, PUT',
-	'access-control-allow-headers': 'DNT,authorization,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Cache-Version,Content-disposition,Current-Season,Current-Season-Update',
-	'access-control-expose-headers': 'Content-Length,Content-Range,Cache-Version,Content-disposition,Current-Season,Current-Season-Update',
+	'access-control-allow-headers':
+		'DNT,authorization,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Cache-Version,Content-disposition,Current-Season,Current-Season-Update',
+	'access-control-expose-headers':
+		'Content-Length,Content-Range,Cache-Version,Content-disposition,Current-Season,Current-Season-Update',
 	'x-xss-protection': '1; mode=block',
 };
 
@@ -44,9 +47,15 @@ const mockResponses = {
 
 type MockResponse = keyof typeof mockResponses;
 
-type MockResponseReplacements<MockName extends MockResponse> = Record<typeof mockResponses[MockName][number], string>;
+type MockResponseReplacements<MockName extends MockResponse> = Record<
+	typeof mockResponses[MockName][number],
+	string
+>;
 
-export function getMockResponse<Response extends MockResponse>(name: Response, replacements: MockResponseReplacements<Response>) {
+export function getMockResponse<Response extends MockResponse>(
+	name: Response,
+	replacements: MockResponseReplacements<Response>,
+) {
 	const filePath = resolve(dirname(fileURLToPath(import.meta.url)), `responses/${name}.xml`);
 	const file = readFileSync(filePath, { encoding: 'utf8' });
 

@@ -17,6 +17,7 @@ interface FetchProperties<P> {
 	normalizationModel: Newable<P>;
 	rootKey: string;
 	cache: false | CacheOptions;
+	context: SmartpingContext;
 	requestParameters?: (search: URLSearchParams) => void;
 	asArray?: boolean;
 	additionalProperties?: Record<string, unknown>;
@@ -25,10 +26,12 @@ interface FetchProperties<P> {
 interface RequestProperties {
 	endpoint: ApiEndpoint;
 	requestParameters?: (search: URLSearchParams) => void;
-	cache: false | {
-		key: string;
-		ttl?: string;
-	};
+	cache:
+		| false
+		| {
+				key: string;
+				ttl?: string;
+		  };
 }
 
 export interface QueryOptions {
@@ -55,10 +58,16 @@ export default abstract class Query {
 		return this;
 	}
 
-	protected async callAPI<T>(options: FetchProperties<T>): Promise<Array<T>>
-	protected async callAPI<T>(options: FetchProperties<T>, singleResultExpected: true): Promise<T | undefined>
-	protected async callAPI<T>(options: FetchProperties<T>, singleResultExpected?: boolean): Promise<T | Array<T> | undefined> {
-		const { normalizationModel, rootKey, additionalProperties } = options;
+	protected async callAPI<T>(options: FetchProperties<T>): Promise<Array<T>>;
+	protected async callAPI<T>(
+		options: FetchProperties<T>,
+		singleResultExpected: true,
+	): Promise<T | undefined>;
+	protected async callAPI<T>(
+		options: FetchProperties<T>,
+		singleResultExpected?: boolean,
+	): Promise<T | Array<T> | undefined> {
+		const { context, normalizationModel, rootKey, additionalProperties } = options;
 
 		try {
 			const response = await this.#makeRequest(options);
@@ -68,6 +77,7 @@ export default abstract class Query {
 			}
 
 			const deserialized = this.#serializer.deserialize<T>({
+				context,
 				response,
 				rootKey,
 				normalizationModel,
@@ -152,11 +162,7 @@ export default abstract class Query {
 				};
 			}
 
-			storage.set(
-				options.cache.key,
-				responseValue,
-				cacheOptions,
-			);
+			storage.set(options.cache.key, responseValue, cacheOptions);
 		}
 
 		return responseValue;

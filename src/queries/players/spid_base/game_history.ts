@@ -4,7 +4,7 @@ import { SmartpingSPIDGame } from '#src/models/player/spid_game.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerGameHistoryOnSpidBase extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetPlayerGameHistoryOnSpidBase extends Query {
 
 	async run(licence: string) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_PARTIE,
 			requestParameters: (search) => {
 				search.set('licence', licence);

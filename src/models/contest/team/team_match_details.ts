@@ -2,14 +2,15 @@ import type { Preloads } from '#src/models/base_model.js';
 import { BaseModel } from '#src/models/base_model.js';
 import { SmartpingTeamMatchGame } from '#src/models/contest/team/team_match_game.js';
 import { SmartpingTeamMatchTeam } from '#src/models/contest/team/team_match_team.js';
-import { getTeamsForClub, TeamTypes } from '#src/queries/clubs/get_teams.js';
+import { GetTeamsForClub } from '#src/queries/clubs/get_teams.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
 	resultat: {
 		equa: string;
 		equb: string;
-		resa: number;
-		resb: number;
+		resa: string;
+		resb: string;
 	};
 	joueur: Array<{
 		xja: string;
@@ -19,9 +20,9 @@ type NewProperties = {
 	}>;
 	partie: Array<{
 		ja: string;
-		scorea: number|'-';
+		scorea: string;
 		jb: string;
-		scoreb: number|'-';
+		scoreb: string;
 		detail: string;
 	}>;
 	extras: {
@@ -64,7 +65,7 @@ export class SmartpingTeamMatchDetails extends BaseModel {
 	/** Équipe W */
 	#teamB: SmartpingTeamMatchTeam | undefined;
 
-	constructor(properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
 		this.#teamAName = this.setOrFallback(properties.resultat.equa, '');
 		this.#teamBName = this.setOrFallback(properties.resultat.equb, '');
@@ -112,15 +113,50 @@ export class SmartpingTeamMatchDetails extends BaseModel {
 		return this.#scoreA > this.#scoreB ? this.#teamA : this.#teamB;
 	}
 
+	public serialize() {
+		return {
+			teamAName: this.#teamAName,
+			teamBName: this.#teamBName,
+			scoreA: this.#scoreA,
+			scoreB: this.#scoreB,
+		};
+	}
+
 	public async preload() {
 		const preloadFunctions: Preloads<RelationName> = {
 			teams: async () => {
-				const clubATeams = await getTeamsForClub(this.#extras.clubACode, TeamTypes.None);
-				const clubBTeams = await getTeamsForClub(this.#extras.clubBCode, TeamTypes.None);
+				const clubATeams = await GetTeamsForClub.create(this.context).run(
+					this.#extras.clubACode,
+					'none',
+				);
+				const clubBTeams = await GetTeamsForClub.create(this.context).run(
+					this.#extras.clubBCode,
+					'none',
+				);
 				const teamA = clubATeams.find((team) => team.id === this.#extras.teamAId);
 				const teamB = clubBTeams.find((team) => team.id === this.#extras.teamBId);
-				this.#teamA = teamA ? new SmartpingTeamMatchTeam({ team: teamA, clubCode: this.#extras.clubACode, players: this.#players, letter: 'A' }) : undefined;
-				this.#teamB = teamB ? new SmartpingTeamMatchTeam({ team: teamB, clubCode: this.#extras.clubBCode, players: this.#players, letter: 'B' }) : undefined;
+				this.#teamA = teamA
+					? new SmartpingTeamMatchTeam(
+							{
+								team: teamA,
+								clubCode: this.#extras.clubACode,
+								players: this.#players,
+								letter: 'A',
+							},
+							this.context,
+					  )
+					: undefined;
+				this.#teamB = teamB
+					? new SmartpingTeamMatchTeam(
+							{
+								team: teamB,
+								clubCode: this.#extras.clubBCode,
+								players: this.#players,
+								letter: 'B',
+							},
+							this.context,
+					  )
+					: undefined;
 			},
 		};
 

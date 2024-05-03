@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 
-import { createDate, dateFormats, stringifyDate } from '#src/helpers/datetime_helpers.js';
+import { dateFactory, stringifyDate } from '#src/helpers/datetime_helpers.js';
 import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
@@ -21,7 +21,7 @@ type NewProperties = {
 	latitude: string | undefined;
 	longitude: string | undefined;
 	validation: string | undefined;
-}
+};
 
 export class SmartpingClubDetail extends BaseModel {
 	/** ID interne pour la Fédération */
@@ -77,7 +77,6 @@ export class SmartpingClubDetail extends BaseModel {
 
 	constructor(properties: NewProperties) {
 		super();
-		console.log({ name: properties.nom, date: properties.validation })
 		this.#id = this.setOrFallback(properties.idclub, '');
 		this.#code = this.setOrFallback(properties.numero, '');
 		this.#name = this.setOrFallback(properties.nom, '');
@@ -94,10 +93,7 @@ export class SmartpingClubDetail extends BaseModel {
 		this.#contactPhone = this.setOrFallback(properties.telcor, undefined);
 		this.#latitude = this.setOrFallback(properties.latitude, undefined);
 		this.#longitude = this.setOrFallback(properties.longitude, undefined);
-		this.#validatedAt = this.setOrFallback(properties.validation, undefined, (value) => {
-			const date = createDate(value, dateFormats.DATE);
-			return date.isValid ? date : undefined;
-		});
+		this.#validatedAt = this.setOrFallback(properties.validation, undefined, dateFactory());
 	}
 
 	public get id() {

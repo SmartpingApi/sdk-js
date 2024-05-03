@@ -4,7 +4,7 @@ import { SmartpingPlayerDetails } from '#src/models/player/player_details.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerDetails extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetPlayerDetails extends Query {
 
 	async run(licence: string) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_LICENCE_B,
 			requestParameters: (search) => {
 				search.set('licence', licence);

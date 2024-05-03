@@ -1,9 +1,9 @@
 import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
-	iddivision: number;
+	iddivision: string;
 	libelle: string;
-}
+};
 
 export class SmartpingIndividualDivision extends BaseModel {
 	/** ID interne pour la Fédération */
@@ -12,9 +12,9 @@ export class SmartpingIndividualDivision extends BaseModel {
 	/** Nom */
 	readonly #name: string;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
-		this.#id = this.setOrFallback(properties.iddivision, 0);
+		this.#id = this.setOrFallback(properties.iddivision, 0, Number);
 		this.#name = this.setOrFallback(properties.libelle, '');
 	}
 

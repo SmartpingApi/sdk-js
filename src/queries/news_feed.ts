@@ -4,7 +4,7 @@ import { SmartpingNews } from '#src/models/common/news.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetFederationNewsFeed extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetFederationNewsFeed extends Query {
 
 	async run() {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_NEW_ACTU,
 			normalizationModel: SmartpingNews,
 			rootKey: 'news',

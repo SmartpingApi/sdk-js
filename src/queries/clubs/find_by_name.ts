@@ -4,7 +4,7 @@ import { SmartpingClub } from '#src/models/club/club.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class FindClubsByName extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class FindClubsByName extends Query {
 
 	async run(name: string) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_CLUB_B,
 			requestParameters: (search) => {
 				search.set('ville', name);
@@ -22,7 +23,7 @@ export class FindClubsByName extends Query {
 			rootKey: 'club',
 			cache: {
 				key: `club:name:${encodeURIComponent(name)}`,
-				ttl: '1w'
+				ttl: '1w',
 			},
 		});
 	}

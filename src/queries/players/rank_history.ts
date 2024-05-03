@@ -4,7 +4,7 @@ import { SmartpingPlayerRankHistory } from '#src/models/player/player_rank_histo
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerRankHistory extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetPlayerRankHistory extends Query {
 
 	async run(licence: string) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_HISTO_CLASSEMENT,
 			requestParameters: (search) => {
 				search.set('numlic', licence);

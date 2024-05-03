@@ -1,10 +1,10 @@
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
 import { CONTEST_TYPES } from '#src/models/contest/contest.js';
-import { SmartpingTeamDivision } from '#src/models/contest/team/team_division.js';
+import { SmartpingIndividualDivision } from '#src/models/contest/individual/individual_division.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
-export class FindDivisionsForTeamContest extends Query {
+export class FindDivisionsForIndividualContest extends Query {
 	constructor(private context: SmartpingContext) {
 		super(context);
 	}
@@ -20,12 +20,12 @@ export class FindDivisionsForTeamContest extends Query {
 			requestParameters: (search) => {
 				search.set('organisme', organizationId.toString());
 				search.set('epreuve', contestId.toString());
-				search.set('type', CONTEST_TYPES.team);
+				search.set('type', CONTEST_TYPES.individual);
 			},
-			normalizationModel: SmartpingTeamDivision,
+			normalizationModel: SmartpingIndividualDivision,
 			rootKey: 'division',
 			cache: {
-				key: `contests:divisions:team:${organizationId}:${contestId}`,
+				key: `contests:divisions:indiv:${organizationId}:${contestId}`,
 				ttl: '1d',
 			},
 		});

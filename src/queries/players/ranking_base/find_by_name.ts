@@ -4,7 +4,7 @@ import { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class FindPlayersByNameOnRankingBase extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -16,6 +16,7 @@ export class FindPlayersByNameOnRankingBase extends Query {
 		const cacheId = encodeURIComponent(`${lastname}${firstname ?? ''}`);
 
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_LISTE_JOUEUR,
 			normalizationModel: SmartpingRankedPlayer,
 			rootKey: 'joueur',

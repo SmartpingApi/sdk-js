@@ -4,7 +4,7 @@ import { SmartpingRankedGame } from '#src/models/player/ranked_game.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerGameHistoryOnRankingBase extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetPlayerGameHistoryOnRankingBase extends Query {
 
 	async run(licence: string) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_PARTIE_MYSQL,
 			requestParameters: (search) => {
 				search.set('licence', licence);

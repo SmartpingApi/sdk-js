@@ -1,23 +1,23 @@
 import type { Preloads } from '#src/models/base_model.js';
 import { BaseModel } from '#src/models/base_model.js';
 import type { SmartpingContest } from '#src/models/contest/contest.js';
-import { CONTEST_TYPES } from '#src/models/contest/contest.js';
 import type { SmartpingTeamDivision } from '#src/models/contest/team/team_division.js';
 import type { SmartpingTeamPool } from '#src/models/contest/team/team_pool.js';
 import type { SmartpingTeamPoolTeam } from '#src/models/contest/team/team_pool_team.js';
-import { findContests } from '#src/queries/contests/find_contests.js';
-import { findDivisionsForTeamContest } from '#src/queries/contests/team/get_divisions.js';
-import { getPoolRanking } from '#src/queries/contests/team/get_pool_ranking.js';
-import { getPoolsForDivision } from '#src/queries/contests/team/get_pools.js';
+import { FindContests } from '#src/queries/contests/find_contests.js';
+import { FindDivisionsForTeamContest } from '#src/queries/contests/team/get_divisions.js';
+import { GetPoolRanking } from '#src/queries/contests/team/get_pool_ranking.js';
+import { GetPoolsForDivision } from '#src/queries/contests/team/get_pools.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
-	idequipe: number;
+	idequipe: string;
 	libequipe: string;
-	idepr: number;
+	idepr: string;
 	libepr: string;
 	libdivision: string;
 	liendivision: string;
-}
+};
 
 type RelationName = 'contest' | 'division' | 'pool' | 'ranking';
 
@@ -61,12 +61,12 @@ export class SmartpingClubTeam extends BaseModel {
 	/** Classement de l'équipe dans la poule */
 	#poolRank: SmartpingTeamPoolTeam | undefined;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
 
-		this.#id = this.setOrFallback(properties.idequipe, 0);
+		this.#id = this.setOrFallback(properties.idequipe, 0, Number);
 		this.#name = this.setOrFallback(properties.libequipe, '');
-		this.#contestId = this.setOrFallback(properties.idepr, 0);
+		this.#contestId = this.setOrFallback(properties.idepr, 0, Number);
 		this.#contestName = this.setOrFallback(properties.libepr, '');
 		this.#divisionName = this.setOrFallback(properties.libdivision, '');
 
@@ -154,26 +154,37 @@ export class SmartpingClubTeam extends BaseModel {
 		};
 	}
 
-	async preload(relations: RelationName[]|'*') {
+	async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			contest: async () => {
 				if (this.#organizerId === undefined) return;
-				const contests = await findContests(this.#organizerId, CONTEST_TYPES.TEAM);
+				const contests = await FindContests.create(this.context).run(this.#organizerId, 'team');
 				this.#contest = contests.find((contest) => contest.id === this.#contestId);
 			},
 			division: async () => {
 				if (this.#organizerId === undefined) return;
-				const divisions = await findDivisionsForTeamContest(this.#organizerId, this.#contestId);
+				const divisions = await FindDivisionsForTeamContest.create(this.context).run(
+					this.#organizerId,
+					this.#contestId,
+				);
 				this.#division = divisions.find((division) => division.id === this.#divisionId);
 			},
 			pool: async () => {
-				if (this.#organizerId === undefined || this.#divisionId === undefined || this.#poolId === undefined) return;
-				const pools = await getPoolsForDivision(this.#divisionId);
+				if (
+					this.#organizerId === undefined ||
+					this.#divisionId === undefined ||
+					this.#poolId === undefined
+				)
+					return;
+				const pools = await GetPoolsForDivision.create(this.context).run(this.#divisionId);
 				this.#pool = pools.find((pool) => pool.id === this.#poolId);
 			},
 			ranking: async () => {
 				if (this.#divisionId === undefined || this.#poolId === undefined) return;
-				const rankings = await getPoolRanking(this.#divisionId, this.#poolId);
+				const rankings = await GetPoolRanking.create(this.context).run(
+					this.#divisionId,
+					this.#poolId,
+				);
 				this.#poolRank = rankings.find((ranking) => ranking.teamName === this.#name);
 			},
 		};

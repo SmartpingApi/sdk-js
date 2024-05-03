@@ -1,10 +1,10 @@
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
-import { CONTEST_TYPES } from '#src/models/contest/contest.js';
-import { SmartpingTeamDivision } from '#src/models/contest/team/team_division.js';
+import { CONTEST_TYPES, type ContestType } from '#src/models/contest/contest.js';
+import { SmartpingDivision } from '#src/models/contest/division.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
-export class FindDivisionsForTeamContest extends Query {
+export class FindDivisionsForContest extends Query {
 	constructor(private context: SmartpingContext) {
 		super(context);
 	}
@@ -13,19 +13,19 @@ export class FindDivisionsForTeamContest extends Query {
 		return new this(context);
 	}
 
-	async run(organizationId: number, contestId: number) {
+	async run(organizationId: number, contestId: number, contestType: ContestType) {
 		return this.callAPI({
 			context: this.context,
 			endpoint: ApiEndpoints.XML_DIVISION,
 			requestParameters: (search) => {
 				search.set('organisme', organizationId.toString());
 				search.set('epreuve', contestId.toString());
-				search.set('type', CONTEST_TYPES.team);
+				search.set('type', CONTEST_TYPES[contestType]);
 			},
-			normalizationModel: SmartpingTeamDivision,
+			normalizationModel: SmartpingDivision,
 			rootKey: 'division',
 			cache: {
-				key: `contests:divisions:team:${organizationId}:${contestId}`,
+				key: `contests:divisions:${organizationId}:${contestId}`,
 				ttl: '1d',
 			},
 		});

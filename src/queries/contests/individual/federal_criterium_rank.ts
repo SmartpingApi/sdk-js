@@ -4,7 +4,7 @@ import { SmartpingFederalCriteriumRank } from '#src/models/contest/individual/fe
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetFederalCriteriumRankForDivision extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetFederalCriteriumRankForDivision extends Query {
 
 	async run(divisionId: number) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_RES_CLA,
 			requestParameters: (search) => {
 				search.set('res_division', divisionId.toString());

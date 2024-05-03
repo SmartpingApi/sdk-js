@@ -6,12 +6,12 @@ type NewProperties = {
 	prenom: string;
 	club: string;
 	nclub: string;
-	clast: number;
+	clast: string;
 	sexe: string;
 	echelon: string;
-	place: number;
-	points: number;
-}
+	place: string;
+	points: string;
+};
 
 export class SmartpingSPIDPlayer extends BaseModel {
 	/** Numéro de licence */
@@ -44,7 +44,7 @@ export class SmartpingSPIDPlayer extends BaseModel {
 	/** Points officiels */
 	readonly #points: number;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
 		this.#licence = this.setOrFallback(properties.licence, '');
 		this.#lastname = this.setOrFallback(properties.nom, '');
@@ -100,5 +100,20 @@ export class SmartpingSPIDPlayer extends BaseModel {
 
 	public get fullName() {
 		return `${this.firstname} ${this.lastname.toLocaleUpperCase('fr-FR')}`;
+	}
+
+	public serialize() {
+		return {
+			licence: this.#licence,
+			nom: this.#lastname,
+			prenom: this.#firstname,
+			club: this.#clubName,
+			nclub: this.#clubCode,
+			clast: this.#pointsRank,
+			sexe: this.#gender,
+			echelon: this.#level,
+			place: this.#place,
+			points: this.#points,
+		};
 	}
 }

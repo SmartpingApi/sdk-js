@@ -11,7 +11,7 @@ export const oneHour = 1000 * 60 * 60;
 export type CacheValue = {
 	url: string;
 	payload: ArrayBuffer;
-}
+};
 
 export const storage = new LRUCache<string, CacheValue>({
 	max: 1000,

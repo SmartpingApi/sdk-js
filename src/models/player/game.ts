@@ -48,7 +48,7 @@ export class SmartpingGame extends BaseModel {
 	/** Forfait */
 	readonly #isForfeit: boolean | undefined;
 
-	constructor (rankedGame?: SmartpingRankedGame, SPIDGame?: SmartpingSPIDGame) {
+	constructor(rankedGame?: SmartpingRankedGame, SPIDGame?: SmartpingSPIDGame) {
 		super();
 
 		this.#date = createDate();
@@ -135,5 +135,24 @@ export class SmartpingGame extends BaseModel {
 
 	public get isForfeit() {
 		return this.#isForfeit;
+	}
+
+	public serialize() {
+		return {
+			id: this.#id,
+			licence: this.#licence,
+			opponentLicence: this.#opponentLicence,
+			isVictory: this.#isVictory,
+			roundIndex: this.#roundIndex,
+			contestId: this.#contestId,
+			date: this.#date.toISO(),
+			opponentGender: this.#opponentGender,
+			opponentName: this.#opponentName,
+			pointsEarned: this.#pointsEarned,
+			contestCoefficient: this.#contestCoefficient,
+			opponentPointsRank: this.#opponentPointsRank,
+			contestName: this.#contestName,
+			isForfeit: this.#isForfeit,
+		};
 	}
 }

@@ -21,10 +21,14 @@ export default class PlayerRankingBaseQueries {
 	}
 
 	findByName(lastname: string, firstname?: string, options?: QueryOptions) {
-		return FindPlayersByNameOnRankingBase.create(this.#context).withOptions(options).run(lastname, firstname);
+		return FindPlayersByNameOnRankingBase.create(this.#context)
+			.withOptions(options)
+			.run(lastname, firstname);
 	}
 
 	getGameHistory(licence: string, options?: QueryOptions) {
-		return GetPlayerGameHistoryOnRankingBase.create(this.#context).withOptions(options).run(licence);
+		return GetPlayerGameHistoryOnRankingBase.create(this.#context)
+			.withOptions(options)
+			.run(licence);
 	}
 }

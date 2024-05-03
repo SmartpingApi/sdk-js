@@ -33,7 +33,7 @@ export class Smartping {
 	readonly #players: PlayerQueries;
 	readonly #contests: ContestQueries;
 
-	constructor (options: SmartpingOptions) {
+	constructor(options: SmartpingOptions) {
 		this.#context = {
 			credentials: options.credentials,
 			errorReporter: options.errorReporter ?? new VoidReporter(),

@@ -5,7 +5,7 @@ import { SmartpingSPIDPlayer } from '#src/models/player/spid_player.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class FindPlayersByClubOnSpidBase extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -15,6 +15,7 @@ export class FindPlayersByClubOnSpidBase extends Query {
 
 	async run(clubCode: string, valid = false) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_LISTE_JOUEUR_O,
 			requestParameters: (search) => {
 				search.set('club', clubCode);

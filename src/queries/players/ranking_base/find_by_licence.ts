@@ -4,7 +4,7 @@ import { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerOnRankingBase extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -13,17 +13,21 @@ export class GetPlayerOnRankingBase extends Query {
 	}
 
 	async run(licence: string) {
-		return this.callAPI({
-			endpoint: ApiEndpoints.XML_JOUEUR,
-			requestParameters: (search) => {
-				search.set('licence', licence);
+		return this.callAPI(
+			{
+				context: this.context,
+				endpoint: ApiEndpoints.XML_JOUEUR,
+				requestParameters: (search) => {
+					search.set('licence', licence);
+				},
+				normalizationModel: SmartpingRankedPlayer,
+				rootKey: 'joueur',
+				cache: {
+					key: `players:ranking:${licence}`,
+					ttl: '1d',
+				},
 			},
-			normalizationModel: SmartpingRankedPlayer,
-			rootKey: 'joueur',
-			cache: {
-				key: `players:ranking:${licence}`,
-				ttl: '1d',
-			},
-		}, true);
+			true,
+		);
 	}
 }

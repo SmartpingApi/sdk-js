@@ -1,7 +1,9 @@
+import { computePoints, computeScore } from '#src/helpers/utils.js';
 import type { Preloads } from '#src/models/base_model.js';
 import { BaseModel } from '#src/models/base_model.js';
 import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
-import { getClub } from '#src/queries/clubs/find_by_code.js';
+import { GetClub } from '#src/queries/clubs/get_club.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
 	rang: string;
@@ -12,8 +14,6 @@ type NewProperties = {
 };
 
 type RelationName = 'club';
-
-const alphabet = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
 
 export class SmartpingFederalCriteriumRank extends BaseModel {
 	/** Rang */
@@ -40,13 +40,13 @@ export class SmartpingFederalCriteriumRank extends BaseModel {
 	/** Détails du club */
 	#club: SmartpingClubDetail | undefined;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties, private context: SmartpingContext) {
 		super();
 		this.#rank = this.setOrFallback(properties.rang, 0, Number);
 		this.#name = this.setOrFallback(properties.nom, '');
-		this.#points = this.#computePoints(properties.points);
+		[this.#points, this.#nationalRank] = computePoints(properties.points);
 		this.#clubCode = this.setOrFallback(properties.club, '');
-		this.#rankScore = this.#computeScore(properties.clt);
+		this.#rankScore = computeScore(properties.clt);
 	}
 
 	public get rank() {
@@ -77,50 +77,22 @@ export class SmartpingFederalCriteriumRank extends BaseModel {
 		return this.#nationalRank;
 	}
 
-	#computePoints(points: string | undefined) {
-		if (points === undefined) {
-			return 0;
-		}
-
-		if (points.startsWith('N')) {
-			const [nationalRank, officialPoints] = points.split(' - ');
-			this.#nationalRank = nationalRank ? Number(nationalRank.slice(2)) : undefined;
-			this.#points = officialPoints ? Number(officialPoints) : 0;
-		}
-
-		return Number(points);
+	public serialize() {
+		return {
+			rank: this.#rank,
+			name: this.#name,
+			points: this.#points,
+			clubCode: this.#clubCode,
+			rankScore: this.#rankScore,
+			nationalRank: this.#nationalRank,
+		};
 	}
 
-	#computeScore(score: string | undefined) {
-		const detail: Record<string, number> = {};
-
-		if (score === undefined) {
-			return detail;
-		}
-
-		let originalScore = score;
-
-		for (const letter of alphabet) {
-			const charIndex = originalScore.indexOf(letter);
-			// eslint-disable-next-line unicorn/prefer-string-slice
-			const letterScore = originalScore.substring(0, charIndex);
-
-			if (letterScore === '') {
-				continue;
-			}
-
-			detail[letter] = Number(letterScore);
-			originalScore = originalScore.slice(charIndex + 1);
-		}
-
-		return detail;
-	}
-
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			club: async () => {
-				this.#club = await getClub(this.#clubCode);
-			}
+				this.#club = await GetClub.create(this.context).run(this.#clubCode);
+			},
 		};
 
 		await this.preloadRelations(relations, preloadFunctions);

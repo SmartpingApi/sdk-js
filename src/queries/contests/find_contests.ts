@@ -4,7 +4,7 @@ import { CONTEST_TYPES, type ContestType, SmartpingContest } from '#src/models/c
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class FindContests extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class FindContests extends Query {
 
 	async run(organizationId: number, contestType: ContestType) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_EPREUVE,
 			requestParameters: (search) => {
 				search.set('organisme', organizationId.toString());

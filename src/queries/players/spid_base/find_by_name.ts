@@ -5,7 +5,7 @@ import { SmartpingSPIDPlayer } from '#src/models/player/spid_player.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class FindPlayersByNameOnSpidBase extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -17,6 +17,7 @@ export class FindPlayersByNameOnSpidBase extends Query {
 		const cacheId = encodeURIComponent(`${lastname}${firstname ?? ''}`);
 
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_LISTE_JOUEUR_O,
 			requestParameters: (search) => {
 				search.set('valid', valid ? '1' : '0');

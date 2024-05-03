@@ -13,7 +13,9 @@ export default class PlayerSpidBaseQueries {
 	}
 
 	findByClub(clubCode: string, valid = false, options?: QueryOptions) {
-		return FindPlayersByClubOnSpidBase.create(this.#context).withOptions(options).run(clubCode, valid);
+		return FindPlayersByClubOnSpidBase.create(this.#context)
+			.withOptions(options)
+			.run(clubCode, valid);
 	}
 
 	getPlayer(licence: string, options?: QueryOptions) {
@@ -21,7 +23,9 @@ export default class PlayerSpidBaseQueries {
 	}
 
 	findByName(lastname: string, firstname?: string, valid = false, options?: QueryOptions) {
-		return FindPlayersByNameOnSpidBase.create(this.#context).withOptions(options).run(lastname, firstname, valid);
+		return FindPlayersByNameOnSpidBase.create(this.#context)
+			.withOptions(options)
+			.run(lastname, firstname, valid);
 	}
 
 	getGameHistory(licence: string, options?: QueryOptions) {

@@ -4,7 +4,7 @@ import { SmartpingTeamPoolTeam } from '#src/models/contest/team/team_pool_team.j
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPoolRanking extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -14,6 +14,7 @@ export class GetPoolRanking extends Query {
 
 	async run(divisionId: number, poolId?: number) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_RESULT_EQU,
 			requestParameters: (search) => {
 				search.append('action', 'classement');

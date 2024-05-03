@@ -1,7 +1,6 @@
 import type { QueryOptions } from '#src/helpers/query.js';
-import type { ContestType } from '#src/models/contest/contest.js';
 import type { TeamMatchLinkParameters } from '#src/models/contest/team/team_match.js';
-import { FindDivisionsForContest } from '#src/queries/contests/team/get_divisions.js';
+import { FindDivisionsForTeamContest } from '#src/queries/contests/team/get_divisions.js';
 import { GetMatch } from '#src/queries/contests/team/get_match.js';
 import { GetPoolInitialOrder } from '#src/queries/contests/team/get_pool_initial_order.js';
 import { GetMatchesForPool } from '#src/queries/contests/team/get_pool_matches.js';
@@ -16,8 +15,10 @@ export default class TeamContestQueries {
 		this.#context = context;
 	}
 
-	getDivisions(organizationId: number, contestId: number, contestType: ContestType, options?: QueryOptions) {
-		return FindDivisionsForContest.create(this.#context).withOptions(options).run(organizationId, contestId, contestType);
+	getDivisions(organizationId: number, contestId: number, options?: QueryOptions) {
+		return FindDivisionsForTeamContest.create(this.#context)
+			.withOptions(options)
+			.run(organizationId, contestId);
 	}
 
 	getMatch(matchId: number, extraParameters: TeamMatchLinkParameters, options?: QueryOptions) {

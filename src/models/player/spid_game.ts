@@ -1,16 +1,20 @@
 import type { DateTime } from 'luxon';
 
-import { createDate } from '#src/helpers/datetime_helpers.js';
+import {
+	createDate,
+	nonNullableDateFactory,
+	stringifyDate,
+} from '#src/helpers/datetime_helpers.js';
 import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	nom: string;
-	classement: number;
+	classement: string;
 	epreuve: string;
-	victoire: number;
-	forfait: number;
+	victoire: string;
+	forfait: string;
 	date: string;
-}
+};
 
 export class SmartpingSPIDGame extends BaseModel {
 	/** Nom de l'adversaire */
@@ -31,14 +35,14 @@ export class SmartpingSPIDGame extends BaseModel {
 	/** Date de la partie */
 	readonly #date: DateTime;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
 		this.#opponentName = this.setOrFallback(properties.nom, '');
 		this.#opponentPointsRank = this.setOrFallback(properties.classement, 0, Number);
 		this.#contestName = this.setOrFallback(properties.epreuve, '');
-		this.#isVictory = this.setOrFallback(properties.victoire, false, Boolean);
-		this.#isForfeit = this.setOrFallback(properties.forfait, false, Boolean);
-		this.#date = this.setOrFallback(properties.date, createDate(), (v) => createDate(v, 'DD/MM/YYYY'));
+		this.#isVictory = this.setOrFallback(properties.victoire, false, (value) => value === 'V');
+		this.#isForfeit = this.setOrFallback(properties.forfait, false, (value) => value === '1');
+		this.#date = this.setOrFallback(properties.date, createDate(), nonNullableDateFactory());
 	}
 
 	public get opponentName() {
@@ -63,5 +67,16 @@ export class SmartpingSPIDGame extends BaseModel {
 
 	public get date() {
 		return this.#date;
+	}
+
+	public serialize() {
+		return {
+			opponentName: this.opponentName,
+			opponentPointsRank: this.opponentPointsRank,
+			contestName: this.contestName,
+			isVictory: this.isVictory,
+			isForfeit: this.isForfeit,
+			date: stringifyDate(this.date),
+		};
 	}
 }

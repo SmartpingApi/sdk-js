@@ -13,7 +13,7 @@ export const OrganizationTypes = {
 export type OrganizationType = keyof typeof OrganizationTypes;
 
 export class FindOrganizationsByType extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -23,6 +23,7 @@ export class FindOrganizationsByType extends Query {
 
 	async run(organizationType: OrganizationType) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_ORGANISME,
 			requestParameters: (search) => {
 				search.set('type', OrganizationTypes[organizationType]);

@@ -5,12 +5,18 @@ import type { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js'
 import type { SmartpingSPIDGame } from '#src/models/player/spid_game.js';
 import type { SmartpingSPIDPlayer } from '#src/models/player/spid_player.js';
 
-export function mergeRankedAndSPIDPlayerCollection(rankedPlayers: Array<SmartpingRankedPlayer>, SPIDPlayers: Array<SmartpingSPIDPlayer>): Array<SmartpingPlayer> {
+export function mergeRankedAndSPIDPlayerCollection(
+	rankedPlayers: Array<SmartpingRankedPlayer>,
+	SPIDPlayers: Array<SmartpingSPIDPlayer>,
+): Array<SmartpingPlayer> {
 	if (rankedPlayers.length === 0 && SPIDPlayers.length === 0) {
 		return [];
 	}
 
-	const dictionary = new Map<string, { ranked?: SmartpingRankedPlayer, spid?: SmartpingSPIDPlayer }>();
+	const dictionary = new Map<
+		string,
+		{ ranked?: SmartpingRankedPlayer; spid?: SmartpingSPIDPlayer }
+	>();
 
 	for (const player of rankedPlayers) {
 		dictionary.set(player.licence, { ranked: player });
@@ -27,16 +33,19 @@ export function mergeRankedAndSPIDPlayerCollection(rankedPlayers: Array<Smartpin
 	return [...dictionary.values()].map((player) => new SmartpingPlayer(player.ranked, player.spid));
 }
 
-function createGameIdentifier(game: SmartpingRankedGame|SmartpingSPIDGame) {
+function createGameIdentifier(game: SmartpingRankedGame | SmartpingSPIDGame) {
 	return `${game.isVictory}//${game.opponentName}//${game.date.toFormat('hhmmssuu')}`;
 }
 
-export function mergeRankingAndSPIDGameHistoryCollection(rankingGames: Array<SmartpingRankedGame>, SPIDGames: Array<SmartpingSPIDGame>): Array<SmartpingGame> {
+export function mergeRankingAndSPIDGameHistoryCollection(
+	rankingGames: Array<SmartpingRankedGame>,
+	SPIDGames: Array<SmartpingSPIDGame>,
+): Array<SmartpingGame> {
 	if (rankingGames.length === 0 && SPIDGames.length === 0) {
 		return [];
 	}
 
-	const dictionary = new Map<string, { ranking?: SmartpingRankedGame, spid?: SmartpingSPIDGame }>();
+	const dictionary = new Map<string, { ranking?: SmartpingRankedGame; spid?: SmartpingSPIDGame }>();
 
 	for (const game of rankingGames) {
 		dictionary.set(createGameIdentifier(game), { ranking: game });

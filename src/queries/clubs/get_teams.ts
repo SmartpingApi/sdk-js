@@ -2,17 +2,18 @@ import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
 import { SmartpingClubTeam } from '#src/models/club/club_team.js';
 import type { SmartpingContext } from '#src/smartping.js';
-import type { ValueOf } from '#src/types/index.js';
 
 export const TeamTypes = {
-	Men: 'M',
-	Women: 'F',
-	All: 'A',
-	None: ''
+	men: 'M',
+	women: 'F',
+	all: 'A',
+	none: '',
 } as const;
 
+export type TeamType = keyof typeof TeamTypes;
+
 export class GetTeamsForClub extends Query {
-	constructor(context: SmartpingContext) {
+	constructor(private context: SmartpingContext) {
 		super(context);
 	}
 
@@ -20,18 +21,19 @@ export class GetTeamsForClub extends Query {
 		return new this(context);
 	}
 
-	async run(clubCode: string, teamType: ValueOf<typeof TeamTypes>) {
+	async run(clubCode: string, teamType: TeamType) {
 		return this.callAPI({
+			context: this.context,
 			endpoint: ApiEndpoints.XML_EQUIPE,
 			requestParameters: (search) => {
 				search.set('numclu', clubCode);
-				search.set('type', teamType);
+				search.set('type', TeamTypes[teamType]);
 			},
 			normalizationModel: SmartpingClubTeam,
 			rootKey: 'equipe',
 			cache: {
-				key: `teams:${clubCode}:${teamType}`,
-				ttl: '1w'
+				key: `teams:${clubCode}:${TeamTypes[teamType]}`,
+				ttl: '1w',
 			},
 		});
 	}

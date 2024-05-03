@@ -2,11 +2,11 @@ import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	echelon: string;
-	place: number;
-	point: number;
+	place: string;
+	point: string;
 	saison: string;
-	phase: number;
-}
+	phase: string;
+};
 
 export class SmartpingPlayerRankHistory extends BaseModel {
 	/** "N" si numéroté */
@@ -24,7 +24,7 @@ export class SmartpingPlayerRankHistory extends BaseModel {
 	/** Phase */
 	readonly #phase: number;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
 		this.#level = this.setOrFallback(properties.echelon, '');
 		this.#rank = this.setOrFallback(properties.place, 0, Number);
@@ -51,5 +51,15 @@ export class SmartpingPlayerRankHistory extends BaseModel {
 
 	public get phase() {
 		return this.#phase;
+	}
+
+	public serialize() {
+		return {
+			echelon: this.#level,
+			place: this.#rank,
+			point: this.#points,
+			saison: this.#season,
+			phase: this.#phase,
+		};
 	}
 }
