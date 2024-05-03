@@ -20,7 +20,7 @@ export const CONTEST_TYPES = {
 	INDIVIDUAL: 'I',
 } as const;
 
-export type ContestType = typeof CONTEST_TYPES;
+export type ContestType = keyof typeof CONTEST_TYPES;
 
 type RelationName = 'divisions';
 
@@ -38,7 +38,7 @@ export class SmartpingContest extends BaseModel {
 	readonly #type: ValueOf<typeof CONTEST_TYPES>;
 
 	/** Divisions associées */
-	#divisions: (SmartpingTeamDivision | SmartpingIndividualDivision)[] = [];
+	#divisions: Array<SmartpingTeamDivision | SmartpingIndividualDivision> = [];
 
 	constructor(properties: NewProperties) {
 		super();
@@ -77,7 +77,7 @@ export class SmartpingContest extends BaseModel {
 		};
 	}
 
-	public async preload(relations: RelationName[] | '*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			divisions: async () => {
 				if (this.#type === CONTEST_TYPES.TEAM) {

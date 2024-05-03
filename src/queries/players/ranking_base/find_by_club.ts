@@ -1,9 +1,9 @@
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
-import { SmartpingClub } from '#src/models/club/club.js';
+import { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
-export class FindClubsByName extends Query {
+export class FindPlayersByClubOnRankingBase extends Query {
 	constructor(context: SmartpingContext) {
 		super(context);
 	}
@@ -12,17 +12,17 @@ export class FindClubsByName extends Query {
 		return new this(context);
 	}
 
-	async run(name: string) {
+	async run(clubCode: string) {
 		return this.callAPI({
-			endpoint: ApiEndpoints.XML_CLUB_B,
+			endpoint: ApiEndpoints.XML_LISTE_JOUEUR,
 			requestParameters: (search) => {
-				search.set('ville', name);
+				search.set('club', clubCode);
 			},
-			normalizationModel: SmartpingClub,
-			rootKey: 'club',
+			normalizationModel: SmartpingRankedPlayer,
+			rootKey: 'joueur',
 			cache: {
-				key: `club:name:${encodeURIComponent(name)}`,
-				ttl: '1w'
+				key: `players:ranking:${clubCode}`,
+				ttl: '1d',
 			},
 		});
 	}

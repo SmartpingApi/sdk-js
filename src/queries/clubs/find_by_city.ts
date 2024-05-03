@@ -3,7 +3,7 @@ import Query from '#src/helpers/query.js';
 import { SmartpingClub } from '#src/models/club/club.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
-export class FindClubsByName extends Query {
+export class FindClubsByCity extends Query {
 	constructor(context: SmartpingContext) {
 		super(context);
 	}
@@ -12,17 +12,17 @@ export class FindClubsByName extends Query {
 		return new this(context);
 	}
 
-	async run(name: string) {
+	async run(city: string) {
 		return this.callAPI({
 			endpoint: ApiEndpoints.XML_CLUB_B,
 			requestParameters: (search) => {
-				search.set('ville', name);
+				search.set('ville', city);
 			},
 			normalizationModel: SmartpingClub,
 			rootKey: 'club',
 			cache: {
-				key: `club:name:${encodeURIComponent(name)}`,
-				ttl: '1w'
+				key: `club:city:${encodeURIComponent(city)}`,
+				ttl: '1w',
 			},
 		});
 	}

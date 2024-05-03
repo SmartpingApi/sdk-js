@@ -1,55 +1,24 @@
-import { ApiEndpoints } from '#src/api_endpoints';
-import { generateSha } from '#src/helpers/cache';
-import { mergeRankedAndSPIDPlayerCollection } from '#src/helpers/collections';
-import { callAPI } from '#src/helpers/request';
-import { booleanToNumber } from '#src/helpers/utils';
-import { SmartpingRankedPlayer } from '#src/models/player/ranked_player';
-import { SmartpingSPIDPlayer } from '#src/models/player/spid_player';
+import { mergeRankedAndSPIDPlayerCollection } from '#src/helpers/collections.js';
+import Query from '#src/helpers/query.js';
+import { FindPlayersByNameOnRankingBase } from '#src/queries/players/ranking_base/find_by_name.js';
+import { FindPlayersByNameOnSpidBase } from '#src/queries/players/spid_base/find_by_name.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
-export async function findPlayersByNameOnRankingBase(lastname: string, firstname?: string) {
-	const sha = generateSha(`${lastname}${firstname ?? ''}`);
+export class FindPlayersByName extends Query {
+	constructor(private context: SmartpingContext) {
+		super(context);
+	}
 
-	return callAPI({
-		endpoint: ApiEndpoints.XML_LISTE_JOUEUR,
-		normalizationModel: SmartpingRankedPlayer,
-		rootKey: 'joueur',
-		requestParameters: (search) => {
-			search.set('nom', lastname);
-			if (firstname) {
-				search.set('prenom', firstname);
-			}
-		},
-		cache: {
-			key: `players:rank:name:${sha}`,
-			ttl: '1d',
-		},
-	});
-}
+	static create(context: SmartpingContext) {
+		return new this(context);
+	}
 
-export async function findPlayersByNameOnSpidBase(lastname: string, firstname?: string, valid = false) {
-	const sha = generateSha(`${lastname}${firstname ?? ''}`);
+	async run(lastname: string, firstname?: string, valid = false) {
+		const [rankedResponse, spidResponse] = await Promise.all([
+			FindPlayersByNameOnRankingBase.create(this.context).run(lastname, firstname),
+			FindPlayersByNameOnSpidBase.create(this.context).run(lastname, firstname, valid),
+		]);
 
-	return callAPI({
-		endpoint: ApiEndpoints.XML_LISTE_JOUEUR_O,
-		requestParameters: (search) => {
-			search.set('valid', valid ? '1' : '0');
-			search.set('nom', lastname);
-			if (firstname) {
-				search.set('prenom', firstname);
-			}
-		},
-		normalizationModel: SmartpingSPIDPlayer,
-		rootKey: 'joueur',
-		cache: {
-			key: `players:spid:name:${sha}:${booleanToNumber(valid)}`,
-			ttl: '1d',
-		},
-	});
-}
-
-export async function findPlayersByName(lastname: string, firstname?: string, valid = false) {
-	const rankedResponse = await findPlayersByNameOnRankingBase(lastname, firstname);
-	const spidResponse = await findPlayersByNameOnSpidBase(lastname, firstname, valid);
-
-	return mergeRankedAndSPIDPlayerCollection(rankedResponse, spidResponse);
+		return mergeRankedAndSPIDPlayerCollection(rankedResponse, spidResponse);
+	}
 }

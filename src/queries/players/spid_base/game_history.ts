@@ -1,9 +1,9 @@
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
-import { SmartpingClub } from '#src/models/club/club.js';
+import { SmartpingSPIDGame } from '#src/models/player/spid_game.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
-export class FindClubsByName extends Query {
+export class GetPlayerGameHistoryOnSpidBase extends Query {
 	constructor(context: SmartpingContext) {
 		super(context);
 	}
@@ -12,17 +12,17 @@ export class FindClubsByName extends Query {
 		return new this(context);
 	}
 
-	async run(name: string) {
+	async run(licence: string) {
 		return this.callAPI({
-			endpoint: ApiEndpoints.XML_CLUB_B,
+			endpoint: ApiEndpoints.XML_PARTIE,
 			requestParameters: (search) => {
-				search.set('ville', name);
+				search.set('licence', licence);
 			},
-			normalizationModel: SmartpingClub,
-			rootKey: 'club',
+			normalizationModel: SmartpingSPIDGame,
+			rootKey: 'partie',
 			cache: {
-				key: `club:name:${encodeURIComponent(name)}`,
-				ttl: '1w'
+				key: `player:rank:history:spid:${licence}`,
+				ttl: '1d',
 			},
 		});
 	}
