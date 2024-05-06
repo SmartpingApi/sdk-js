@@ -1,7 +1,7 @@
 import type { QueryOptions } from '#src/helpers/query.js';
-import { FindPlayersByClub } from '#src/queries/players/find_by_club.ts';
-import { GetPlayer } from '#src/queries/players/find_by_licence.ts';
-import { FindPlayersByName } from '#src/queries/players/find_by_name.ts';
+import { FindPlayersByClub } from '#src/queries/players/find_by_club.js';
+import { GetPlayer } from '#src/queries/players/find_by_licence.js';
+import { FindPlayersByName } from '#src/queries/players/find_by_name.js';
 import { GetPlayerGameHistory } from '#src/queries/players/game_history.js';
 import { GetPlayerDetails } from '#src/queries/players/get_player_details.js';
 import { GetPlayerRankHistory } from '#src/queries/players/rank_history.js';

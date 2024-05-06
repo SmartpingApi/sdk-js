@@ -1,7 +1,7 @@
-import { ApiEndpoints } from '#src/api_endpoints';
-import Query from '#src/helpers/query.ts';
-import { SmartpingIndividualContestGame } from '#src/models/contest/individual/individual_contest_game';
-import type { SmartpingContext } from '#src/smartping.ts';
+import { ApiEndpoints } from '#src/api_endpoints.js';
+import Query from '#src/helpers/query.js';
+import { SmartpingIndividualContestGame } from '#src/models/contest/individual/individual_contest_game.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetIndividualContestGames extends Query {
 	constructor(private context: SmartpingContext) {
