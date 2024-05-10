@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<partie>
+		<libelle>Finale</libelle>
+		<vain>PIETROPAOLI Julien</vain>
+		<perd>BLANQUART Jerome</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/2 finale</libelle>
+		<vain>BLANQUART Jerome</vain>
+		<perd>HARLE Christophe</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/2 finale</libelle>
+		<vain>PIETROPAOLI Julien</vain>
+		<perd>BAUDRILLARD David</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/4 de finale</libelle>
+		<vain>BLANQUART Jerome</vain>
+		<perd>AGATHE Cedric</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/4 de finale</libelle>
+		<vain>HARLE Christophe</vain>
+		<perd>BROCHARD Stephane</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/4 de finale</libelle>
+		<vain>BAUDRILLARD David</vain>
+		<perd>FALEK Hazedine</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/4 de finale</libelle>
+		<vain>PIETROPAOLI Julien</vain>
+		<perd>LONCKE Jerome</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>PIETROPAOLI Julien</vain>
+		<perd>PELMARD Philippe</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>BLANQUART Jerome</vain>
+		<perd>AMARAL Daniel</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>AGATHE Cedric</vain>
+		<perd>HEROLD Matthias</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>BROCHARD Stephane</vain>
+		<perd>RAYNAL Christophe</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>HARLE Christophe</vain>
+		<perd>POTHAIN Bruce</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>FALEK Hazedine</vain>
+		<perd>LE PENVEN Marc</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>BAUDRILLARD David</vain>
+		<perd>SELLIER Arnaud</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/8 de finale</libelle>
+		<vain>LONCKE Jerome</vain>
+		<perd>RICHARD Franck</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>PIETROPAOLI Julien</vain>
+		<perd>ANSOLA ALLEMANY Baptiste</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>PELMARD Philippe</vain>
+		<perd>CERNEA Doru Nicolae</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>AMARAL Daniel</vain>
+		<perd>CABALLERO Arnaud</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>HEROLD Matthias</vain>
+		<perd>PROUVAT Fabien</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>AGATHE Cedric</vain>
+		<perd>FLAGEUL Alexandre</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>BROCHARD Stephane</vain>
+		<perd>KACI David</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>RAYNAL Christophe</vain>
+		<perd>LIMOUSIN Laurent</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>HARLE Christophe</vain>
+		<perd>DUTILLOY Christophe</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>POTHAIN Bruce</vain>
+		<perd>QUAIN Stephane</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>LE PENVEN Marc</vain>
+		<perd>IMBERTY Matthieu</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>FALEK Hazedine</vain>
+		<perd>DIOP Ousmane</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>BAUDRILLARD David</vain>
+		<perd>BAERT Romain</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>SELLIER Arnaud</vain>
+		<perd>AUGER Arnaud</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>LONCKE Jerome</vain>
+		<perd>GREZ Cedric</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>RICHARD Franck</vain>
+		<perd>MORIEUX Alexandre</perd>
+		<forfait/>
+	</partie>
+	<partie>
+		<libelle>1/16 de finale</libelle>
+		<vain>BLANQUART Jerome</vain>
+		<perd>PAYSAL Frederic</perd>
+		<forfait/>
+	</partie>
+</liste>

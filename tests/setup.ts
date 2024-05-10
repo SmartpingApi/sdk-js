@@ -15,6 +15,11 @@ export const smartping = createSmartpingInstance({
 	errorReporter: new ConsoleReporter(),
 });
 
+export const smartpingWithBadCredentials = createSmartpingInstance({
+	credentials: new Credentials('bad_credential', 'bad_credential'),
+	errorReporter: new ConsoleReporter(),
+});
+
 beforeAll(() => mockServer.listen({ onUnhandledRequest: 'error' }));
 
 beforeEach(() => {

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<organisme>
+		<libelle>AUVERGNE-RHONE ALPES</libelle>
+		<id>9</id>
+		<code>L01</code>
+		<idPere>5</idPere>
+	</organisme>
+	<organisme>
+		<libelle>BOURGOGNE FRANCHE-COMTE</libelle>
+		<id>10</id>
+		<code>L02</code>
+		<idPere>4</idPere>
+	</organisme>
+	<organisme>
+		<libelle>BRETAGNE</libelle>
+		<id>11</id>
+		<code>L03</code>
+		<idPere>7</idPere>
+	</organisme>
+	<organisme>
+		<libelle>CENTRE-VAL DE LOIRE</libelle>
+		<id>12</id>
+		<code>L04</code>
+		<idPere>8</idPere>
+	</organisme>
+	<organisme>
+		<libelle>CORSE</libelle>
+		<id>13</id>
+		<code>L05</code>
+		<idPere>5</idPere>
+	</organisme>
+	<organisme>
+		<libelle>GRAND-EST</libelle>
+		<id>14</id>
+		<code>L06</code>
+		<idPere>4</idPere>
+	</organisme>
+	<organisme>
+		<libelle>HAUTS DE FRANCE</libelle>
+		<id>15</id>
+		<code>L07</code>
+		<idPere>3</idPere>
+	</organisme>
+	<organisme>
+		<libelle>ILE DE FRANCE</libelle>
+		<id>16</id>
+		<code>L08</code>
+		<idPere>8</idPere>
+	</organisme>
+	<organisme>
+		<libelle>NORMANDIE</libelle>
+		<id>17</id>
+		<code>L09</code>
+		<idPere>3</idPere>
+	</organisme>
+	<organisme>
+		<libelle>NOUVELLE-AQUITAINE</libelle>
+		<id>18</id>
+		<code>L10</code>
+		<idPere>6</idPere>
+	</organisme>
+	<organisme>
+		<libelle>OCCITANIE</libelle>
+		<id>19</id>
+		<code>L11</code>
+		<idPere>6</idPere>
+	</organisme>
+	<organisme>
+		<libelle>PAYS DE LA LOIRE</libelle>
+		<id>20</id>
+		<code>L12</code>
+		<idPere>7</idPere>
+	</organisme>
+	<organisme>
+		<libelle>PROVENCE ALPES COTE D'AZUR</libelle>
+		<id>21</id>
+		<code>L13</code>
+		<idPere>5</idPere>
+	</organisme>
+	<organisme>
+		<libelle>GUYANE.L</libelle>
+		<id>22</id>
+		<code>L30</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>REUNION.L</libelle>
+		<id>23</id>
+		<code>L31</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>NOUVELLE CALEDONIE</libelle>
+		<id>24</id>
+		<code>L32</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>GUADELOUPE.L</libelle>
+		<id>25</id>
+		<code>L33</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>LIGUE MARTINIQUE</libelle>
+		<id>26</id>
+		<code>L34</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>MAYOTTE.L</libelle>
+		<id>27</id>
+		<code>L36</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>TAHITI</libelle>
+		<id>28</id>
+		<code>L37</code>
+		<idPere>2</idPere>
+	</organisme>
+	<organisme>
+		<libelle>WALLIS ET FUTUNA L</libelle>
+		<id>29</id>
+		<code>L38</code>
+		<idPere>2</idPere>
+	</organisme>
+</liste>

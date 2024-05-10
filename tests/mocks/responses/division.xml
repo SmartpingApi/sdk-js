@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<division>
+		<iddivision>18599</iddivision>
+		<libelle>Juniors G (M)</libelle>
+	</division>
+	<division>
+		<iddivision>18600</iddivision>
+		<libelle>Seniors D (F)</libelle>
+	</division>
+	<division>
+		<iddivision>19020</iddivision>
+		<libelle>Benjamins G (M)</libelle>
+	</division>
+	<division>
+		<iddivision>19021</iddivision>
+		<libelle>Benjamines (F)</libelle>
+	</division>
+	<division>
+		<iddivision>19022</iddivision>
+		<libelle>Minimes G (M)</libelle>
+	</division>
+	<division>
+		<iddivision>19023</iddivision>
+		<libelle>Minimes F (F)</libelle>
+	</division>
+	<division>
+		<iddivision>19024</iddivision>
+		<libelle>Cadets (M)</libelle>
+	</division>
+	<division>
+		<iddivision>19025</iddivision>
+		<libelle>Cadettes (F)</libelle>
+	</division>
+	<division>
+		<iddivision>19026</iddivision>
+		<libelle>Juniors F (F)</libelle>
+	</division>
+	<division>
+		<iddivision>19027</iddivision>
+		<libelle>Seniors M (M)</libelle>
+	</division>
+	<division>
+		<iddivision>21810</iddivision>
+		<libelle>gaia1 (M)</libelle>
+	</division>
+</liste>

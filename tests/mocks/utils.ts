@@ -19,7 +19,7 @@ const defaultHeaders = {
 	'current-season-update': '2023-07-04T10:10:49+02:00',
 	'link':
 		'<http://apiv2.fftt.com/api/docs.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"',
-	'content-security-policy': "frame-ancestors 'self'",
+	'content-security-policy': 'frame-ancestors \'self\'',
 	'access-control-allow-origin': '*',
 	'access-control-allow-methods': 'GET, POST, OPTIONS, DELETE, PUT',
 	'access-control-allow-headers':
@@ -39,10 +39,43 @@ export const successHeaders = {
 	'content-type': 'application/xml;charset=ISO-8859-1',
 };
 
+export const httpHeaders = {
+	'date': DateTime.now().toHTTP(),
+	'server': 'Apache',
+	'x-frame-options': 'SAMEORIGIN',
+	'x-xss-protection': '1; mode=block',
+	'content-length': '0',
+	'content-type': 'text/html; charset=UTF-8',
+}
+
 const mockResponses = {
-	empty_list: [],
 	bad_request: ['parameter'],
+	bad_request_2: ['parameter'],
+	bad_request_multi: ['parameters'],
+	chp_renc: [],
+	club_b: [],
+	club_dep2: [],
 	club_detail: ['federalId', 'code'],
+	division: [],
+	empty_list: [],
+	epreuve: [],
+	equipe: [],
+	histo_classement: [],
+	initialisation: [],
+	initialisation_erreur: ['message'],
+	invalid_request: ['parameter'],
+	joueur: [],
+	licence: [],
+	licence_b: [],
+	liste_joueur: [],
+	liste_joueur_o: [],
+	new_actu: [],
+	organisme: [],
+	partie: [],
+	partie_mysql: [],
+	res_cla: [],
+	result_equ: [],
+	result_indiv: [],
 } as const;
 
 type MockResponse = keyof typeof mockResponses;
@@ -68,4 +101,33 @@ export function getMockResponse<Response extends MockResponse>(
 	}
 
 	return result;
+}
+
+export function missingQueryParameters(url: URL, parameters: Array<string>) {
+	let invalid: string | undefined;
+
+	for (const name of parameters) {
+		if (url.searchParams.has(name)) continue;
+
+		invalid = name;
+		break;
+	}
+
+	return invalid;
+}
+
+export function checkQueryParametersExistence(url: URL, parameters: Array<string>) {
+	const received: Array<string> = [];
+
+	for (const name of parameters) {
+		if (url.searchParams.has(name)) {
+			received.push(name);
+		}
+	}
+
+	return {
+		received,
+		receivedTotal: received.length,
+		missing: parameters.filter((name) => !received.includes(name)),
+	};
 }
