@@ -62,6 +62,10 @@ export class Smartping {
 		return this.#contests;
 	}
 
+	get context() {
+		return this.#context;
+	}
+
 	authenticate(options?: QueryOptions) {
 		return Authenticate.create(this.#context).withOptions(options).run();
 	}

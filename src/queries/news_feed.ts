@@ -22,6 +22,7 @@ export class GetFederationNewsFeed extends Query {
 				key: 'news',
 				ttl: '1w',
 			},
+			charset: 'utf8',
 		});
 	}
 }

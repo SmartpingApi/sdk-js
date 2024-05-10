@@ -4,7 +4,7 @@ import md5 from 'md5';
 import type { ApiEndpoint } from '#src/api_endpoints.js';
 import { type CacheValue, ms, oneHour, storage } from '#src/helpers/cache.js';
 import { createDate } from '#src/helpers/datetime_helpers.js';
-import type { Newable } from '#src/serializers/serializer_interface.js';
+import type { Charset, Newable } from '#src/serializers/serializer_interface.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 interface CacheOptions {
@@ -21,6 +21,7 @@ interface FetchProperties<P> {
 	requestParameters?: (search: URLSearchParams) => void;
 	asArray?: boolean;
 	additionalProperties?: Record<string, unknown>;
+	charset?: Charset | undefined;
 }
 
 interface RequestProperties {
@@ -67,7 +68,7 @@ export default abstract class Query {
 		options: FetchProperties<T>,
 		singleResultExpected?: boolean,
 	): Promise<T | Array<T> | undefined> {
-		const { context, normalizationModel, rootKey, additionalProperties } = options;
+		const { context, normalizationModel, rootKey, additionalProperties, charset } = options;
 
 		try {
 			const response = await this.#makeRequest(options);
@@ -82,6 +83,7 @@ export default abstract class Query {
 				rootKey,
 				normalizationModel,
 				additionalProperties: additionalProperties ?? {},
+				charset,
 			});
 
 			return singleResultExpected ? deserialized : this.#getResponseAsArray(deserialized);

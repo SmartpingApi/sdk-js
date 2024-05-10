@@ -13,16 +13,11 @@ export default class XmlSerializer implements SerializerInterface {
 	/** Parser utilisé pour désérialiser les modèles XML. */
 	readonly #parser: XMLParser;
 
-	/** Décodeur de texte utilisé pour décoder les réponses en ISO-8859-1 (notamment les accents). */
-	readonly #textDecoder: TextDecoder;
-
 	constructor() {
 		this.#parser = new XMLParser({
 			ignoreDeclaration: true,
 			parseTagValue: false,
 		});
-
-		this.#textDecoder = new TextDecoder('ISO-8859-1');
 	}
 
 	/**
@@ -39,10 +34,13 @@ export default class XmlSerializer implements SerializerInterface {
 	}
 
 	deserialize<Model>(options: DeserializationOptions<Model>) {
-		const { context, response, rootKey, normalizationModel, additionalProperties } = options;
+		const { context, response, rootKey, normalizationModel, additionalProperties, charset } = options;
+
+		/** Décodeur de texte utilisé pour décoder les réponses en ISO-8859-1 (notamment les accents). */
+		const textDecoder = new TextDecoder(charset ?? 'ISO-8859-1');
 
 		// Encodage de la réponse HTTP en UTF-8.
-		const decodedText = this.#textDecoder.decode(response.payload);
+		const decodedText = textDecoder.decode(response.payload);
 
 		// Désérialisation du XML en objet.
 		const xml = this.#parser.parse(decodedText) as DecodedXml;
