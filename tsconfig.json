@@ -57,6 +57,6 @@
 		},
 		"outDir": "dist"
 	},
-	"include": ["src", "tests"],
+	"include": ["src/**/*.ts", "tests/**/*.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
