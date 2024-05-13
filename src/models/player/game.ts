@@ -1,7 +1,9 @@
 import type { DateTime } from 'luxon';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingRankedGame, SmartpingSPIDGame } from '@/models/index.js';
-import { createDate } from '@/helpers/datetime_helpers.js';
+
+import { createDate } from '#src/helpers/datetime_helpers.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingRankedGame } from '#src/models/player/ranked_game.js';
+import type { SmartpingSPIDGame } from '#src/models/player/spid_game.js';
 
 export class SmartpingGame extends BaseModel {
 	/** ID de la partie */
@@ -46,7 +48,7 @@ export class SmartpingGame extends BaseModel {
 	/** Forfait */
 	readonly #isForfeit: boolean | undefined;
 
-	constructor (rankedGame?: SmartpingRankedGame, SPIDGame?: SmartpingSPIDGame) {
+	constructor(rankedGame?: SmartpingRankedGame, SPIDGame?: SmartpingSPIDGame) {
 		super();
 
 		this.#date = createDate();
@@ -133,5 +135,24 @@ export class SmartpingGame extends BaseModel {
 
 	public get isForfeit() {
 		return this.#isForfeit;
+	}
+
+	public serialize() {
+		return {
+			id: this.#id,
+			licence: this.#licence,
+			opponentLicence: this.#opponentLicence,
+			isVictory: this.#isVictory,
+			roundIndex: this.#roundIndex,
+			contestId: this.#contestId,
+			date: this.#date.toISO(),
+			opponentGender: this.#opponentGender,
+			opponentName: this.#opponentName,
+			pointsEarned: this.#pointsEarned,
+			contestCoefficient: this.#contestCoefficient,
+			opponentPointsRank: this.#opponentPointsRank,
+			contestName: this.#contestName,
+			isForfeit: this.#isForfeit,
+		};
 	}
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<joueur>
+		<licence>1610533</licence>
+		<nom>DEVAUX</nom>
+		<prenom>Aurelien</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<natio></natio>
+		<clglob>15087</clglob>
+		<point>1159.16015625</point>
+		<aclglob>15095</aclglob>
+		<apoint>1155.16</apoint>
+		<clast>11</clast>
+		<clnat>14590</clnat>
+		<categ>S</categ>
+		<rangreg>1191</rangreg>
+		<rangdep>101</rangdep>
+		<valcla>1118</valcla>
+		<clpro>11</clpro>
+		<valinit>1122</valinit>
+	</joueur>
+</liste>

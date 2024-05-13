@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<resultat>
+		<equa>EQUIPE_A</equa>
+		<equb>EQUIPE_B</equb>
+		<resa>4</resa>
+		<resb>10</resb>
+	</resultat>
+	<joueur>
+		<xja>EQA_JOUEUR_1</xja>
+		<xca>M 999pts</xca>
+		<xjb>EQB_JOUEUR_1</xjb>
+		<xcb>M 999pts</xcb>
+	</joueur>
+	<joueur>
+		<xja>EQA_JOUEUR_2</xja>
+		<xca>F 999pts</xca>
+		<xjb>EQB_JOUEUR_2</xjb>
+		<xcb>F 999pts</xcb>
+	</joueur>
+	<joueur>
+		<xja>EQA_JOUEUR_3</xja>
+		<xca>M 999pts</xca>
+		<xjb>EQB_JOUEUR_3</xjb>
+		<xcb>M 999pts</xcb>
+	</joueur>
+	<joueur>
+		<xja>EQA_JOUEUR_4</xja>
+		<xca>M 999pts</xca>
+		<xjb>EQB_JOUEUR_4</xjb>
+		<xcb>M 999pts</xcb>
+	</joueur>
+	<partie>
+		<ja>EQA_JOUEUR_1</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_1</jb>
+		<scoreb>1</scoreb>
+		<detail>-06 -03 -09</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_2</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_2</jb>
+		<scoreb>1</scoreb>
+		<detail>04 -09 -05 -03</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_3</ja>
+		<scorea>1</scorea>
+		<jb>EQB_JOUEUR_3</jb>
+		<scoreb>-</scoreb>
+		<detail>09 -08 -05 09 08</detail>
+	</partie>
+	<partie>
+		<ja>EQB_JOUEUR_4</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_4</jb>
+		<scoreb>1</scoreb>
+		<detail>-07 -05 08 -05</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_1</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_2</jb>
+		<scoreb>1</scoreb>
+		<detail>-07 -10 -06</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_2</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_1</jb>
+		<scoreb>1</scoreb>
+		<detail>-10 05 -05 -04</detail>
+	</partie>
+	<partie>
+		<ja>EQB_JOUEUR_4</ja>
+		<scorea>1</scorea>
+		<jb>EQB_JOUEUR_3</jb>
+		<scoreb>-</scoreb>
+		<detail>07 08 -06 10</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_3</ja>
+		<scorea>1</scorea>
+		<jb>EQB_JOUEUR_4</jb>
+		<scoreb>-</scoreb>
+		<detail>09 10 11</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_2 et EQB_JOUEUR_4</ja>
+		<scorea>1</scorea>
+		<jb>EQB_JOUEUR_2 et EQB_JOUEUR_4</jb>
+		<scoreb>-</scoreb>
+		<detail>-07 05 06 08</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_1 et EQA_JOUEUR_3</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_1 et EQB_JOUEUR_3</jb>
+		<scoreb>1</scoreb>
+		<detail>08 -06 -05 06 -03</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_1</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_3</jb>
+		<scoreb>1</scoreb>
+		<detail>-07 -09 -03</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_3</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_1</jb>
+		<scoreb>1</scoreb>
+		<detail>-07 04 -06 -06</detail>
+	</partie>
+	<partie>
+		<ja>EQB_JOUEUR_4</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_2</jb>
+		<scoreb>1</scoreb>
+		<detail>08 -10 -10 -09</detail>
+	</partie>
+	<partie>
+		<ja>EQA_JOUEUR_2</ja>
+		<scorea>-</scorea>
+		<jb>EQB_JOUEUR_4</jb>
+		<scoreb>1</scoreb>
+		<detail>-09 -02 -02</detail>
+	</partie>
+</liste>

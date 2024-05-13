@@ -1,8 +1,8 @@
-import { BaseModel } from '@/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	appli: number;
-}
+};
 
 export class SmartpingInitialization extends BaseModel {
 	/** Autorisation d'accès à l'application */

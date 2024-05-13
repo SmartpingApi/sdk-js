@@ -1,6 +1,11 @@
 import type { DateTime } from 'luxon';
-import { createDate, stringifyDate } from '@/helpers/datetime_helpers.js';
-import { BaseModel } from '@/models/base_model.js';
+
+import {
+	createDate,
+	nonNullableDateFactory,
+	stringifyDate,
+} from '#src/helpers/datetime_helpers.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 export interface NewProperties {
 	date: string;
@@ -30,9 +35,9 @@ export class SmartpingNews extends BaseModel {
 	/** Catégorie */
 	readonly #category: string | undefined;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
-		this.#date = this.setOrFallback(properties.date, createDate(), (date) => createDate(date, 'YYYY-MM-DD'));
+		this.#date = this.setOrFallback(properties.date, createDate(), nonNullableDateFactory());
 		this.#title = this.setOrFallback(properties.titre, '');
 		this.#description = this.setOrFallback(properties.description, '');
 		this.#url = this.setOrFallback(properties.url, '');

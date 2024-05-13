@@ -52,15 +52,11 @@
 		"useDefineForClassFields": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"],
-			"@tests/*": ["./tests/*"]
+			"#src/*": ["./src/*"],
+			"#tests/*": ["./tests/*"]
 		},
 		"outDir": "dist"
 	},
-	"include": [
-      "src",
-      "tests",
-      "node_modules/.pnpm/vitest@1.2.1_@types+node@20.11.6_happy-dom@13.3.8/node_modules/vitest/globals.d.ts"
-    ],
+	"include": ["src", "tests"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

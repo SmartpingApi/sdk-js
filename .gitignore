@@ -2,3 +2,4 @@ node_modules
 dist
 .pnpm-store
 tests/env.ts
+coverage

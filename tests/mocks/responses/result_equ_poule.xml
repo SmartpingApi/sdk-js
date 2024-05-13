@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<poule>
+		<libelle>Poule 1</libelle>
+		<lien>
+			<![CDATA[cx_poule=657450&D1=126363]]>
+		</lien>
+	</poule>
+	<poule>
+		<libelle>Poule 2</libelle>
+		<lien>
+			<![CDATA[cx_poule=657451&D1=126363]]>
+		</lien>
+	</poule>
+</liste>

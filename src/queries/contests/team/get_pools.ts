@@ -1,20 +1,32 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingTeamPool } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints.js';
+import Query from '#src/helpers/query.js';
+import { SmartpingTeamPool } from '#src/models/contest/team/team_pool.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
-export async function getPoolsForDivision(divisionId: number) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_RESULT_EQU,
-		requestParameters: (search) => {
-			search.append('action', 'poule');
-			search.append('auto', '1');
-			search.append('D1', divisionId.toString());
-		},
-		normalizationModel: SmartpingTeamPool,
-		rootKey: 'poule',
-		cache: {
-			key: `pools:${divisionId}`,
-			ttl: '1d',
-		},
-	});
+export class GetPoolsForDivision extends Query {
+	constructor(private context: SmartpingContext) {
+		super(context);
+	}
+
+	static create(context: SmartpingContext) {
+		return new this(context);
+	}
+
+	async run(divisionId: number) {
+		return this.callAPI({
+			context: this.context,
+			endpoint: ApiEndpoints.XML_RESULT_EQU,
+			requestParameters: (search) => {
+				search.append('action', 'poule');
+				search.append('auto', '1');
+				search.append('D1', divisionId.toString());
+			},
+			normalizationModel: SmartpingTeamPool,
+			rootKey: 'poule',
+			cache: {
+				key: `pools:${divisionId}`,
+				ttl: '1d',
+			},
+		});
+	}
 }

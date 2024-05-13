@@ -1,41 +1,24 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingRankedGame, SmartpingSPIDGame } from '@/models/index.js';
-import { mergeRankingAndSPIDGameHistoryCollection } from '@/helpers/collections.js';
+import { mergeRankingAndSPIDGameHistoryCollection } from '#src/helpers/collections.js';
+import Query from '#src/helpers/query.js';
+import { GetPlayerGameHistoryOnRankingBase } from '#src/queries/players/ranking_base/game_history.js';
+import { GetPlayerGameHistoryOnSpidBase } from '#src/queries/players/spid_base/game_history.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
-export async function getPlayerGameHistoryOnRankingBase(licence: string) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_PARTIE_MYSQL,
-		requestParameters: (search) => {
-			search.set('licence', licence);
-		},
-		normalizationModel: SmartpingRankedGame,
-		rootKey: 'partie',
-		cache: {
-			key: `player:rank:history:game:${licence}`,
-			ttl: '1d',
-		},
-	});
-}
+export class GetPlayerGameHistory extends Query {
+	constructor(private context: SmartpingContext) {
+		super(context);
+	}
 
-export async function getPlayerGameHistoryOnSpidBase(licence: string) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_PARTIE,
-		requestParameters: (search) => {
-			search.set('licence', licence);
-		},
-		normalizationModel: SmartpingSPIDGame,
-		rootKey: 'partie',
-		cache: {
-			key: `player:rank:history:spid:${licence}`,
-			ttl: '1d',
-		},
-	});
-}
+	static create(context: SmartpingContext) {
+		return new this(context);
+	}
 
-export async function getPlayerGameHistory(licence: string) {
-	const ranked = await getPlayerGameHistoryOnRankingBase(licence);
-	const spid = await getPlayerGameHistoryOnSpidBase(licence);
+	async run(licence: string) {
+		const [rankedResponse, spidResponse] = await Promise.all([
+			GetPlayerGameHistoryOnRankingBase.create(this.context).run(licence),
+			GetPlayerGameHistoryOnSpidBase.create(this.context).run(licence),
+		]);
 
-	return mergeRankingAndSPIDGameHistoryCollection(ranked, spid);
+		return mergeRankingAndSPIDGameHistoryCollection(rankedResponse, spidResponse);
+	}
 }

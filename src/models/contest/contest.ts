@@ -1,25 +1,25 @@
-import type { ValueOf } from '@/types/index.js';
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingIndividualDivision, SmartpingTeamDivision } from '@/models/index.js';
-import {
-	findDivisionsForIndividualContest,
-	findDivisionsForTeamContest,
-} from '@/queries/contests/team/get_divisions.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingIndividualDivision } from '#src/models/contest/individual/individual_division.js';
+import type { SmartpingTeamDivision } from '#src/models/contest/team/team_division.js';
+import { FindDivisionsForIndividualContest } from '#src/queries/contests/individual/get_divisions.js';
+import { FindDivisionsForTeamContest } from '#src/queries/contests/team/get_divisions.js';
+import type { SmartpingContext } from '#src/smartping.js';
+import type { ValueOf } from '#src/types/index.js';
 
 type NewProperties = {
-	idepreuve: number;
-	idorga: number;
+	idepreuve: string;
+	idorga: string;
 	libelle: string;
 	typepreuve: string;
-}
+};
 
 export const CONTEST_TYPES = {
-	TEAM: 'E',
-	INDIVIDUAL: 'I',
+	team: 'E',
+	individual: 'I',
 } as const;
 
-export type ContestType = typeof CONTEST_TYPES;
+export type ContestType = keyof typeof CONTEST_TYPES;
 
 type RelationName = 'divisions';
 
@@ -37,14 +37,14 @@ export class SmartpingContest extends BaseModel {
 	readonly #type: ValueOf<typeof CONTEST_TYPES>;
 
 	/** Divisions associées */
-	#divisions: (SmartpingTeamDivision | SmartpingIndividualDivision)[] = [];
+	#divisions: Array<SmartpingTeamDivision | SmartpingIndividualDivision> = [];
 
-	constructor(properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
-		this.#id = this.setOrFallback(properties.idepreuve, 0);
-		this.#organizerId = this.setOrFallback(properties.idorga, 0);
+		this.#id = this.setOrFallback(properties.idepreuve, 0, Number);
+		this.#organizerId = this.setOrFallback(properties.idorga, 0, Number);
 		this.#name = this.setOrFallback(properties.libelle, '');
-		this.#type = this.setOrFallback(properties.typepreuve, CONTEST_TYPES.TEAM);
+		this.#type = this.setOrFallback(properties.typepreuve, 'E');
 	}
 
 	public get id() {
@@ -76,13 +76,19 @@ export class SmartpingContest extends BaseModel {
 		};
 	}
 
-	public async preload(relations: RelationName[] | '*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			divisions: async () => {
-				if (this.#type === CONTEST_TYPES.TEAM) {
-					this.#divisions = await findDivisionsForTeamContest(this.#organizerId, this.#id);
-				} else if (this.#type === CONTEST_TYPES.INDIVIDUAL) {
-					this.#divisions = await findDivisionsForIndividualContest(this.#organizerId, this.#id);
+				if (this.#type === 'E') {
+					this.#divisions = await FindDivisionsForTeamContest.create(this.context).run(
+						this.#organizerId,
+						this.#id,
+					);
+				} else if (this.#type === 'I') {
+					this.#divisions = await FindDivisionsForIndividualContest.create(this.context).run(
+						this.#organizerId,
+						this.#id,
+					);
 				}
 			},
 		};

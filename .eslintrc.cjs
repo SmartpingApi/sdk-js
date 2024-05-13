@@ -4,7 +4,7 @@ module.exports = {
 		node: true,
 		browser: true,
 	},
-	ignorePatterns: ['dist', '.eslintrc.cjs', 'tsup.config.ts', 'env.ts'],
+	ignorePatterns: ['dist', '.eslintrc.cjs', 'tsup.config.ts', 'env.ts', 'coverage'],
 	plugins: [
 		'@typescript-eslint',
 		'no-use-extend-native',
@@ -88,9 +88,39 @@ module.exports = {
 		],
 		'@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
 		'@typescript-eslint/consistent-type-definitions': 'off',
+		'@typescript-eslint/array-type': ['error', { default: 'generic' }],
 		'n/no-missing-import': 'off',
 		'n/no-unpublished-import': 'off',
 		'unicorn/numeric-separators-style': 'off',
+		'import/no-unresolved': 'off',
+		'import/order': [
+			'error',
+			{
+				'groups': [
+					'type',
+					'builtin',
+					'external',
+					'internal',
+					'index',
+					'parent',
+					'sibling',
+					'object',
+				],
+				'pathGroups': [
+					{
+						pattern: '#*/**',
+						group: 'internal',
+					},
+				],
+				'distinctGroup': true,
+				'newlines-between': 'always',
+				'alphabetize': {
+					order: 'asc',
+					orderImportKind: 'asc',
+					caseInsensitive: true,
+				},
+			},
+		],
 	},
 	settings: {
 		'import/parsers': {

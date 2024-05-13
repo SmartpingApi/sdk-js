@@ -1,21 +1,31 @@
-import type { ValueOf } from '@/types/index.js';
-import type { ContestType } from '@/models/index.js';
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingContest } from '@/models/index.js';
+import { ApiEndpoints } from '#src/api_endpoints.js';
+import Query from '#src/helpers/query.js';
+import { CONTEST_TYPES, type ContestType, SmartpingContest } from '#src/models/contest/contest.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
-export async function findContests(organizationId: number, contestType: ValueOf<ContestType>) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_EPREUVE,
-		requestParameters: (search) => {
-			search.set('organisme', organizationId.toString());
-			search.set('type', contestType);
-		},
-		normalizationModel: SmartpingContest,
-		rootKey: 'epreuve',
-		cache: {
-			key: `contests:${organizationId}:${contestType}`,
-			ttl: '1d',
-		},
-	});
+export class FindContests extends Query {
+	constructor(private context: SmartpingContext) {
+		super(context);
+	}
+
+	static create(context: SmartpingContext) {
+		return new this(context);
+	}
+
+	async run(organizationId: number, contestType: ContestType) {
+		return this.callAPI({
+			context: this.context,
+			endpoint: ApiEndpoints.XML_EPREUVE,
+			requestParameters: (search) => {
+				search.set('organisme', organizationId.toString());
+				search.set('type', CONTEST_TYPES[contestType]);
+			},
+			normalizationModel: SmartpingContest,
+			rootKey: 'epreuve',
+			cache: {
+				key: `contests:${organizationId}:${CONTEST_TYPES[contestType]}`,
+				ttl: '1d',
+			},
+		});
+	}
 }

@@ -1,20 +1,23 @@
 import type { DateTime } from 'luxon';
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail, SmartpingClubTeam } from '@/models/index.js';
-import { createDate, stringifyDate } from '@/helpers/datetime_helpers.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
-import { getTeamsForClub, TeamTypes } from '@/queries/clubs/get_teams.js';
+
+import { dateFactory, stringifyDate } from '#src/helpers/datetime_helpers.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingClubTeam } from '#src/models/club/club_team.js';
+import { GetClub } from '#src/queries/clubs/get_club.js';
+import { GetTeamsForClub } from '#src/queries/clubs/get_teams.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
-	idclub: number;
+	idclub: string;
 	numero: string;
 	nom: string;
 	validation: string | undefined;
 	typeclub: string;
-}
+};
 
-type RelationName = 'details'|'teams';
+type RelationName = 'details' | 'teams';
 
 export class SmartpingClub extends BaseModel {
 	/** ID interne pour la Fédération */
@@ -40,14 +43,14 @@ export class SmartpingClub extends BaseModel {
 	#details: SmartpingClubDetail | undefined;
 
 	/** Ensemble des équipes associées */
-	#teams: SmartpingClubTeam[];
+	#teams: Array<SmartpingClubTeam>;
 
-	constructor(properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
-		this.#id = this.setOrFallback(properties.idclub, 0);
+		this.#id = this.setOrFallback(properties.idclub, 0, Number);
 		this.#code = this.setOrFallback(properties.numero, '');
 		this.#name = this.setOrFallback(properties.nom, '');
-		this.#validatedAt = this.setOrFallback(properties.validation, undefined, (value) => createDate(value, 'DD/MM/YYYY'));
+		this.#validatedAt = this.setOrFallback(properties.validation, undefined, dateFactory());
 		this.#type = this.setOrFallback(properties.typeclub, '');
 		this.#details = undefined;
 		this.#teams = [];
@@ -91,14 +94,14 @@ export class SmartpingClub extends BaseModel {
 		};
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			details: async () => {
-				this.#details = await getClub(this.#code);
+				this.#details = await GetClub.create(this.context).run(this.#code);
 			},
 			teams: async () => {
-				this.#teams = await getTeamsForClub(this.#code, TeamTypes.None);
-			}
+				this.#teams = await GetTeamsForClub.create(this.context).run(this.#code, 'none');
+			},
 		};
 
 		await this.preloadRelations(relations, preloadFunctions);

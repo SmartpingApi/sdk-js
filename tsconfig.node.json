@@ -8,7 +8,5 @@
 		"allowSyntheticDefaultImports": true,
 		"strictNullChecks": true
 	},
-	"include": [
-		"vitest.config.ts"
-	]
+	"include": ["vitest.config.ts"]
 }

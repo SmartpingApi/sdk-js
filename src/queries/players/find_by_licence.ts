@@ -1,48 +1,24 @@
-import { callAPI } from '@/helpers/request.js';
-import { ApiEndpoints } from '@/api_endpoints.js';
-import { SmartpingPlayerDetails, SmartpingRankedPlayer, SmartpingSPIDPlayer } from '@/models/index.js';
+import Query from '#src/helpers/query.js';
+import { SmartpingLicensee } from '#src/models/player/licensee.js';
+import { GetPlayerOnRankingBase } from '#src/queries/players/ranking_base/find_by_licence.js';
+import { GetPlayerOnSpidBase } from '#src/queries/players/spid_base/find_by_licence.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
-export async function getPlayerOnRankingBase(licence: string) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_JOUEUR,
-		requestParameters: (search) => {
-			search.set('licence', licence);
-		},
-		normalizationModel: SmartpingRankedPlayer,
-		rootKey: 'joueur',
-		cache: {
-			key: `players:ranking:${licence}`,
-			ttl: '1d',
-		},
-	});
-}
+export class GetPlayer extends Query {
+	constructor(private context: SmartpingContext) {
+		super(context);
+	}
 
-export async function getPlayerOnSpidBase(licence: string) {
-	return callAPI({
-		endpoint: ApiEndpoints.XML_LICENCE,
-		requestParameters: (search) => {
-			search.set('licence', licence);
-		},
-		normalizationModel: SmartpingSPIDPlayer,
-		rootKey: 'licence',
-		cache: {
-			key: `players:spid:${licence}`,
-			ttl: '1d',
-		},
-	});
-}
+	static create(context: SmartpingContext) {
+		return new this(context);
+	}
 
-export async function getPlayerDetails(licence: string) {
-	return await callAPI({
-		endpoint: ApiEndpoints.XML_LICENCE_B,
-		requestParameters: (search) => {
-			search.set('licence', licence);
-		},
-		normalizationModel: SmartpingPlayerDetails,
-		rootKey: 'licence',
-		cache: {
-			key: `players:details:${licence}`,
-			ttl: '1d',
-		},
-	});
+	async run(licence: string) {
+		const [rankedResponse, spidResponse] = await Promise.all([
+			GetPlayerOnRankingBase.create(this.context).run(licence),
+			GetPlayerOnSpidBase.create(this.context).run(licence),
+		]);
+
+		return new SmartpingLicensee(rankedResponse, spidResponse);
+	}
 }

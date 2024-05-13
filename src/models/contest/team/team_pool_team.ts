@@ -1,29 +1,31 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail, SmartpingClubTeam } from '@/models/index.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
-import { getTeamsForClub, TeamTypes } from '@/queries/clubs/get_teams.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingClubTeam } from '#src/models/club/club_team.js';
+import { GetClub } from '#src/queries/clubs/get_club.js';
+import { GetTeamsForClub } from '#src/queries/clubs/get_teams.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
 	poule: string;
-	clt: number;
+	clt: string;
 	equipe: string;
-	joue: number;
-	pts: number;
+	joue: string;
+	pts: string;
 	numero: string;
-	totvic: number;
-	totdef: number;
-	idequipe: number;
-	idclub: number;
-	vic: number;
-	def: number;
-	nul: number;
-	pf: number;
-	pg: number;
-	pp: number;
-}
+	totvic: string;
+	totdef: string;
+	idequipe: string;
+	idclub: string;
+	vic: string;
+	def: string;
+	nul: string;
+	pf: string;
+	pg: string;
+	pp: string;
+};
 
-type RelationName = 'club'|'team';
+type RelationName = 'club' | 'team';
 
 export class SmartpingTeamPoolTeam extends BaseModel {
 	/** Nom de la poule */
@@ -77,7 +79,7 @@ export class SmartpingTeamPoolTeam extends BaseModel {
 	#club: SmartpingClubDetail | undefined;
 	#team: SmartpingClubTeam | undefined;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
 		this.#poolName = this.setOrFallback(properties.poule, '');
 		this.#rank = this.setOrFallback(properties.clt, 0, Number);
@@ -169,14 +171,35 @@ export class SmartpingTeamPoolTeam extends BaseModel {
 		return this.#team;
 	}
 
-	async preload(relations: RelationName[]|'*') {
+	public serialize() {
+		return {
+			poolName: this.poolName,
+			rank: this.rank,
+			teamName: this.teamName,
+			totalPlayed: this.totalPlayed,
+			score: this.score,
+			clubCode: this.clubCode,
+			totalGamesWon: this.totalGamesWon,
+			totalGamesLost: this.totalGamesLost,
+			teamId: this.teamId,
+			clubId: this.clubId,
+			victories: this.victories,
+			defeats: this.defeats,
+			draws: this.draws,
+			forfeits: this.forfeits,
+			gameWon: this.gameWon,
+			gameLost: this.gameLost,
+		};
+	}
+
+	async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			club: async () => {
-				this.#club = await getClub(this.#clubCode);
+				this.#club = await GetClub.create(this.context).run(this.#clubCode);
 			},
 			team: async () => {
-				const teams = await getTeamsForClub(this.#clubCode, TeamTypes.None);
-				this.#team = teams.find(team => team.id === this.#teamId);
+				const teams = await GetTeamsForClub.create(this.context).run(this.#clubCode, 'none');
+				this.#team = teams.find((team) => team.id === this.#teamId);
 			},
 		};
 

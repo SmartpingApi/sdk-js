@@ -6,13 +6,15 @@
 	"main": "dist/smartping.js",
 	"scripts": {
 		"dev": "tsup --watch",
-		"check": "tsc --noEmit",
+		"typecheck": "tsc --noEmit",
 		"build": "tsup && tsc-alias -p tsconfig.json",
-		"prepublish": "rm -rf ./dist && pnpm run check && pnpm run build",
+		"prepublish": "pnpm run typecheck && pnpm run build",
 		"test:browser": "vitest --environment happy-dom",
 		"test:node": "vitest --environment node",
 		"coverage": "vitest run --coverage",
-		"test": "pnpm run test:node && pnpm run test:browser"
+		"test": "pnpm run test:node && pnpm run test:browser",
+		"lint": "eslint --fix .",
+		"format": "prettier --write ."
 	},
 	"files": [
 		"dist",
@@ -24,40 +26,45 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@eslint/eslintrc": "^3.0.0",
-		"@eslint/js": "^8.56.0",
-		"@types/eslint": "^8.56.2",
+		"@eslint/eslintrc": "^3.0.2",
+		"@eslint/js": "^9.2.0",
+		"@types/eslint": "^8.56.10",
 		"@types/luxon": "^3.4.2",
 		"@types/md5": "^2.3.5",
-		"@types/node": "^20.11.6",
-		"@typescript-eslint/eslint-plugin": ">=6.19.1",
-		"@typescript-eslint/parser": ">=6.19.1",
+		"@types/node": "^20.12.11",
+		"@typescript-eslint/eslint-plugin": ">=7.8.0",
+		"@typescript-eslint/parser": ">=7.8.0",
+		"@vitest/coverage-v8": "^1.6.0",
 		"eslint": ">=8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
 		"eslint-plugin-eslint-comments": "^3.2.0",
 		"eslint-plugin-import": "npm:eslint-plugin-i@^2.29.1",
-		"eslint-plugin-n": "^16.6.2",
+		"eslint-plugin-n": "^17.6.0",
 		"eslint-plugin-no-use-extend-native": "^0.5.0",
 		"eslint-plugin-promise": "^6.1.1",
 		"eslint-plugin-sonarjs": "^0.23.0",
-		"eslint-plugin-unicorn": "^50.0.1",
-		"globals": "^13.24.0",
-		"happy-dom": "^13.3.8",
-		"tsc-alias": "^1.8.8",
+		"eslint-plugin-unicorn": "^53.0.0",
+		"globals": "^15.2.0",
+		"happy-dom": "^14.10.1",
+		"msw": "^2.3.0",
+		"tsc-alias": "^1.8.9",
 		"tsup": "^8.0.2",
-		"type-fest": "^4.10.1",
-		"typescript": ">=5.3",
-		"vitest": "^1.2.1"
+		"type-fest": "^4.18.2",
+		"typescript": ">=5.4",
+		"vitest": "^1.6.0"
 	},
 	"dependencies": {
 		"@lukeed/ms": "^2.0.2",
 		"crypto-random-string": "^5.0.0",
-		"fast-xml-parser": "^4.3.3",
+		"fast-xml-parser": "^4.3.6",
 		"jssha": "^3.3.1",
-		"ky": "^1.2.0",
-		"lru-cache": "^10.2.0",
+		"ky": "^1.2.4",
+		"lru-cache": "^10.2.2",
 		"luxon": "^3.4.4",
 		"md5": "^2.3.0"
+	},
+	"engines": {
+		"node": ">=17.0.0"
 	}
 }

@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<joueur>
+		<licence>167376</licence>
+		<nom>AGARD</nom>
+		<prenom>Pascal</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>764</points>
+	</joueur>
+	<joueur>
+		<licence>167374</licence>
+		<nom>AGARD</nom>
+		<prenom>Thomas</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>987</points>
+	</joueur>
+	<joueur>
+		<licence>1615638</licence>
+		<nom>ALLAFORT</nom>
+		<prenom>Rayann</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615959</licence>
+		<nom>ALLAFORT</nom>
+		<prenom>Sasha</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615960</licence>
+		<nom>ALLAFORT</nom>
+		<prenom>Stanyslas</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615318</licence>
+		<nom>ANDRIEUX</nom>
+		<prenom>Nathan</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>554</points>
+	</joueur>
+	<joueur>
+		<licence>1615577</licence>
+		<nom>ARROYO TIRADO</nom>
+		<prenom>Julian</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1614112</licence>
+		<nom>BARDET</nom>
+		<prenom>Enzo</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>746</points>
+	</joueur>
+	<joueur>
+		<licence>169773</licence>
+		<nom>BAUDRY</nom>
+		<prenom>Bruno</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>873</points>
+	</joueur>
+	<joueur>
+		<licence>1616055</licence>
+		<nom>BAUMARD</nom>
+		<prenom>Aurélien</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1616056</licence>
+		<nom>BAUMARD</nom>
+		<prenom>Domitille</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>F</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1616057</licence>
+		<nom>BAUMARD</nom>
+		<prenom>Éléonore</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>F</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1613803</licence>
+		<nom>BENNIS</nom>
+		<prenom>Hakim</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>554</points>
+	</joueur>
+	<joueur>
+		<licence>1614330</licence>
+		<nom>BENNIS</nom>
+		<prenom>Kamal</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>598</points>
+	</joueur>
+	<joueur>
+		<licence>8610140</licence>
+		<nom>BESSON</nom>
+		<prenom>Tim</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>1480</points>
+	</joueur>
+	<joueur>
+		<licence>1615637</licence>
+		<nom>BLAIS</nom>
+		<prenom>Lyana</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>F</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>165650</licence>
+		<nom>BOIXIERE</nom>
+		<prenom>Bruno</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>535</points>
+	</joueur>
+	<joueur>
+		<licence>1615736</licence>
+		<nom>BOURGEAU</nom>
+		<prenom>Arthur</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1614064</licence>
+		<nom>BOUTARAUD</nom>
+		<prenom>Mathis</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1612247</licence>
+		<nom>BUSCH</nom>
+		<prenom>Daniel</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>628</points>
+	</joueur>
+	<joueur>
+		<licence>1615701</licence>
+		<nom>CHAPRON</nom>
+		<prenom>Elias</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1612170</licence>
+		<nom>CHIFFRAY</nom>
+		<prenom>Alain</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>501</points>
+	</joueur>
+	<joueur>
+		<licence>1612172</licence>
+		<nom>COMPAIN-METERAUD</nom>
+		<prenom>Valerie</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>F</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>760</points>
+	</joueur>
+	<joueur>
+		<licence>1613420</licence>
+		<nom>COUPRIE</nom>
+		<prenom>Hugo</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>960</points>
+	</joueur>
+	<joueur>
+		<licence>1616113</licence>
+		<nom>CROCHU</nom>
+		<prenom>Maël</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1613286</licence>
+		<nom>CROCHU</nom>
+		<prenom>Romain</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615962</licence>
+		<nom>DE MORAIS TERRA</nom>
+		<prenom>Paul</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615316</licence>
+		<nom>DEFOULOUNOUX</nom>
+		<prenom>David</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>669</points>
+	</joueur>
+	<joueur>
+		<licence>1615961</licence>
+		<nom>DENIS</nom>
+		<prenom>Clément</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615040</licence>
+		<nom>DENIS</nom>
+		<prenom>Leandre</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>733</points>
+	</joueur>
+	<joueur>
+		<licence>1615618</licence>
+		<nom>DESVARD</nom>
+		<prenom>Louis</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1610533</licence>
+		<nom>DEVAUX</nom>
+		<prenom>Aurelien</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>1118</points>
+	</joueur>
+	<joueur>
+		<licence>1610376</licence>
+		<nom>DING</nom>
+		<prenom>Yingjie</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>1032</points>
+	</joueur>
+	<joueur>
+		<licence>1613038</licence>
+		<nom>DOHM</nom>
+		<prenom>Mathis</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>918</points>
+	</joueur>
+	<joueur>
+		<licence>165670</licence>
+		<nom>DOHM</nom>
+		<prenom>Roger</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615424</licence>
+		<nom>DONATY</nom>
+		<prenom>Loïc</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>747</points>
+	</joueur>
+	<joueur>
+		<licence>1612063</licence>
+		<nom>FOURMACHAT</nom>
+		<prenom>Nicolas</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>776</points>
+	</joueur>
+	<joueur>
+		<licence>169311</licence>
+		<nom>GAIFFIER</nom>
+		<prenom>Jacky</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>570</points>
+	</joueur>
+	<joueur>
+		<licence>1616019</licence>
+		<nom>GIRARD</nom>
+		<prenom>Bryan</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1616058</licence>
+		<nom>GIRARD</nom>
+		<prenom>Nolann</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1610282</licence>
+		<nom>GUERIAUD</nom>
+		<prenom>Lazare</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>948</points>
+	</joueur>
+	<joueur>
+		<licence>164323</licence>
+		<nom>GUIARD</nom>
+		<prenom>Stephane</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>1065</points>
+	</joueur>
+	<joueur>
+		<licence>1615700</licence>
+		<nom>HEOUAM</nom>
+		<prenom>Samir</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615495</licence>
+		<nom>HERNOT</nom>
+		<prenom>Ethan</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615912</licence>
+		<nom>IKAKULA</nom>
+		<prenom>Fosio</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615963</licence>
+		<nom>JACOBIN</nom>
+		<prenom>Manuel</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1616028</licence>
+		<nom>JACQUES</nom>
+		<prenom>Guilyan</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1616029</licence>
+		<nom>JACQUES</nom>
+		<prenom>Thalia</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>F</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1611294</licence>
+		<nom>JAMMET</nom>
+		<prenom>Christophe</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>858</points>
+	</joueur>
+	<joueur>
+		<licence>1616191</licence>
+		<nom>MERLE</nom>
+		<prenom>Loris</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615824</licence>
+		<nom>MIÑANA</nom>
+		<prenom>Henri</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615494</licence>
+		<nom>MOREL-DEXANT</nom>
+		<prenom>Paul</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615958</licence>
+		<nom>OUALLAL</nom>
+		<prenom>Zakaria</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1614413</licence>
+		<nom>PERRIER</nom>
+		<prenom>Philippe</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>557</points>
+	</joueur>
+	<joueur>
+		<licence>1615458</licence>
+		<nom>RIFFÈ-BRÈCHET</nom>
+		<prenom>Armand</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1613721</licence>
+		<nom>RUAUD</nom>
+		<prenom>Patrick</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>678</points>
+	</joueur>
+	<joueur>
+		<licence>1616020</licence>
+		<nom>THIRION</nom>
+		<prenom>Dimitri</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1613076</licence>
+		<nom>TURI</nom>
+		<prenom>Alexy</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>594</points>
+	</joueur>
+	<joueur>
+		<licence>1610637</licence>
+		<nom>VALLET</nom>
+		<prenom>Herve</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>1058</points>
+	</joueur>
+	<joueur>
+		<licence>1616018</licence>
+		<nom>VASILE</nom>
+		<prenom>Marian</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1615970</licence>
+		<nom>VEDRENNE</nom>
+		<prenom>Tom</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1616232</licence>
+		<nom>VIGNAUD</nom>
+		<prenom>Aaron</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>500</points>
+	</joueur>
+	<joueur>
+		<licence>1613800</licence>
+		<nom>YONNET</nom>
+		<prenom>Baptiste</prenom>
+		<club>10160051</club>
+		<nclub>Chateauneuf TT Castelnovien</nclub>
+		<sexe>M</sexe>
+		<echelon></echelon>
+		<place/>
+		<points>1082</points>
+	</joueur>
+</liste>

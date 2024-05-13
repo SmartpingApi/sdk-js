@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<club>
+		<idclub>40002275</idclub>
+		<numero>369G0032</numero>
+		<nom>ASPTT MAYOTTE MTSANGAMOUJI</nom>
+		<validation>01/09/2023</validation>
+		<typeclub>L</typeclub>
+	</club>
+	<club>
+		<idclub>40002287</idclub>
+		<numero>369G0033</numero>
+		<nom>Asso Sportive Environ culturelle</nom>
+		<validation>30/01/2024</validation>
+		<typeclub>L</typeclub>
+	</club>
+	<club>
+		<idclub>36970002</idclub>
+		<numero>369G0002</numero>
+		<nom>POUTOU BEBEROU T.T</nom>
+		<validation>22/07/2023</validation>
+		<typeclub>M</typeclub>
+	</club>
+	<club>
+		<idclub>40002267</idclub>
+		<numero>369G0031</numero>
+		<nom>ROCKETS DE PAMANDZI</nom>
+		<validation>01/09/2023</validation>
+		<typeclub>L</typeclub>
+	</club>
+	<club>
+		<idclub>40000509</idclub>
+		<numero>369G0018</numero>
+		<nom>SADA TENNIS DE TABLE</nom>
+		<validation>26/07/2023</validation>
+		<typeclub>M</typeclub>
+	</club>
+	<club>
+		<idclub>40000494</idclub>
+		<numero>369G0016</numero>
+		<nom>Tennis de Table de CHOUNGUI</nom>
+		<validation>10/09/2023</validation>
+		<typeclub>M</typeclub>
+	</club>
+	<club>
+		<idclub>40000279</idclub>
+		<numero>369G0009</numero>
+		<nom>Tennis de Table de Nyambadao</nom>
+		<validation>11/09/2023</validation>
+		<typeclub>L</typeclub>
+	</club>
+	<club>
+		<idclub>40001531</idclub>
+		<numero>369G0028</numero>
+		<nom>Tennis de table de Ouangani</nom>
+		<validation>13/07/2023</validation>
+		<typeclub>M</typeclub>
+	</club>
+	<club>
+		<idclub>40000423</idclub>
+		<numero>369G0014</numero>
+		<nom>TT - HAGNOUNDROU TENNIS DE TABLE</nom>
+		<validation>24/01/2024</validation>
+		<typeclub>M</typeclub>
+	</club>
+</liste>

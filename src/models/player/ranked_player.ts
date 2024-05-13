@@ -1,4 +1,4 @@
-import { BaseModel } from '@/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	licence: string;
@@ -6,8 +6,8 @@ type NewProperties = {
 	prenom: string;
 	club: string;
 	nclub: string;
-	clast: number;
-}
+	clast: string;
+};
 
 export class SmartpingRankedPlayer extends BaseModel {
 	/** Numéro de licence */
@@ -28,7 +28,7 @@ export class SmartpingRankedPlayer extends BaseModel {
 	/** Classement officiel */
 	readonly #pointsRank: number;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
 		this.#licence = this.setOrFallback(properties.licence, '');
 		this.#lastname = this.setOrFallback(properties.nom, '');
@@ -60,5 +60,16 @@ export class SmartpingRankedPlayer extends BaseModel {
 
 	public get pointsRank() {
 		return this.#pointsRank;
+	}
+
+	public serialize() {
+		return {
+			licence: this.#licence,
+			lastname: this.#lastname,
+			firstname: this.#firstname,
+			clubName: this.#clubName,
+			clubCode: this.#clubCode,
+			pointsRank: this.#pointsRank,
+		};
 	}
 }

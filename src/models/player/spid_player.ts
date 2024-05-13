@@ -1,4 +1,4 @@
-import { BaseModel } from '@/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	licence: string;
@@ -6,12 +6,11 @@ type NewProperties = {
 	prenom: string;
 	club: string;
 	nclub: string;
-	clast: number;
 	sexe: string;
 	echelon: string;
-	place: number;
-	points: number;
-}
+	place: string;
+	points: string;
+};
 
 export class SmartpingSPIDPlayer extends BaseModel {
 	/** Numéro de licence */
@@ -29,9 +28,6 @@ export class SmartpingSPIDPlayer extends BaseModel {
 	/** Numéro du club */
 	readonly #clubCode: string;
 
-	/** Classement officiel */
-	readonly #pointsRank: number;
-
 	/** Genre */
 	readonly #gender: string;
 
@@ -44,14 +40,13 @@ export class SmartpingSPIDPlayer extends BaseModel {
 	/** Points officiels */
 	readonly #points: number;
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties) {
 		super();
 		this.#licence = this.setOrFallback(properties.licence, '');
 		this.#lastname = this.setOrFallback(properties.nom, '');
 		this.#firstname = this.setOrFallback(properties.prenom, '');
 		this.#clubName = this.setOrFallback(properties.club, '');
 		this.#clubCode = this.setOrFallback(properties.nclub, '');
-		this.#pointsRank = this.setOrFallback(properties.clast, 0, Number);
 		this.#gender = this.setOrFallback(properties.sexe, '');
 		this.#level = this.setOrFallback(properties.echelon, '');
 		this.#place = this.setOrFallback(properties.place, 0, Number);
@@ -78,10 +73,6 @@ export class SmartpingSPIDPlayer extends BaseModel {
 		return this.#clubCode;
 	}
 
-	public get pointsRank() {
-		return this.#pointsRank;
-	}
-
 	public get gender() {
 		return this.#gender;
 	}
@@ -100,5 +91,19 @@ export class SmartpingSPIDPlayer extends BaseModel {
 
 	public get fullName() {
 		return `${this.firstname} ${this.lastname.toLocaleUpperCase('fr-FR')}`;
+	}
+
+	public serialize() {
+		return {
+			licence: this.#licence,
+			nom: this.#lastname,
+			prenom: this.#firstname,
+			club: this.#clubName,
+			nclub: this.#clubCode,
+			sexe: this.#gender,
+			echelon: this.#level,
+			place: this.#place,
+			points: this.#points,
+		};
 	}
 }

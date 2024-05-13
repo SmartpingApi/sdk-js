@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<club>
+		<idclub>3330035</idclub>
+		<numero>10330035</numero>
+		<nom>CLUB_TROUVE_1</nom>
+		<validation>01/07/2023</validation>
+		<typeclub>L</typeclub>
+	</club>
+	<club>
+		<idclub>3330010</idclub>
+		<numero>10330010</numero>
+		<nom>CLUB_TROUVE_2</nom>
+		<validation>01/07/2023</validation>
+		<typeclub>L</typeclub>
+	</club>
+	<club>
+		<idclub>3330020</idclub>
+		<numero>10330020</numero>
+		<nom>CLUB_TROUVE_3</nom>
+		<validation>01/07/2023</validation>
+		<typeclub>L</typeclub>
+	</club>
+</liste>

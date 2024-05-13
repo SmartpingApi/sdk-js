@@ -1,15 +1,17 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingTeamMatch, SmartpingTeamPoolTeam } from '@/models/index.js';
-import { getPoolRanking } from '@/queries/contests/team/get_pool_ranking.js';
-import { getMatchesForPool } from '@/queries/contests/team/get_pool_matches.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingTeamMatch } from '#src/models/contest/team/team_match.js';
+import type { SmartpingTeamPoolTeam } from '#src/models/contest/team/team_pool_team.js';
+import { GetMatchesForPool } from '#src/queries/contests/team/get_pool_matches.js';
+import { GetPoolRanking } from '#src/queries/contests/team/get_pool_ranking.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
 	lien: string;
 	libelle: string;
-}
+};
 
-type RelationName = 'matches'|'rankings';
+type RelationName = 'matches' | 'rankings';
 
 export class SmartpingTeamPool extends BaseModel {
 	/** Lien pour accéder aux détails de la poule */
@@ -25,12 +27,12 @@ export class SmartpingTeamPool extends BaseModel {
 	readonly #divisionId: number | undefined;
 
 	/** Rencontres */
-	#matches: SmartpingTeamMatch[] = [];
+	#matches: Array<SmartpingTeamMatch> = [];
 
 	/** Classement */
-	#rankings: SmartpingTeamPoolTeam[] = [];
+	#rankings: Array<SmartpingTeamPoolTeam> = [];
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
 		this.#name = this.setOrFallback(properties.libelle, '');
 
@@ -38,7 +40,7 @@ export class SmartpingTeamPool extends BaseModel {
 			this.#link = undefined;
 			this.#id = undefined;
 			this.#divisionId = undefined;
-		} else{
+		} else {
 			this.#link = properties.lien;
 
 			const linkParameters = new URLSearchParams(this.#link);
@@ -72,15 +74,27 @@ export class SmartpingTeamPool extends BaseModel {
 		return this.#rankings;
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public serialize() {
+		return {
+			link: this.#link,
+			name: this.#name,
+			id: this.#id,
+			divisionId: this.#divisionId,
+		};
+	}
+
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			matches: async () => {
 				if (undefined === this.#divisionId) return;
-				this.#matches = await getMatchesForPool(this.#divisionId, this.#id);
+				this.#matches = await GetMatchesForPool.create(this.context).run(
+					this.#divisionId,
+					this.#id,
+				);
 			},
 			rankings: async () => {
 				if (undefined === this.#divisionId) return;
-				this.#rankings = await getPoolRanking(this.#divisionId, this.#id);
+				this.#rankings = await GetPoolRanking.create(this.context).run(this.#divisionId, this.#id);
 			},
 		};
 

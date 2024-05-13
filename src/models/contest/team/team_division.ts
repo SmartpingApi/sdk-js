@@ -1,12 +1,13 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingTeamPool } from '@/models/index.js';
-import { getPoolsForDivision } from '@/queries/contests/team/get_pools.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingTeamPool } from '#src/models/contest/team/team_pool.js';
+import { GetPoolsForDivision } from '#src/queries/contests/team/get_pools.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
-	iddivision: number;
+	iddivision: string;
 	libelle: string;
-}
+};
 
 type RelationName = 'pools';
 
@@ -18,11 +19,11 @@ export class SmartpingTeamDivision extends BaseModel {
 	readonly #name: string;
 
 	/** Poules associées */
-	#pools: SmartpingTeamPool[] = [];
+	#pools: Array<SmartpingTeamPool> = [];
 
-	constructor (properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
-		this.#id = this.setOrFallback(properties.iddivision, 0);
+		this.#id = this.setOrFallback(properties.iddivision, 0, Number);
 		this.#name = this.setOrFallback(properties.libelle, '');
 	}
 
@@ -45,10 +46,10 @@ export class SmartpingTeamDivision extends BaseModel {
 		};
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			pools: async () => {
-				this.#pools = await getPoolsForDivision(this.#id);
+				this.#pools = await GetPoolsForDivision.create(this.context).run(this.#id);
 			},
 		};
 

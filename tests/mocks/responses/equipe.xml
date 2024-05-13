@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>11002</idequipe>
+		<libequipe>Chateauneuf TTC 2 - Phase 1</libequipe>
+		<libdivision>D16 - Division 1 - Ph 1 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=655257&D1=125763&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11871</idepr>
+		<libepr>D16 - Coupe du Comité</libepr>
+		<idequipe>28420</idequipe>
+		<libequipe>Chateauneuf TTC 1 - Phase 1</libequipe>
+		<libdivision>Finales coupes comités 2021/2022</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=&D1=133846&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11871</idepr>
+		<libepr>D16 - Coupe du Comité</libepr>
+		<idequipe>28422</idequipe>
+		<libequipe>Chateauneuf TTC 2 - Phase 1</libequipe>
+		<libdivision>Finales coupes comités 2021/2022</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=&D1=133846&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>13387</idequipe>
+		<libequipe>Chateauneuf TTC 3 - Phase 1</libequipe>
+		<libdivision>D16 - Division 2 - Ph 1 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=759916&D1=125764&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>17678</idequipe>
+		<libequipe>Chateauneuf TTC 4 - Phase 1</libequipe>
+		<libdivision>D16 - Division 3 - Ph 1 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=653956&D1=125403&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>29760</idequipe>
+		<libequipe>Chateauneuf TTC 5 - Phase 1</libequipe>
+		<libdivision>D16 - Division 4 - Ph 1 Poule 3</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=654149&D1=125458&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>12397</idepr>
+		<libepr>D16 - Championnat Jeunes -18</libepr>
+		<idequipe>24862</idequipe>
+		<libequipe>Chateauneuf TTC (1) - Phase 1</libequipe>
+		<libdivision>D16-ChampionnatJeunes-T1-18-D1 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=709182&D1=137486&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>12397</idepr>
+		<libepr>D16 - Championnat Jeunes -18</libepr>
+		<idequipe>24864</idequipe>
+		<libequipe>Chateauneuf TTC (2) - Phase 1</libequipe>
+		<libdivision>D16-ChampionnatJeunes-T1-18-D2 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=709190&D1=137491&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>12397</idepr>
+		<libepr>D16 - Championnat Jeunes -18</libepr>
+		<idequipe>24862</idequipe>
+		<libequipe>Chateauneuf TTC (1) - Phase 1</libequipe>
+		<libdivision>D16-ChampionnatJeunes-T2-18-D1 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=709184&D1=137487&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>12397</idepr>
+		<libepr>D16 - Championnat Jeunes -18</libepr>
+		<idequipe>24864</idequipe>
+		<libequipe>Chateauneuf TTC (2) - Phase 1</libequipe>
+		<libdivision>D16-ChampionnatJeunes-T2-18-D3 Poule 1</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=709201&D1=137498&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>17678</idequipe>
+		<libequipe>Chateauneuf TTC 4 - Phase 2</libequipe>
+		<libdivision>D16 - Division 2 - Ph 2 Poule 1</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=657452&D1=126364&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>13387</idequipe>
+		<libequipe>Chateauneuf TTC 3 - Phase 2</libequipe>
+		<libdivision>D16 - Division 2 - Ph 2 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=657453&D1=126364&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>11344</idepr>
+		<libepr>FED_Championnat de France par Equipes Masculin</libepr>
+		<idequipe>29760</idequipe>
+		<libequipe>Chateauneuf TTC 5 - Phase 2</libequipe>
+		<libdivision>D16 - Division 3 - Ph 2 Poule 3</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=657457&D1=126365&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+	<equipe>
+		<idepr>12397</idepr>
+		<libepr>D16 - Championnat Jeunes -18</libepr>
+		<idequipe>24864</idequipe>
+		<libequipe>Chateauneuf TTC (2) - Phase 1</libequipe>
+		<libdivision>D16-ChampionnatJeunes-T3-18-D3 Poule 2</libdivision>
+		<liendivision>
+			<![CDATA[cx_poule=800156&D1=156239&organisme_pere=131]]>
+		</liendivision>
+	</equipe>
+</liste>

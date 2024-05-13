@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<joueur>
+		<licence>167376</licence>
+		<nom>AGARD</nom>
+		<prenom>Pascal</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>8</clast>
+	</joueur>
+	<joueur>
+		<licence>167374</licence>
+		<nom>AGARD</nom>
+		<prenom>Thomas</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>10</clast>
+	</joueur>
+	<joueur>
+		<licence>1615959</licence>
+		<nom>ALLAFORT</nom>
+		<prenom>Sasha</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615960</licence>
+		<nom>ALLAFORT</nom>
+		<prenom>Stanyslas</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615638</licence>
+		<nom>ALLAFORT</nom>
+		<prenom>Rayann</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615318</licence>
+		<nom>ANDRIEUX</nom>
+		<prenom>Nathan</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>169773</licence>
+		<nom>BAUDRY</nom>
+		<prenom>Bruno</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>9</clast>
+	</joueur>
+	<joueur>
+		<licence>1616055</licence>
+		<nom>BAUMARD</nom>
+		<prenom>Aurélien</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616056</licence>
+		<nom>BAUMARD</nom>
+		<prenom>Domitille</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616057</licence>
+		<nom>BAUMARD</nom>
+		<prenom>Éléonore</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1613803</licence>
+		<nom>BENNIS</nom>
+		<prenom>Hakim</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>1614330</licence>
+		<nom>BENNIS</nom>
+		<prenom>Kamal</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>8610140</licence>
+		<nom>BESSON</nom>
+		<prenom>Tim</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>15</clast>
+	</joueur>
+	<joueur>
+		<licence>165650</licence>
+		<nom>BOIXIERE</nom>
+		<prenom>Bruno</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1614064</licence>
+		<nom>BOUTARAUD</nom>
+		<prenom>Mathis</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1612247</licence>
+		<nom>BUSCH</nom>
+		<prenom>Daniel</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>1612172</licence>
+		<nom>COMPAIN-METERAUD</nom>
+		<prenom>Valerie</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>8</clast>
+	</joueur>
+	<joueur>
+		<licence>1613420</licence>
+		<nom>COUPRIE</nom>
+		<prenom>Hugo</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>10</clast>
+	</joueur>
+	<joueur>
+		<licence>1613286</licence>
+		<nom>CROCHU</nom>
+		<prenom>Romain</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616113</licence>
+		<nom>CROCHU</nom>
+		<prenom>Maël</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615962</licence>
+		<nom>DE MORAIS TERRA</nom>
+		<prenom>Paul</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615316</licence>
+		<nom>DEFOULOUNOUX</nom>
+		<prenom>David</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>7</clast>
+	</joueur>
+	<joueur>
+		<licence>1615040</licence>
+		<nom>DENIS</nom>
+		<prenom>Leandre</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>7</clast>
+	</joueur>
+	<joueur>
+		<licence>1615961</licence>
+		<nom>DENIS</nom>
+		<prenom>Clément</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615618</licence>
+		<nom>DESVARD</nom>
+		<prenom>Louis</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1610533</licence>
+		<nom>DEVAUX</nom>
+		<prenom>Aurelien</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>11</clast>
+	</joueur>
+	<joueur>
+		<licence>1610376</licence>
+		<nom>DING</nom>
+		<prenom>Yingjie</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>10</clast>
+	</joueur>
+	<joueur>
+		<licence>165670</licence>
+		<nom>DOHM</nom>
+		<prenom>Roger</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1613038</licence>
+		<nom>DOHM</nom>
+		<prenom>Mathis</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>9</clast>
+	</joueur>
+	<joueur>
+		<licence>1615424</licence>
+		<nom>DONATY</nom>
+		<prenom>Loïc</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>7</clast>
+	</joueur>
+	<joueur>
+		<licence>1612063</licence>
+		<nom>FOURMACHAT</nom>
+		<prenom>Nicolas</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>8</clast>
+	</joueur>
+	<joueur>
+		<licence>169311</licence>
+		<nom>GAIFFIER</nom>
+		<prenom>Jacky</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>1616058</licence>
+		<nom>GIRARD</nom>
+		<prenom>Nolann</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616019</licence>
+		<nom>GIRARD</nom>
+		<prenom>Bryan</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1610282</licence>
+		<nom>GUERIAUD</nom>
+		<prenom>Lazare</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>9</clast>
+	</joueur>
+	<joueur>
+		<licence>164323</licence>
+		<nom>GUIARD</nom>
+		<prenom>Stephane</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>11</clast>
+	</joueur>
+	<joueur>
+		<licence>1615912</licence>
+		<nom>IKAKULA</nom>
+		<prenom>Fosio</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615963</licence>
+		<nom>JACOBIN</nom>
+		<prenom>Manuel</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616029</licence>
+		<nom>JACQUES</nom>
+		<prenom>Thalia</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616028</licence>
+		<nom>JACQUES</nom>
+		<prenom>Guilyan</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616191</licence>
+		<nom>MERLE</nom>
+		<prenom>Loris</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615824</licence>
+		<nom>MIÑANA</nom>
+		<prenom>Henri</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615958</licence>
+		<nom>OUALLAL</nom>
+		<prenom>Zakaria</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1614413</licence>
+		<nom>PERRIER</nom>
+		<prenom>Philippe</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>1613721</licence>
+		<nom>RUAUD</nom>
+		<prenom>Patrick</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>7</clast>
+	</joueur>
+	<joueur>
+		<licence>1616020</licence>
+		<nom>THIRION</nom>
+		<prenom>Dimitri</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1613076</licence>
+		<nom>TURI</nom>
+		<prenom>Alexy</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>6</clast>
+	</joueur>
+	<joueur>
+		<licence>1610637</licence>
+		<nom>VALLET</nom>
+		<prenom>Herve</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>11</clast>
+	</joueur>
+	<joueur>
+		<licence>1616018</licence>
+		<nom>VASILE</nom>
+		<prenom>Marian</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1615970</licence>
+		<nom>VEDRENNE</nom>
+		<prenom>Tom</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1616232</licence>
+		<nom>VIGNAUD</nom>
+		<prenom>Aaron</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>5</clast>
+	</joueur>
+	<joueur>
+		<licence>1613800</licence>
+		<nom>YONNET</nom>
+		<prenom>Baptiste</prenom>
+		<club>Chateauneuf TT Castelnovi</club>
+		<nclub>10160051</nclub>
+		<clast>11</clast>
+	</joueur>
+</liste>

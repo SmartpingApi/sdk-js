@@ -1,19 +1,22 @@
-import type { Preloads } from '@/models/base_model.js';
 import { DateTime } from 'luxon';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingTeamMatchDetails } from '@/models/index.js';
-import { getMatch } from '@/queries/contests/team/get_match.js';
+
+import { nonNullableDateFactory, stringifyDate } from '#src/helpers/datetime_helpers.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingTeamMatchDetails } from '#src/models/contest/team/team_match_details.js';
+import { GetMatch } from '#src/queries/contests/team/get_match.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
 	libelle: string;
 	equa: string;
 	equb: string;
-	scorea: number;
-	scoreb: number;
+	scorea: string;
+	scoreb: string;
 	lien: string;
 	dateprevue: string;
 	datereelle: string;
-}
+};
 
 export type TeamMatchLinkParameters = {
 	is_retour: boolean;
@@ -26,7 +29,7 @@ export type TeamMatchLinkParameters = {
 	equip_id2: number;
 	clubnum_1: string;
 	clubnum_2: string;
-}
+};
 
 type RelationName = 'details';
 
@@ -67,15 +70,23 @@ export class SmartpingTeamMatch extends BaseModel {
 	/** Détails de la rencontre */
 	#details: SmartpingTeamMatchDetails | undefined;
 
-	constructor(properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
 		this.#name = this.setOrFallback(properties.libelle, '');
 		this.#teamNameA = this.setOrFallback(properties.equa, '');
 		this.#teamNameB = this.setOrFallback(properties.equb, '');
-		this.#teamScoreA = this.setOrFallback(properties.scorea, 0);
-		this.#teamScoreB = this.setOrFallback(properties.scoreb, 0);
-		this.#plannedDate = this.setOrFallback(properties.dateprevue, DateTime.now());
-		this.#realDate = this.setOrFallback(properties.datereelle, DateTime.now());
+		this.#teamScoreA = this.setOrFallback(properties.scorea, 0, Number);
+		this.#teamScoreB = this.setOrFallback(properties.scoreb, 0, Number);
+		this.#plannedDate = this.setOrFallback(
+			properties.dateprevue,
+			DateTime.now(),
+			nonNullableDateFactory(),
+		);
+		this.#realDate = this.setOrFallback(
+			properties.datereelle,
+			DateTime.now(),
+			nonNullableDateFactory(),
+		);
 		this.#details = undefined;
 
 		if (this.isEmpty(properties.lien)) {
@@ -86,7 +97,6 @@ export class SmartpingTeamMatch extends BaseModel {
 			this.#link = properties.lien;
 
 			const linkParameters = new URLSearchParams(this.#link);
-			console.log({ linkParameters });
 
 			this.#id = this.setOrFallback(linkParameters.get('renc_id'), undefined, Number);
 			this.#paramsToAccessDetails = {
@@ -174,14 +184,19 @@ export class SmartpingTeamMatch extends BaseModel {
 			},
 			winner: this.winner,
 			link: this.#link,
+			plannedDate: stringifyDate(this.#plannedDate),
+			realDate: stringifyDate(this.#realDate),
 		};
 	}
 
-	public async preload(relations: RelationName[]|'*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			details: async () => {
 				if (this.#id && this.#paramsToAccessDetails) {
-					this.#details = await getMatch(this.#id, this.#paramsToAccessDetails);
+					this.#details = await GetMatch.create(this.context).run(
+						this.#id,
+						this.#paramsToAccessDetails,
+					);
 				}
 			},
 		};

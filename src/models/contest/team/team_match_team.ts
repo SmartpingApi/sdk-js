@@ -1,18 +1,21 @@
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingClubDetail, SmartpingClubTeam, SmartpingTeamMatchPlayer } from '@/models/index.js';
-import { getClub } from '@/queries/clubs/find_by_code.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingClubDetail } from '#src/models/club/club_detail.js';
+import type { SmartpingClubTeam } from '#src/models/club/club_team.js';
+import { SmartpingTeamMatchPlayer } from '#src/models/contest/team/team_match_player.js';
+import { GetClub } from '#src/queries/clubs/get_club.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
 	team: SmartpingClubTeam;
 	letter: 'A' | 'B';
 	clubCode: string;
-	players: {
+	players: Array<{
 		xja: string;
 		xca: string;
 		xjb: string;
 		xcb: string;
-	}[]
+	}>;
 };
 
 type RelationName = 'club';
@@ -28,19 +31,26 @@ export class SmartpingTeamMatchTeam extends BaseModel {
 	#club: SmartpingClubDetail | undefined;
 
 	/** Liste des joueurs par équipe */
-	#players: Record<'teamA' | 'teamB', SmartpingTeamMatchPlayer[]> = {
+	#players: Record<'teamA' | 'teamB', Array<SmartpingTeamMatchPlayer>> = {
 		teamA: [],
 		teamB: [],
 	};
 
-	constructor(properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
 		this.#team = properties.team;
 		this.#clubCode = properties.clubCode;
 
 		for (const player of properties.players) {
 			this.#players[`team${properties.letter}`].push(
-				new SmartpingTeamMatchPlayer({ name: player.xja, details: player.xca, clubCode: this.#clubCode }),
+				new SmartpingTeamMatchPlayer(
+					{
+						name: player.xja,
+						details: player.xca,
+						clubCode: this.#clubCode,
+					},
+					this.context,
+				),
 			);
 		}
 	}
@@ -61,10 +71,16 @@ export class SmartpingTeamMatchTeam extends BaseModel {
 		return this.#players;
 	}
 
-	public async preload(relations: RelationName[] | '*') {
+	public serialize() {
+		return {
+			clubCode: this.#clubCode,
+		};
+	}
+
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			club: async () => {
-				this.#club = await getClub(this.#clubCode);
+				this.#club = await GetClub.create(this.context).run(this.#clubCode);
 			},
 		};
 

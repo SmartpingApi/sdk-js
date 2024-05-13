@@ -1,10 +1,10 @@
-import { BaseModel } from '@/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
 
 type NewProperties = {
 	ja: string;
-	scorea: number|'-';
+	scorea: string;
 	jb: string;
-	scoreb: number|'-';
+	scoreb: string;
 	detail: string;
 };
 
@@ -28,7 +28,7 @@ export class SmartpingTeamMatchGame extends BaseModel {
 	readonly #scores: string;
 
 	/** Scores formatés */
-	readonly #scoresDetailed: { playerA: number; playerB: number }[];
+	readonly #scoresDetailed: Array<{ playerA: number; playerB: number }>;
 
 	constructor(properties: NewProperties) {
 		super();
@@ -83,7 +83,7 @@ export class SmartpingTeamMatchGame extends BaseModel {
 	}
 
 	public get winner() {
-		if(this.#scoreA === this.#scoreB) {
+		if (this.#scoreA === this.#scoreB) {
 			return;
 		}
 

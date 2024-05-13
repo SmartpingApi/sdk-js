@@ -1,5 +1,6 @@
-import { BaseModel } from '@/models/base_model.js';
-import { SmartpingRankedPlayer, SmartpingSPIDPlayer } from '@/models/index.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js';
+import type { SmartpingSPIDPlayer } from '#src/models/player/spid_player.js';
 
 export class SmartpingPlayer extends BaseModel {
 	/** Numéro de licence */
@@ -39,7 +40,10 @@ export class SmartpingPlayer extends BaseModel {
 		this.#lastname = SPIDPlayer?.lastname ?? rankedPlayer?.lastname ?? '';
 		this.#clubName = SPIDPlayer?.clubName ?? rankedPlayer?.clubName ?? '';
 		this.#clubCode = SPIDPlayer?.clubCode ?? rankedPlayer?.clubCode ?? '';
-		this.#gender = (SPIDPlayer && (SPIDPlayer.gender === 'H' || SPIDPlayer.gender === 'F')) ? SPIDPlayer.gender : undefined;
+		this.#gender =
+			SPIDPlayer && (SPIDPlayer.gender === 'H' || SPIDPlayer.gender === 'F')
+				? SPIDPlayer.gender
+				: undefined;
 		this.#level = SPIDPlayer && this.setOrFallback(SPIDPlayer.level, undefined);
 		this.#place = SPIDPlayer && this.setOrFallback(SPIDPlayer.place, undefined);
 		this.#points = SPIDPlayer && this.setOrFallback(SPIDPlayer.points, undefined);
@@ -88,5 +92,20 @@ export class SmartpingPlayer extends BaseModel {
 
 	public get fullName() {
 		return `${this.#firstname} ${this.#lastname.toLocaleUpperCase('fr-FR')}`;
+	}
+
+	public serialize() {
+		return {
+			licence: this.#licence,
+			lastname: this.#lastname,
+			firstname: this.#firstname,
+			clubName: this.#clubName,
+			clubCode: this.#clubCode,
+			gender: this.#gender,
+			level: this.#level,
+			place: this.#place,
+			points: this.#points,
+			pointsRank: this.#pointsRank,
+		};
 	}
 }

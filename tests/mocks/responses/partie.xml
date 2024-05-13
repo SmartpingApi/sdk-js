@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<partie>
+		<date>16/03/2024</date>
+		<nom>REGNEAULT Johann</nom>
+		<classement>1361</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>6738624</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>13/04/2024</date>
+		<nom>PINARD Leon</nom>
+		<classement>1002</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>7017378</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>13/04/2024</date>
+		<nom>BOURIEAU Maxime</nom>
+		<classement>1081</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>7017381</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>13/04/2024</date>
+		<nom>GRIFFOUL Thomas</nom>
+		<classement>961</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>7017389</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>16/03/2024</date>
+		<nom>CHAUVET Jordan</nom>
+		<classement>1576</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>6738613</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>16/03/2024</date>
+		<nom>ANTUNES MENOITA Bernard</nom>
+		<classement>1065</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>6738618</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>10/02/2024</date>
+		<nom>TERTULIEN Liam</nom>
+		<classement>1303</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>6424609</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>10/02/2024</date>
+		<nom>AVENEAU Quentin</nom>
+		<classement>1122</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>6424613</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>10/02/2024</date>
+		<nom>CONVERT Laurent</nom>
+		<classement>1153</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>6424619</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>03/02/2024</date>
+		<nom>RULIER Alexandre</nom>
+		<classement>1228</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>6305707</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>03/02/2024</date>
+		<nom>BRUNET Philippe</nom>
+		<classement>1177</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>6305711</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>03/02/2024</date>
+		<nom>GUERY Emmanuel</nom>
+		<classement>1166</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>6305717</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>08/12/2023</date>
+		<nom>QUINTIN Alexandre</nom>
+		<classement>723</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5845432</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>08/12/2023</date>
+		<nom>ROUDIER Vincent</nom>
+		<classement>828</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5845435</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>08/12/2023</date>
+		<nom>CHARBONNIER Ric</nom>
+		<classement>776</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5845443</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>24/11/2023</date>
+		<nom>NAUZIN Gilles</nom>
+		<classement>1018</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5644113</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>24/11/2023</date>
+		<nom>GUILBAUD Francis</nom>
+		<classement>682</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5644118</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>24/11/2023</date>
+		<nom>GONZALEZ Roberto</nom>
+		<classement>963</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5644122</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>17/11/2023</date>
+		<nom>BECHEMILH Jean Marie</nom>
+		<classement>853</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5514233</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>17/11/2023</date>
+		<nom>BOCK Cyrille</nom>
+		<classement>617</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5514237</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>17/11/2023</date>
+		<nom>VALENTIN Olivier</nom>
+		<classement>807</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5514245</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>10/11/2023</date>
+		<nom>RENAUD Joel</nom>
+		<classement>814</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5469031</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>10/11/2023</date>
+		<nom>GAUTHIER Serge</nom>
+		<classement>722</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5469034</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>10/11/2023</date>
+		<nom>BOUDAUD Bernard</nom>
+		<classement>706</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5469042</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>20/10/2023</date>
+		<nom>CHEMINADE Thibaut</nom>
+		<classement>883</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5244446</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>20/10/2023</date>
+		<nom>GLUCK Vincent</nom>
+		<classement>667</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5244435</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>20/10/2023</date>
+		<nom>INIAL Loic</nom>
+		<classement>821</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5244440</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>07/10/2023</date>
+		<nom>PIRAT Ilane</nom>
+		<classement>847</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>V</victoire>
+		<forfait>0</forfait>
+		<idpartie>5106952</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>07/10/2023</date>
+		<nom>GARAULT Nathan</nom>
+		<classement>818</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>5106956</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
+		<date>07/10/2023</date>
+		<nom>DARTOIS Elio</nom>
+		<classement>1139</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>5106962</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+</liste>

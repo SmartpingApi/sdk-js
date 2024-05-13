@@ -1,13 +1,20 @@
 import type { DateTime } from 'luxon';
-import type { Preloads } from '@/models/base_model.js';
-import { BaseModel } from '@/models/base_model.js';
-import { createDate } from '@/helpers/datetime_helpers.js';
-import { SmartpingIndividualContestGame, SmartpingIndividualContestRank } from '@/models/index.js';
-import { getIndividualContestRank } from '@/queries/contests/individual/get_rank.js';
-import { getIndividualContestGames } from '@/queries/contests/individual/get_games.js';
+
+import {
+	createDate,
+	nonNullableDateFactory,
+	stringifyDate,
+} from '#src/helpers/datetime_helpers.js';
+import type { Preloads } from '#src/models/base_model.js';
+import { BaseModel } from '#src/models/base_model.js';
+import type { SmartpingIndividualContestGame } from '#src/models/contest/individual/individual_contest_game.js';
+import type { SmartpingIndividualContestRank } from '#src/models/contest/individual/individual_contest_rank.js';
+import { GetIndividualContestGames } from '#src/queries/contests/individual/get_games.js';
+import { GetIndividualContestRank } from '#src/queries/contests/individual/get_rank.js';
+import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
-	tour: string;
+	libelle: string;
 	lien: string;
 	date: string;
 };
@@ -31,15 +38,15 @@ export class SmartpingIndividualContestGroup extends BaseModel {
 	readonly #groupId: number | undefined;
 
 	/** Classement du groupe */
-	#rankings: SmartpingIndividualContestRank[] = [];
+	#rankings: Array<SmartpingIndividualContestRank> = [];
 
 	/** Parties du groupe */
-	#games: SmartpingIndividualContestGame[] = [];
+	#games: Array<SmartpingIndividualContestGame> = [];
 
-	constructor(properties: NewProperties) {
+	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
-		this.#name = this.setOrFallback(properties.tour, '');
-		this.#date = this.setOrFallback(properties.date, createDate(), createDate(properties.date, 'DD/MM/YYYY'));
+		this.#name = this.setOrFallback(properties.libelle, '');
+		this.#date = this.setOrFallback(properties.date, createDate(), nonNullableDateFactory());
 		this.#contestId = undefined;
 		this.#divisionId = undefined;
 		this.#groupId = undefined;
@@ -84,25 +91,44 @@ export class SmartpingIndividualContestGroup extends BaseModel {
 	public serialize() {
 		return {
 			tour: this.#name,
-			date: this.#date.toFormat('DD/MM/YYYY'),
+			date: stringifyDate(this.#date),
+			contestId: this.#contestId,
+			divisionId: this.#divisionId,
+			groupId: this.#groupId,
 		};
 	}
 
-	public async preload(relations: RelationName[] | '*') {
+	public async preload(relations: Array<RelationName> | '*') {
 		const preloadFunctions: Preloads<RelationName> = {
 			rank: async () => {
-				if (this.#contestId === undefined || this.#divisionId === undefined || this.#groupId === undefined) {
+				if (
+					this.#contestId === undefined ||
+					this.#divisionId === undefined ||
+					this.#groupId === undefined
+				) {
 					return;
 				}
 
-				this.#rankings = await getIndividualContestRank(this.#contestId, this.#divisionId, this.#groupId);
+				this.#rankings = await GetIndividualContestRank.create(this.context).run(
+					this.#contestId,
+					this.#divisionId,
+					this.#groupId,
+				);
 			},
 			games: async () => {
-				if (this.#contestId === undefined || this.#divisionId === undefined || this.#groupId === undefined) {
+				if (
+					this.#contestId === undefined ||
+					this.#divisionId === undefined ||
+					this.#groupId === undefined
+				) {
 					return;
 				}
 
-				this.#games = await getIndividualContestGames(this.#contestId, this.#divisionId, this.#groupId);
+				this.#games = await GetIndividualContestGames.create(this.context).run(
+					this.#contestId,
+					this.#divisionId,
+					this.#groupId,
+				);
 			},
 		};
 
