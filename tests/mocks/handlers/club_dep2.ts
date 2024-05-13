@@ -1,7 +1,12 @@
 import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
-import { checkQueryParametersExistence, endpoint, getMockResponse, successHeaders } from '#tests/mocks/utils.js';
+import {
+	checkQueryParametersExistence,
+	endpoint,
+	getMockResponse,
+	successHeaders,
+} from '#tests/mocks/utils.js';
 
 /**
  * Paramètres attendus :
@@ -11,6 +16,7 @@ import { checkQueryParametersExistence, endpoint, getMockResponse, successHeader
  * Réponses possibles :
  * ========================================================
  * - Si aucun paramètre n'est fourni : 200 OK
+ * - Si `dep` est différent de `16` : 200 OK avec une liste vide
  * - Sinon : 200 OK
  */
 export default http.get(endpoint(ApiEndpoints.XML_CLUB_DEP_2), ({ request }) => {
@@ -24,8 +30,15 @@ export default http.get(endpoint(ApiEndpoints.XML_CLUB_DEP_2), ({ request }) => 
 		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('club_dep2', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	if (url.searchParams.get('dep') !== '16') {
+		return HttpResponse.xml(getMockResponse('empty_list', {}), {
+			status: 200,
+			headers: successHeaders,
+		});
+	}
+
+	return HttpResponse.xml(getMockResponse('club_dep2', {}), {
+		status: 200,
+		headers: successHeaders,
+	});
 });

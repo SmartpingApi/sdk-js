@@ -1,7 +1,13 @@
 import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
-import { endpoint, errorHeaders, getMockResponse, missingQueryParameters, successHeaders } from '#tests/mocks/utils.js';
+import {
+	endpoint,
+	errorHeaders,
+	getMockResponse,
+	missingQueryParameters,
+	successHeaders,
+} from '#tests/mocks/utils.js';
 
 /**
  * Paramètres attendus :
@@ -17,6 +23,7 @@ import { endpoint, errorHeaders, getMockResponse, missingQueryParameters, succes
  *
  * Réponses possibles :
  * - Si `renc_id` est manquant : 400 Bad Request
+ * - Si `renc_id` est différent de `2920408` : 200 OK
  * - Sinon : 200 OK
  */
 export default http.get(endpoint(ApiEndpoints.XML_CHP_RENC), ({ request }) => {
@@ -31,8 +38,8 @@ export default http.get(endpoint(ApiEndpoints.XML_CHP_RENC), ({ request }) => {
 		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('chp_renc', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	return HttpResponse.xml(getMockResponse('chp_renc', {}), {
+		status: 200,
+		headers: successHeaders,
+	});
 });

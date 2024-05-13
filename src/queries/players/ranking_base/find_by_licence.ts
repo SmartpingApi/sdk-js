@@ -1,6 +1,6 @@
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
-import { SmartpingRankedPlayer } from '#src/models/player/ranked_player.js';
+import { SmartpingRankedLicensee } from '#src/models/player/ranked_licensee.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerOnRankingBase extends Query {
@@ -20,7 +20,7 @@ export class GetPlayerOnRankingBase extends Query {
 				requestParameters: (search) => {
 					search.set('licence', licence);
 				},
-				normalizationModel: SmartpingRankedPlayer,
+				normalizationModel: SmartpingRankedLicensee,
 				rootKey: 'joueur',
 				cache: {
 					key: `players:ranking:${licence}`,

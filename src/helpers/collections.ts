@@ -33,10 +33,6 @@ export function mergeRankedAndSPIDPlayerCollection(
 	return [...dictionary.values()].map((player) => new SmartpingPlayer(player.ranked, player.spid));
 }
 
-function createGameIdentifier(game: SmartpingRankedGame | SmartpingSPIDGame) {
-	return `${game.isVictory}//${game.opponentName}//${game.date.toFormat('hhmmssuu')}`;
-}
-
 export function mergeRankingAndSPIDGameHistoryCollection(
 	rankingGames: Array<SmartpingRankedGame>,
 	SPIDGames: Array<SmartpingSPIDGame>,
@@ -45,14 +41,14 @@ export function mergeRankingAndSPIDGameHistoryCollection(
 		return [];
 	}
 
-	const dictionary = new Map<string, { ranking?: SmartpingRankedGame; spid?: SmartpingSPIDGame }>();
+	const dictionary = new Map<number, { ranking?: SmartpingRankedGame; spid?: SmartpingSPIDGame }>();
 
 	for (const game of rankingGames) {
-		dictionary.set(createGameIdentifier(game), { ranking: game });
+		dictionary.set(game.id, { ranking: game });
 	}
 
 	for (const game of SPIDGames) {
-		const identifier = createGameIdentifier(game);
+		const identifier = game.gameId;
 		if (dictionary.has(identifier)) {
 			dictionary.set(identifier, { ...dictionary.get(identifier), spid: game });
 		} else {

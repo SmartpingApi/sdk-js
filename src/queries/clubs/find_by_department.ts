@@ -15,7 +15,7 @@ export class FindClubsByDepartment extends Query {
 	async run(department: string) {
 		return this.callAPI({
 			context: this.context,
-			endpoint: ApiEndpoints.XML_CLUB_B,
+			endpoint: ApiEndpoints.XML_CLUB_DEP_2,
 			requestParameters: (search) => {
 				search.set('dep', department.toString());
 			},

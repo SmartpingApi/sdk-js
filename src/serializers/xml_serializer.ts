@@ -9,6 +9,13 @@ import type {
 
 type DecodedXml = { [key: string]: string | number | DecodedXml | Array<DecodedXml> };
 
+const charsetReplacements = {
+	'ISO-8859-1': {
+		'ï¿½': '\u2218',
+	},
+	'utf8': {},
+} as const;
+
 export default class XmlSerializer implements SerializerInterface {
 	/** Parser utilisé pour désérialiser les modèles XML. */
 	readonly #parser: XMLParser;
@@ -34,13 +41,19 @@ export default class XmlSerializer implements SerializerInterface {
 	}
 
 	deserialize<Model>(options: DeserializationOptions<Model>) {
-		const { context, response, rootKey, normalizationModel, additionalProperties, charset } = options;
+		const { context, response, rootKey, normalizationModel, additionalProperties, charset } =
+			options;
 
 		/** Décodeur de texte utilisé pour décoder les réponses en ISO-8859-1 (notamment les accents). */
-		const textDecoder = new TextDecoder(charset ?? 'ISO-8859-1');
+		const usedCharset = charset ?? 'ISO-8859-1';
+		const textDecoder = new TextDecoder(usedCharset);
 
 		// Encodage de la réponse HTTP en UTF-8.
-		const decodedText = textDecoder.decode(response.payload);
+		let decodedText = textDecoder.decode(response.payload);
+
+		for (const [key, replacement] of Object.entries(charsetReplacements[usedCharset])) {
+			decodedText = decodedText.replaceAll(key, replacement);
+		}
 
 		// Désérialisation du XML en objet.
 		const xml = this.#parser.parse(decodedText) as DecodedXml;

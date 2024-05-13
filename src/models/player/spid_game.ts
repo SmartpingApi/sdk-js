@@ -14,6 +14,8 @@ type NewProperties = {
 	victoire: string;
 	forfait: string;
 	date: string;
+	idpartie: string;
+	coefchamp: string;
 };
 
 export class SmartpingSPIDGame extends BaseModel {
@@ -35,6 +37,12 @@ export class SmartpingSPIDGame extends BaseModel {
 	/** Date de la partie */
 	readonly #date: DateTime;
 
+	/** Coefficient de la partie */
+	readonly #gameCoefficient: number;
+
+	/** Identifiant de la partie */
+	readonly #gameId: number;
+
 	constructor(properties: NewProperties) {
 		super();
 		this.#opponentName = this.setOrFallback(properties.nom, '');
@@ -43,6 +51,8 @@ export class SmartpingSPIDGame extends BaseModel {
 		this.#isVictory = this.setOrFallback(properties.victoire, false, (value) => value === 'V');
 		this.#isForfeit = this.setOrFallback(properties.forfait, false, (value) => value === '1');
 		this.#date = this.setOrFallback(properties.date, createDate(), nonNullableDateFactory());
+		this.#gameCoefficient = this.setOrFallback(properties.coefchamp, 0, Number);
+		this.#gameId = this.setOrFallback(properties.idpartie, 0, Number);
 	}
 
 	public get opponentName() {
@@ -69,6 +79,14 @@ export class SmartpingSPIDGame extends BaseModel {
 		return this.#date;
 	}
 
+	public get gameCoefficient() {
+		return this.#gameCoefficient;
+	}
+
+	public get gameId() {
+		return this.#gameId;
+	}
+
 	public serialize() {
 		return {
 			opponentName: this.opponentName,
@@ -77,6 +95,8 @@ export class SmartpingSPIDGame extends BaseModel {
 			isVictory: this.isVictory,
 			isForfeit: this.isForfeit,
 			date: stringifyDate(this.date),
+			gameCoefficient: this.gameCoefficient,
+			gameId: this.gameId,
 		};
 	}
 }

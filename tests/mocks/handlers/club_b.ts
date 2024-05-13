@@ -1,7 +1,12 @@
 import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
-import { checkQueryParametersExistence, endpoint, getMockResponse, successHeaders } from '#tests/mocks/utils.js';
+import {
+	checkQueryParametersExistence,
+	endpoint,
+	getMockResponse,
+	successHeaders,
+} from '#tests/mocks/utils.js';
 
 /**
  * Paramètres attendus :
@@ -28,15 +33,30 @@ export default http.get(endpoint(ApiEndpoints.XML_CLUB_B), ({ request }) => {
 		});
 	}
 
-	if (url.searchParams.get('ville') !== 'castelnovien' || url.searchParams.get('numero') !== '10160051' || url.searchParams.get('code') !== '33000') {
+	const city = url.searchParams.get('ville');
+	const code = url.searchParams.get('numero');
+	const postalCode = url.searchParams.get('code');
+
+	if (city && city !== 'castelnovien') {
 		return HttpResponse.xml(getMockResponse('empty_list', {}), {
 			status: 200,
 			headers: successHeaders,
 		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('club_b', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	if (code && code !== '10160051') {
+		return HttpResponse.xml(getMockResponse('empty_list', {}), {
+			status: 200,
+			headers: successHeaders,
+		});
+	}
+
+	if (postalCode && postalCode !== '33000') {
+		return HttpResponse.xml(getMockResponse('empty_list', {}), {
+			status: 200,
+			headers: successHeaders,
+		});
+	}
+
+	return HttpResponse.xml(getMockResponse('club_b', {}), { status: 200, headers: successHeaders });
 });

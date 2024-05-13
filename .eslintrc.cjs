@@ -4,7 +4,7 @@ module.exports = {
 		node: true,
 		browser: true,
 	},
-	ignorePatterns: ['dist', '.eslintrc.cjs', 'tsup.config.ts', 'env.ts'],
+	ignorePatterns: ['dist', '.eslintrc.cjs', 'tsup.config.ts', 'env.ts', 'coverage'],
 	plugins: [
 		'@typescript-eslint',
 		'no-use-extend-native',

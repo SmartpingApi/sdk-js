@@ -21,7 +21,7 @@ export default class TeamContestQueries {
 			.run(organizationId, contestId);
 	}
 
-	getMatch(matchId: number, extraParameters: TeamMatchLinkParameters, options?: QueryOptions) {
+	getMatch(matchId: number, extraParameters?: TeamMatchLinkParameters, options?: QueryOptions) {
 		return GetMatch.create(this.#context).withOptions(options).run(matchId, extraParameters);
 	}
 

@@ -1,7 +1,13 @@
 import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
-import { endpoint, errorHeaders, getMockResponse, missingQueryParameters, successHeaders } from '#tests/mocks/utils.js';
+import {
+	endpoint,
+	errorHeaders,
+	getMockResponse,
+	missingQueryParameters,
+	successHeaders,
+} from '#tests/mocks/utils.js';
 
 /**
  * Paramètres attendus :
@@ -32,8 +38,8 @@ export default http.get(endpoint(ApiEndpoints.XML_LICENCE_B), ({ request }) => {
 		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('licence_b', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	return HttpResponse.xml(getMockResponse('licence_b', {}), {
+		status: 200,
+		headers: successHeaders,
+	});
 });

@@ -1,5 +1,5 @@
 import Query from '#src/helpers/query.js';
-import { SmartpingPlayer } from '#src/models/player/player.js';
+import { SmartpingLicensee } from '#src/models/player/licensee.js';
 import { GetPlayerOnRankingBase } from '#src/queries/players/ranking_base/find_by_licence.js';
 import { GetPlayerOnSpidBase } from '#src/queries/players/spid_base/find_by_licence.js';
 import type { SmartpingContext } from '#src/smartping.js';
@@ -19,6 +19,6 @@ export class GetPlayer extends Query {
 			GetPlayerOnSpidBase.create(this.context).run(licence),
 		]);
 
-		return new SmartpingPlayer(rankedResponse, spidResponse);
+		return new SmartpingLicensee(rankedResponse, spidResponse);
 	}
 }

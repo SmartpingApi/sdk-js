@@ -2,8 +2,10 @@ import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import {
-	endpoint, errorHeaders,
-	getMockResponse, missingQueryParameters,
+	endpoint,
+	errorHeaders,
+	getMockResponse,
+	missingQueryParameters,
 	successHeaders,
 } from '#tests/mocks/utils.js';
 
@@ -28,14 +30,11 @@ export default http.get(endpoint(ApiEndpoints.XML_RES_CLA), ({ request }) => {
 	}
 
 	if (url.searchParams.get('res_division') !== '123915') {
-		return HttpResponse.xml(
-			getMockResponse('empty_list', {}),
-			{ status: 200, headers: successHeaders },
-		);
+		return HttpResponse.xml(getMockResponse('empty_list', {}), {
+			status: 200,
+			headers: successHeaders,
+		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('res_cla', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	return HttpResponse.xml(getMockResponse('res_cla', {}), { status: 200, headers: successHeaders });
 });

@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { resolve, dirname } from 'node:path';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { defineConfig } from 'vitest/config';
@@ -10,8 +10,8 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'#src': resolve(dirname(fileURLToPath(import.meta.url)), './src'),
-			'#tests': resolve(dirname(fileURLToPath(import.meta.url)), './tests'),
+			'#src': path.resolve(path.dirname(fileURLToPath(import.meta.url)), './src'),
+			'#tests': path.resolve(path.dirname(fileURLToPath(import.meta.url)), './tests'),
 		},
 	},
 	test: {

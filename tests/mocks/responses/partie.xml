@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <liste>
 	<partie>
+		<date>16/03/2024</date>
+		<nom>REGNEAULT Johann</nom>
+		<classement>1361</classement>
+		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
+		<victoire>D</victoire>
+		<forfait>0</forfait>
+		<idpartie>6738624</idpartie>
+		<coefchamp>1</coefchamp>
+	</partie>
+	<partie>
 		<date>13/04/2024</date>
 		<nom>PINARD Leon</nom>
 		<classement>1002</classement>
@@ -48,16 +58,6 @@
 		<victoire>V</victoire>
 		<forfait>0</forfait>
 		<idpartie>6738618</idpartie>
-		<coefchamp>1</coefchamp>
-	</partie>
-	<partie>
-		<date>16/03/2024</date>
-		<nom>REGNEAULT Johann</nom>
-		<classement>1361</classement>
-		<epreuve>FED_Championnat de France par Equipes Masculin</epreuve>
-		<victoire>D</victoire>
-		<forfait>0</forfait>
-		<idpartie>6738624</idpartie>
 		<coefchamp>1</coefchamp>
 	</partie>
 	<partie>

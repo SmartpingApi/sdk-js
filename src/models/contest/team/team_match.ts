@@ -97,7 +97,6 @@ export class SmartpingTeamMatch extends BaseModel {
 			this.#link = properties.lien;
 
 			const linkParameters = new URLSearchParams(this.#link);
-			console.log({ linkParameters });
 
 			this.#id = this.setOrFallback(linkParameters.get('renc_id'), undefined, Number);
 			this.#paramsToAccessDetails = {

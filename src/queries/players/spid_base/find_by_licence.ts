@@ -1,6 +1,6 @@
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import Query from '#src/helpers/query.js';
-import { SmartpingSPIDPlayer } from '#src/models/player/spid_player.js';
+import { SmartpingSPIDLicensee } from '#src/models/player/spid_licensee.js';
 import type { SmartpingContext } from '#src/smartping.js';
 
 export class GetPlayerOnSpidBase extends Query {
@@ -20,7 +20,7 @@ export class GetPlayerOnSpidBase extends Query {
 				requestParameters: (search) => {
 					search.set('licence', licence);
 				},
-				normalizationModel: SmartpingSPIDPlayer,
+				normalizationModel: SmartpingSPIDLicensee,
 				rootKey: 'licence',
 				cache: {
 					key: `players:spid:${licence}`,

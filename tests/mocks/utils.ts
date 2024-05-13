@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { DateTime } from 'luxon';
@@ -19,7 +19,7 @@ const defaultHeaders = {
 	'current-season-update': '2023-07-04T10:10:49+02:00',
 	'link':
 		'<http://apiv2.fftt.com/api/docs.jsonld>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"',
-	'content-security-policy': 'frame-ancestors \'self\'',
+	'content-security-policy': "frame-ancestors 'self'",
 	'access-control-allow-origin': '*',
 	'access-control-allow-methods': 'GET, POST, OPTIONS, DELETE, PUT',
 	'access-control-allow-headers':
@@ -46,7 +46,7 @@ export const httpHeaders = {
 	'x-xss-protection': '1; mode=block',
 	'content-length': '0',
 	'content-type': 'text/html; charset=UTF-8',
-}
+};
 
 const mockResponses = {
 	bad_request: ['parameter'],
@@ -74,8 +74,13 @@ const mockResponses = {
 	partie: [],
 	partie_mysql: [],
 	res_cla: [],
-	result_equ: [],
-	result_indiv: [],
+	result_equ_rencontres: [],
+	result_equ_classement: [],
+	result_equ_initial: [],
+	result_equ_poule: [],
+	result_indiv_parties: [],
+	result_indiv_poules: [],
+	result_indiv_classement: [],
 } as const;
 
 type MockResponse = keyof typeof mockResponses;
@@ -89,7 +94,10 @@ export function getMockResponse<Response extends MockResponse>(
 	name: Response,
 	replacements: MockResponseReplacements<Response>,
 ) {
-	const filePath = resolve(dirname(fileURLToPath(import.meta.url)), `responses/${name}.xml`);
+	const filePath = path.resolve(
+		path.dirname(fileURLToPath(import.meta.url)),
+		`responses/${name}.xml`,
+	);
 	const file = readFileSync(filePath, { encoding: 'utf8' });
 
 	if (Object.entries(replacements).length <= 0) return file;

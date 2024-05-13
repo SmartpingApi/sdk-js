@@ -1,7 +1,13 @@
 import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
-import { endpoint, errorHeaders, getMockResponse, missingQueryParameters, successHeaders } from '#tests/mocks/utils.js';
+import {
+	endpoint,
+	errorHeaders,
+	getMockResponse,
+	missingQueryParameters,
+	successHeaders,
+} from '#tests/mocks/utils.js';
 
 /**
  * Paramètres attendus :
@@ -25,7 +31,7 @@ export default http.get(endpoint(ApiEndpoints.XML_DIVISION), ({ request }) => {
 		});
 	}
 
-	const contestId = url.searchParams.get('division');
+	const contestId = url.searchParams.get('epreuve');
 
 	if (contestId !== '940') {
 		return HttpResponse.xml(getMockResponse('empty_list', {}), {
@@ -34,8 +40,8 @@ export default http.get(endpoint(ApiEndpoints.XML_DIVISION), ({ request }) => {
 		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('division', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	return HttpResponse.xml(getMockResponse('division', {}), {
+		status: 200,
+		headers: successHeaders,
+	});
 });

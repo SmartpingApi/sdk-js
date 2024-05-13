@@ -6,7 +6,6 @@ type NewProperties = {
 	prenom: string;
 	club: string;
 	nclub: string;
-	clast: string;
 	sexe: string;
 	echelon: string;
 	place: string;
@@ -29,9 +28,6 @@ export class SmartpingSPIDPlayer extends BaseModel {
 	/** Numéro du club */
 	readonly #clubCode: string;
 
-	/** Classement officiel */
-	readonly #pointsRank: number;
-
 	/** Genre */
 	readonly #gender: string;
 
@@ -51,7 +47,6 @@ export class SmartpingSPIDPlayer extends BaseModel {
 		this.#firstname = this.setOrFallback(properties.prenom, '');
 		this.#clubName = this.setOrFallback(properties.club, '');
 		this.#clubCode = this.setOrFallback(properties.nclub, '');
-		this.#pointsRank = this.setOrFallback(properties.clast, 0, Number);
 		this.#gender = this.setOrFallback(properties.sexe, '');
 		this.#level = this.setOrFallback(properties.echelon, '');
 		this.#place = this.setOrFallback(properties.place, 0, Number);
@@ -76,10 +71,6 @@ export class SmartpingSPIDPlayer extends BaseModel {
 
 	public get clubCode() {
 		return this.#clubCode;
-	}
-
-	public get pointsRank() {
-		return this.#pointsRank;
 	}
 
 	public get gender() {
@@ -109,7 +100,6 @@ export class SmartpingSPIDPlayer extends BaseModel {
 			prenom: this.#firstname,
 			club: this.#clubName,
 			nclub: this.#clubCode,
-			clast: this.#pointsRank,
 			sexe: this.#gender,
 			echelon: this.#level,
 			place: this.#place,

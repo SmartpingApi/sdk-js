@@ -2,8 +2,10 @@ import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
 import {
-	endpoint, errorHeaders,
-	getMockResponse, missingQueryParameters,
+	endpoint,
+	errorHeaders,
+	getMockResponse,
+	missingQueryParameters,
 	successHeaders,
 } from '#tests/mocks/utils.js';
 
@@ -29,15 +31,15 @@ export default http.get(endpoint(ApiEndpoints.XML_ORGANISME), ({ request }) => {
 
 	const type = url.searchParams.get('type');
 
-	if (!type || !([ 'F', 'Z', 'L', 'D' ].includes(type))) {
-		return HttpResponse.xml(
-			getMockResponse('invalid_request', { parameter: 'type' }),
-			{ status: 400, headers: errorHeaders },
-		);
+	if (!type || !['F', 'Z', 'L', 'D'].includes(type)) {
+		return HttpResponse.xml(getMockResponse('invalid_request', { parameter: 'type' }), {
+			status: 400,
+			headers: errorHeaders,
+		});
 	}
 
-	return HttpResponse.xml(
-		getMockResponse('organisme', {}),
-		{ status: 200, headers: successHeaders },
-	);
+	return HttpResponse.xml(getMockResponse('organisme', {}), {
+		status: 200,
+		headers: successHeaders,
+	});
 });

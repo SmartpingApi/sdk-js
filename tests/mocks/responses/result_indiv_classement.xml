@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<liste>
+	<classement>
+		<rang>1</rang>
+		<nom>PIETROPAOLI</nom>
+		<clt>N183 - 2583</clt>
+		<club>NANTES TENNIS DE TABLE</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>2</rang>
+		<nom>BLANQUART</nom>
+		<clt>N311 - 2406</clt>
+		<club>BETHUNE-BEUVRY ASTT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>3</rang>
+		<nom>BAUDRILLARD</nom>
+		<clt>N755 - 2125</clt>
+		<club>PAYS ROCHOIS et GENEVOIS TT 74</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>3</rang>
+		<nom>HARLE</nom>
+		<clt>N965 - 2043</clt>
+		<club>AMIENS STT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>5</rang>
+		<nom>BROCHARD</nom>
+		<clt>N658 - 2177</clt>
+		<club>FERRIERE VENDEE TENNIS DE TABLE</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>5</rang>
+		<nom>LONCKE</nom>
+		<clt>N753 - 2125</clt>
+		<club>NEUVILLE EN FERRAIN PP</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>5</rang>
+		<nom>AGATHE</nom>
+		<clt>1987</clt>
+		<club>CRESSONNIERE TENNIS DE TABLE</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>5</rang>
+		<nom>FALEK</nom>
+		<clt>2029</clt>
+		<club>EZANVILLE ECOUEN US</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>POTHAIN</nom>
+		<clt>1928</clt>
+		<club>CHILLY-MORANGIS CTT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>RICHARD</nom>
+		<clt>1865</clt>
+		<club>JOSASSIEN TT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>LE PENVEN</nom>
+		<clt>N683 - 2163</clt>
+		<club>PLOEMEUR 56 TT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>SELLIER</nom>
+		<clt>N752 - 2125</clt>
+		<club>AMIENS STT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>HEROLD</nom>
+		<clt>N878 - 2072</clt>
+		<club>RONCQ ULJAP</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>PELMARD</nom>
+		<clt>N969 - 2041</clt>
+		<club>valence-bourg tennis de table</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>RAYNAL</nom>
+		<clt>N941 - 2052</clt>
+		<club>CMPJM INGRE TT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>9</rang>
+		<nom>AMARAL</nom>
+		<clt>2016</clt>
+		<club>CHARENTON TENNIS DE TABLE</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>PROUVAT</nom>
+		<clt>1705</clt>
+		<club>BOURGETIN CTT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>ANSOLA ALLEMANY</nom>
+		<clt>1796</clt>
+		<club>AS DOMATS SENS TT</club>
+		<points>0</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>QUAIN</nom>
+		<clt>N689 - 2160</clt>
+		<club>VALENCIENNES USTT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>GREZ</nom>
+		<clt>1849</clt>
+		<club>Tennis de Table Cormery-Truyes</club>
+		<points>0</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>LIMOUSIN</nom>
+		<clt>1693</clt>
+		<club>NANTES MELLINET (LA)</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>KACI</nom>
+		<clt>1799</clt>
+		<club>ROUBAIX AP</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>CERNEA</nom>
+		<clt>N698 - 2157</clt>
+		<club>ENTENTE SAINT PIERRAISE TT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>BAERT</nom>
+		<clt>1787</clt>
+		<club>NEUVILLE EN FERRAIN PP</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>CABALLERO</nom>
+		<clt>N826 - 2093</clt>
+		<club>CHALONS-EN-CHAMPAGNE TT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>AUGER</nom>
+		<clt>N781 - 2110</clt>
+		<club>COUDUN SL</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>DUTILLOY</nom>
+		<clt>1958</clt>
+		<club>COMBS SENART TT</club>
+		<points>0</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>FLAGEUL</nom>
+		<clt>1837</clt>
+		<club>TT LA BAIE YFFINIAC</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>MORIEUX</nom>
+		<clt>1959</clt>
+		<club>Tennis de Table Cormery-Truyes</club>
+		<points>0</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>DIOP</nom>
+		<clt>1778</clt>
+		<club>BREVANNAISE AS</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>PAYSAL</nom>
+		<clt>2009</clt>
+		<club>COULOMMIERS TT</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>17</rang>
+		<nom>IMBERTY</nom>
+		<clt>1787</clt>
+		<club>MALAKOFF USMM</club>
+		<points>A</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>LEBRETON</nom>
+		<clt>1540</clt>
+		<club>SENE TENNIS DE TABLE</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>RAUTUREAU</nom>
+		<clt>1872</clt>
+		<club>NANTES MELLINET (LA)</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>COGET</nom>
+		<clt>1870</clt>
+		<club>BRUILLE CTT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>FAUCHARD</nom>
+		<clt>1568</clt>
+		<club>U S FECAMPOISE</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>BELLIEN</nom>
+		<clt>1884</clt>
+		<club>SPO ROUEN Tennis de Table</club>
+		<points>0</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>GUIBERT</nom>
+		<clt>1876</clt>
+		<club>LE MANS SARTHE TENNIS DE TABLE</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>DECLE</nom>
+		<clt>1659</clt>
+		<club>SAINT PAIR BRICQUEVILLE TT</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>TAYLOR</nom>
+		<clt>1839</clt>
+		<club>BETHUNE-BEUVRY ASTT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>MORIN</nom>
+		<clt>1678</clt>
+		<club>Périgny Ping</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>RAYNARD</nom>
+		<clt>1828</clt>
+		<club>AURORE DE VITRE TT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>DOULET</nom>
+		<clt>1772</clt>
+		<club>O.ANTIBES JUAN LES PINS</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>POCARD</nom>
+		<clt>1910</clt>
+		<club>CHILLY-MORANGIS CTT</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>BRAULT</nom>
+		<clt>1835</clt>
+		<club>ARNAGE US</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>VISONNEAU</nom>
+		<clt>1880</clt>
+		<club>TT CUSSET</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>ROYER</nom>
+		<clt>1849</clt>
+		<club>ST-AVERTIN SPORTS TT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>CAMPAR</nom>
+		<clt>1677</clt>
+		<club>DRAVEIL TENNIS DE TABLE</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>LAUMONIER</nom>
+		<clt>1692</clt>
+		<club>COMT PONTHIERRY</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>OURVOUAI</nom>
+		<clt>1905</clt>
+		<club>PLOEMEUR 56 TT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>BOURDONNEAU</nom>
+		<clt>1780</clt>
+		<club>DUCKS DE BONDOUFLE</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>DENIAUX</nom>
+		<clt>1796</clt>
+		<club>NANTES TENNIS DE TABLE</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>GORINI</nom>
+		<clt>1738</clt>
+		<club>MANOM J.S.</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>PERRET</nom>
+		<clt>1898</clt>
+		<club>UP CREUSOT VARENNES</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>ANDREO</nom>
+		<clt>1811</clt>
+		<club>ERNEENNE Sport Tennis de Table</club>
+		<points>5</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>MONTIER</nom>
+		<clt>1746</clt>
+		<club>ASTT Chatellerault</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>CRNIC</nom>
+		<clt>1776</clt>
+		<club>COUDUN SL</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>RAYNAL</nom>
+		<clt>2005</clt>
+		<club>CMPJM INGRE TT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>LAMBERT</nom>
+		<clt>1681</clt>
+		<club>PPC VILLEFRANCHOIS</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>PELVET</nom>
+		<clt>1868</clt>
+		<club>RUEIL ATHLETIC CLUB TT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>RABIER</nom>
+		<clt>1801</clt>
+		<club>LES LOUPS D'ANGERS TT</club>
+		<points>4</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>VINCLAIR</nom>
+		<clt>1970</clt>
+		<club>ALENCON ETOILE</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>JUBAULT</nom>
+		<clt>1749</clt>
+		<club>NANTES TENNIS DE TABLE</club>
+		<points>3</points>
+	</classement>
+	<classement>
+		<rang>999</rang>
+		<nom>LE THIEC</nom>
+		<clt>1759</clt>
+		<club>ST JULIEN TENNIS DE TABLE</club>
+		<points>4</points>
+	</classement>
+</liste>

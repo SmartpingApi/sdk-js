@@ -17,7 +17,7 @@ export class GetPlayerGameHistoryOnSpidBase extends Query {
 			context: this.context,
 			endpoint: ApiEndpoints.XML_PARTIE,
 			requestParameters: (search) => {
-				search.set('licence', licence);
+				search.set('numlic', licence);
 			},
 			normalizationModel: SmartpingSPIDGame,
 			rootKey: 'partie',

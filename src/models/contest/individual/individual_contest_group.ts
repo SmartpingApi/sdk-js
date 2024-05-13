@@ -14,7 +14,7 @@ import { GetIndividualContestRank } from '#src/queries/contests/individual/get_r
 import type { SmartpingContext } from '#src/smartping.js';
 
 type NewProperties = {
-	tour: string;
+	libelle: string;
 	lien: string;
 	date: string;
 };
@@ -45,7 +45,7 @@ export class SmartpingIndividualContestGroup extends BaseModel {
 
 	constructor(properties: NewProperties, private readonly context: SmartpingContext) {
 		super();
-		this.#name = this.setOrFallback(properties.tour, '');
+		this.#name = this.setOrFallback(properties.libelle, '');
 		this.#date = this.setOrFallback(properties.date, createDate(), nonNullableDateFactory());
 		this.#contestId = undefined;
 		this.#divisionId = undefined;
