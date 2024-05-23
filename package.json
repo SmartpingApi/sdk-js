@@ -4,6 +4,7 @@
 	"version": "2.0.0",
 	"type": "module",
 	"main": "dist/smartping.js",
+	"types": "dist/smartping.d.ts",
 	"scripts": {
 		"dev": "tsup --watch",
 		"typecheck": "tsc --noEmit",
