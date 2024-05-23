@@ -75,8 +75,6 @@ export class Smartping {
 	}
 }
 
-export default function createSmartpingInstance(options: SmartpingOptions) {
+export function createSmartpingInstance(options: SmartpingOptions) {
 	return new Smartping(options);
 }
-
-export {Credentials} from '#src/credentials.js';
