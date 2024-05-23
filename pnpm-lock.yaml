@@ -111,6 +111,9 @@ importers:
       typescript-eslint:
         specifier: ^7.10.0
         version: 7.10.0(eslint@8.57.0)(typescript@5.4.5)
+      vite:
+        specifier: ^5.2.11
+        version: 5.2.11(@types/node@20.12.12)
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.12.12)(happy-dom@14.11.0)

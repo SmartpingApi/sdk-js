@@ -9,7 +9,7 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import sonarjs from 'eslint-plugin-sonarjs';
 import eslintComments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintPluginN from 'eslint-plugin-n';
-import eslintConfigPrettier from "eslint-config-prettier";
+import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginNoUseExtendNative from 'eslint-plugin-no-use-extend-native';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,9 +20,7 @@ const compat = new FlatCompat({
 });
 
 /** @see https://eslint.org/docs/latest/use/getting-started */
-const nativeESLint = [
-	pluginJs.configs.recommended,
-];
+const nativeESLint = [pluginJs.configs.recommended];
 
 /** @see https://typescript-eslint.io/getting-started/ */
 const typescript = [
@@ -92,14 +90,10 @@ const unicorn = [
 ];
 
 /** @see https://github.com/SonarSource/eslint-plugin-sonarjs */
-const sonar = [
-	sonarjs.configs.recommended,
-];
+const sonar = [sonarjs.configs.recommended];
 
 /** @see https://github.com/eslint-community/eslint-plugin-eslint-comments */
-const comments = [
-	eslintComments.recommended,
-];
+const comments = [eslintComments.recommended];
 
 /** @see https://github.com/eslint-community/eslint-plugin-n */
 const node = [
@@ -113,17 +107,15 @@ const node = [
 ];
 
 /** @see https://github.com/prettier/eslint-config-prettier */
-const prettier = [
-	eslintConfigPrettier,
-];
+const prettier = [eslintConfigPrettier];
 
 /** @see https://github.com/dustinspecker/eslint-plugin-no-use-extend-native */
 const noUseExtendNative = [
 	{
 		plugins: {
 			'no-use-extend-native': eslintPluginNoUseExtendNative,
-		}
-	}
+		},
+	},
 ];
 
 /** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
@@ -148,9 +140,7 @@ export default [
 	 * @see https://github.com/un-ts/eslint-plugin-import-x
 	 */
 	...compat.config({
-		plugins: [
-			'promise',
-		],
+		plugins: ['promise'],
 		extends: [
 			'plugin:promise/recommended',
 			'plugin:import-x/recommended',

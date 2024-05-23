@@ -1,7 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
 import { ApiEndpoints } from '#src/api_endpoints.js';
-import env from '#tests/env.ts';
 import {
 	endpoint,
 	errorHeaders,
@@ -35,7 +34,7 @@ export default http.get(endpoint(ApiEndpoints.XML_INITIALISATION), ({ request })
 		);
 	}
 
-	if (url.searchParams.get('id') !== env.SMARTPING_APP_ID) {
+	if (url.searchParams.get('id') !== import.meta.env.VITE_SMARTPING_APP_ID) {
 		return HttpResponse.xml(
 			getMockResponse('initialisation_erreur', { message: 'Compte incorrect' }),
 			{
