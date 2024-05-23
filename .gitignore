@@ -3,3 +3,4 @@ dist
 .pnpm-store
 tests/env.ts
 coverage
+.env
